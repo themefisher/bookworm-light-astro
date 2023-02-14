@@ -1,5 +1,5 @@
 <h1 align=center>Bookworm Light Astro</h1>
-<p align=center>Bookworm Light is a minimal multi-author free astro blog template. This highly customizable theme is ideal for creating any type of blog website, including food, recipes, beauty, lifestyle, photography, travel, health, fitness, and more.</p>
+<p align=center>Bookworm Light is a feature-rich, minimal, highly customizable, easy-to-use free Astro blog theme. This theme is ideal for creating any type of blog website like tech, food, recipes, beauty, lifestyle, photography, travel, health, fitness, and more.</p>
 <h2 align="center"> <a target="_blank" href="https://bookworm-light-astro.vercel.app/" rel="nofollow">Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fbookworm-light-astro.vercel.app%2F&form_factor=desktop">Page Speed (100%)</a>
 </h2>
 
@@ -19,23 +19,17 @@
 
 ![bookworm-light](https://demo.gethugothemes.com/thumbnails/bookworm-light.png)
 
-👉🏻[View Live Preview](https://bookworm-light-astro.vercel.app/)
-
-<!-- download -->
-## Download
-
-Download this template from [Github](https://github.com/themefisher/bookworm-light-astro/archive/main.zip)
-
 ## Key Features
 
 - Multi-Author support
 - Google Page Speed score 100! (Desktop)
 - Supports Contact Form
 - Search Functionality
+- Related Posts Suggestion
 - Semantic HTML Document Structure
 - Custom Logo Support
 - Includes All SCSS Files
-- Image Optimized With Next/image
+- Image Optimized With Astro/image
 
 <!-- installation -->
 ## Installation
@@ -78,10 +72,6 @@ npm run build
 We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/themefisher/bookworm-light-astro/issues). It’s possible someone has already reported the same problem.
 If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/themefisher/bookworm-light-astro/issues).
 
-<!-- support -->
-## Technical Support or Questions (Paid)
-
-If you have questions or need help integrating the product please [contact us](https://themefisher.com/contact) instead of opening an issue.
 
 <!-- licence -->
 ## License
