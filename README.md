@@ -1,6 +1,6 @@
 <h1 align=center>Bookworm Light Astro</h1>
 <p align=center>Bookworm Light is a minimal multi-author free astro blog template. This highly customizable theme is ideal for creating any type of blog website, including food, recipes, beauty, lifestyle, photography, travel, health, fitness, and more.</p>
-<h2 align="center"> <a target="_blank" href="https://booworm-light-astro.vercel.app/" rel="nofollow">Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fbookworm-light-astro.vercel.app%2F&form_factor=desktop">Page Speed (100%)</a>
+<h2 align="center"> <a target="_blank" href="https://bookworm-light-astro.vercel.app/" rel="nofollow">Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fbookworm-light-astro.vercel.app%2F&form_factor=desktop">Page Speed (100%)</a>
 </h2>
 
 <p align=center>
