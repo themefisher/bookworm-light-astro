@@ -1,0 +1,81 @@
+// section style
+.section {
+  @apply py-16;
+}
+
+// container
+.container {
+  @apply max-w-[1000px];
+}
+
+// form style
+.form-inputs * {
+  @apply mb-5 leading-10;
+}
+
+// image cover
+.img-cover {
+  @apply leading-none;
+  span {
+    @apply h-full w-full;
+  }
+  img {
+    @apply object-cover;
+  }
+}
+
+// author-image
+.author-image {
+  @apply mr-2 align-top;
+  img {
+    @apply max-h-[25px] max-w-[25px] rounded-full;
+  }
+}
+
+// social icon style
+.social-icons {
+  @apply space-x-4;
+  li {
+    @apply inline-block;
+    a {
+      @apply block h-12 w-12 rounded-lg border border-light bg-transparent text-center text-white transition hover:border-primary hover:bg-primary;
+      svg {
+        @apply m-auto h-12 text-lg;
+      }
+    }
+  }
+}
+
+.social-icons-simple {
+  @apply space-x-2;
+  li {
+    @apply inline-block;
+    a {
+      @apply block p-3 text-dark transition hover:text-primary;
+      svg {
+        @apply text-lg;
+      }
+    }
+  }
+}
+
+.social-share {
+  @apply space-x-2;
+  li {
+    @apply inline-block;
+    a {
+      @apply block p-3 transition hover:text-primary;
+    }
+  }
+}
+
+// form style
+.form-input,
+.form-textarea {
+  @apply rounded-lg border-border text-text focus:border-primary focus:ring-transparent;
+}
+
+// content style
+.content {
+  @apply prose max-w-none prose-headings:font-bold prose-h1:mb-4 prose-h1:text-h1-sm prose-h2:mb-4 prose-h2:mt-4 prose-h2:text-h2-sm prose-h3:mt-4 prose-h3:text-h3-sm prose-h4:mt-4 prose-h5:mb-4 prose-h6:mb-6 prose-blockquote:border-primary prose-blockquote:bg-theme-light prose-blockquote:p-4 md:prose-h1:text-h1 md:prose-h2:text-h2 md:prose-h3:text-h3;
+}

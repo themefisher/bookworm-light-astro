@@ -1,0 +1,121 @@
+---
+import { Image } from "@astrojs/image/components";
+import Share from "@components/Share.astro";
+import SimilarPosts from "@components/SimilarPosts.astro";
+import { getSinglePage } from "@lib/contentParser.astro";
+import dateFormat from "@lib/utils/dateFormat";
+import similerItems from "@lib/utils/similarItems";
+import { humanize, markdownify, slugify } from "@lib/utils/textConverter";
+
+const allAuthors = await getSinglePage("authors");
+const posts = await getSinglePage("posts");
+const { post } = Astro.props;
+const similarPosts = similerItems(post, posts, post.slug);
+const { Content } = await post.render();
+const { title, description, authors, categories, image, date, tags } =
+  post.data;
+---
+
+<section class="section">
+  <div class="container">
+    <article class="text-center">
+      <h1 set:html={markdownify(title)} class="h2" />
+      <ul
+        class="mt-4 mb-8 flex flex-wrap items-center justify-center space-x-3 text-text"
+      >
+        <li>
+          {
+            allAuthors
+              .filter((author) =>
+                authors
+                  .map((author: string) => slugify(author))
+                  .includes(slugify(author.data.title))
+              )
+              .map((author, i) => (
+                <a
+                  href={`/authors/${slugify(author.slug)}`}
+                  class="flex items-center hover:text-primary"
+                >
+                  {author.data.image && (
+                    <Image
+                      src={author.data.image}
+                      alt={author.data.title}
+                      height={50}
+                      width={50}
+                      class="mr-2 h-6 w-6 rounded-full"
+                    />
+                  )}
+                  <span>{author.data.title}</span>
+                </a>
+              ))
+          }
+        </li>
+        <li>{dateFormat(date)}</li>
+        <li>
+          <ul>
+            {
+              categories.map((category: string) => (
+                <li class="inline-block">
+                  <a
+                    href={`/categories/${slugify(category)}`}
+                    class="mr-3 hover:text-primary"
+                  >
+                    &#9635; {humanize(category)}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </li>
+      </ul>
+      {
+        image && (
+          <Image
+            src={image}
+            height={500}
+            width={1000}
+            alt={title}
+            class="rounded-lg"
+          />
+        )
+      }
+      <div class="content mb-16 text-left">
+        <Content />
+      </div>
+      <div class="flex flex-wrap items-center justify-between">
+        <ul class="mr-4 mb-4 space-x-3">
+          {
+            tags.map((tag: string) => (
+              <li class="inline-block">
+                <a
+                  href={`/tags/${slugify(tag)}`}
+                  class="block rounded-lg bg-theme-light px-4 py-2 font-semibold text-dark hover:text-primary"
+                >
+                  #{humanize(tag)}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <Share
+          className="social-share mb-4"
+          title={title}
+          description={description}
+          slug={post.slug}
+        />
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- similar posts -->
+{
+  similarPosts.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <h2 class="mb-8 text-center">Similar Posts</h2>
+        <SimilarPosts posts={similarPosts.slice(0, 3)} />
+      </div>
+    </section>
+  )
+}

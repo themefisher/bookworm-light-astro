@@ -1,0 +1,23 @@
+---
+import Base from "@layouts/Base.astro";
+import Search from "@layouts/Search";
+import { getSinglePage } from "@lib/contentParser.astro";
+
+// Retrieve all articles
+const posts = await getSinglePage("posts");
+
+// List of items to search in
+const searchList = posts.map((item) => ({
+  slug: item.slug,
+  data: item.data,
+  content: item.body,
+}));
+---
+
+<Base title={`Search`}>
+  <section class="section">
+    <div class="container">
+      <Search client:load searchList={searchList} />
+    </div>
+  </section>
+</Base>

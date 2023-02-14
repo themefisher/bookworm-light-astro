@@ -1,0 +1,46 @@
+---
+import { Image } from "@astrojs/image/components";
+import dateFormat from "@lib/utils/dateFormat";
+import { humanize, slugify } from "@lib/utils/textConverter";
+const { posts } = Astro.props;
+---
+
+<div class="row justify-center">
+  {
+    posts.map((post: any) => (
+      <div class={"col-12 mb-4 sm:col-4"}>
+        {post.data.image && (
+          <Image
+            class="rounded-lg"
+            src={post.data.image}
+            alt={post.data.title}
+            width={445}
+            height={230}
+          />
+        )}
+        <ul class="mt-4 text-text">
+          <li class="mb-2 mr-4 inline-block">{dateFormat(post.data.date)}</li>
+          <li class="mb-2 mr-4 inline-block">
+            <ul>
+              {post.data.categories?.map((category: string) => (
+                <li class="inline-block">
+                  <a
+                    href={`/categories/${slugify(category)}`}
+                    class="mr-3 hover:text-primary"
+                  >
+                    &#9635; {humanize(category)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        </ul>
+        <h3 class="h4">
+          <a href={`/${post.slug}`} class="block hover:text-primary">
+            {post.data.title}
+          </a>
+        </h3>
+      </div>
+    ))
+  }
+</div>

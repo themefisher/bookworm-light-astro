@@ -1,0 +1,47 @@
+---
+import config from "@config/config.json";
+import Base from "@layouts/Base.astro";
+import { markdownify } from "@lib/utils/textConverter";
+import { getEntryBySlug } from "astro:content";
+
+const entry = await getEntryBySlug("pages", "contact");
+const { contact_form_action } = config.params;
+const { title, description, meta_title, image } = entry.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <section class="section">
+    <div class="container">
+      <h1 set:html={markdownify(title)} class="h2 mb-8 text-center" />
+      <form class="contact-form" method="POST" action={contact_form_action}>
+        <div class="mb-6">
+          <label class="mb-2 block" for="name">Name</label>
+          <input class="form-input w-full" name="name" type="text" required />
+        </div>
+        <div class="mb-6">
+          <label class="mb-2 block" for="email">Email</label>
+          <input class="form-input w-full" name="email" type="email" required />
+        </div>
+        <div class="mb-6">
+          <label class="mb-2 block" for="subject">Subject</label>
+          <input
+            class="form-input w-full"
+            name="subject"
+            type="text"
+            required
+          />
+        </div>
+        <div class="mb-6">
+          <label class="mb-2 block" for="message">Message</label>
+          <textarea class="form-textarea w-full" rows="7"></textarea>
+        </div>
+        <button class="btn btn-outline-primary">Submit Now</button>
+      </form>
+    </div>
+  </section>
+</Base>

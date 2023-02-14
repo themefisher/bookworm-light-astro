@@ -1,0 +1,29 @@
+{
+  "site": {
+    "title": "Bookworm Light Astro | Blog Template",
+    "base_url": "https://bookworm-light-astro.vercel.app",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "200",
+    "logo_height": "34",
+    "logo_text": "Bookworm Light"
+  },
+
+  "settings": {
+    "pagination": 5,
+    "summary_length": 200
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2023 a theme by [themefisher](https://themefisher.com)"
+  },
+
+  "metadata": {
+    "meta_author": "Themefisher",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Bookworm Light Astro Blog Template"
+  }
+}

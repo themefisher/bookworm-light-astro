@@ -1,0 +1,63 @@
+// navbar toggler
+input#nav-toggle:checked ~ label#show-button {
+  @apply hidden;
+}
+
+input#nav-toggle:checked ~ label#hide-button {
+  @apply flex md:hidden;
+}
+
+input#nav-toggle:checked ~ #nav-menu {
+  @apply block md:flex;
+}
+
+// navbar items
+.navbar {
+  @apply relative flex flex-wrap items-center justify-between;
+}
+
+.navbar-brand image {
+  @apply max-h-full max-w-full;
+}
+
+.navbar-nav {
+  @apply text-center md:text-left;
+}
+
+.nav-item {
+  @apply mx-3;
+}
+
+.nav-link {
+  @apply p-3 text-lg font-semibold text-dark transition hover:text-primary md:p-4;
+}
+
+.nav-dropdown {
+  @apply mr-0;
+}
+
+.nav-dropdown-list {
+  @apply z-10 rounded-lg bg-white p-4 shadow transition;
+}
+
+.nav-dropdown-item {
+  @apply mb-1;
+}
+
+.nav-dropdown-link {
+  @apply min-w-[150px] py-1 text-lg font-semibold text-dark transition hover:text-primary;
+}
+
+// search style
+.search-modal {
+  @apply invisible absolute top-0 left-0 right-0 z-10 h-10 bg-white opacity-0 transition md:h-full;
+  .form-input {
+    @apply h-full w-full border-0 text-lg;
+  }
+  .search-close {
+    @apply absolute top-1/2 right-2 -translate-y-1/2 p-3 text-h4;
+  }
+  &.open {
+    @apply visible opacity-100;
+  }
+}

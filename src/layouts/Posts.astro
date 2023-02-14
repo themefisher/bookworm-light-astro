@@ -1,0 +1,78 @@
+---
+import { Image } from "@astrojs/image/components";
+import config from "@config/config.json";
+import { getSinglePage } from "@lib/contentParser.astro";
+import dateFormat from "@lib/utils/dateFormat";
+import { humanize, slugify } from "@lib/utils/textConverter";
+const authors = await getSinglePage("authors");
+const { summary_length } = config.settings;
+const { className, posts } = Astro.props;
+---
+
+<div class={`row space-y-16 ${className} `}>
+  {
+    posts.map((post: any, i: number) => (
+      <div class={i === 0 ? "col-12" : "col-12 sm:col-6"}>
+        {post.data.image && (
+          <Image
+            class="rounded-lg"
+            src={post.data.image}
+            alt={post.data.title}
+            width={i === 0 ? 925 : 445}
+            height={i === 0 ? 475 : 230}
+          />
+        )}
+        <ul class="mt-4 mb-4 flex flex-wrap items-center space-x-3 text-text">
+          <li>
+            {authors
+              .filter((author) =>
+                post.data.authors
+                  .map((author: string) => slugify(author))
+                  .includes(slugify(author.data.title))
+              )
+              .map((author) => (
+                <a
+                  href={`/authors/${slugify(author.data.title)}`}
+                  class="flex items-center hover:text-primary"
+                >
+                  {author.data.image && (
+                    <Image
+                      src={author.data.image}
+                      alt={author.data.title}
+                      height={50}
+                      width={50}
+                      class="mr-2 h-6 w-6 rounded-full"
+                    />
+                  )}
+                  <span>{author.data.title}</span>
+                </a>
+              ))}
+          </li>
+          <li>{dateFormat(post.data.date)}</li>
+          <li>
+            <ul>
+              {post.data.categories.map((category: string) => (
+                <li class="inline-block">
+                  <a
+                    href={`/categories/${slugify(category)}`}
+                    class="mr-3 hover:text-primary"
+                  >
+                    &#9635; {humanize(category)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        </ul>
+        <h3 class="mb-2">
+          <a href={`/${post.slug}`} class="block hover:text-primary">
+            {post.data.title}
+          </a>
+        </h3>
+        <p class="text-text">
+          {post.body?.slice(0, Number(summary_length))}...
+        </p>
+      </div>
+    ))
+  }
+</div>

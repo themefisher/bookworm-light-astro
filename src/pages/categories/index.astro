@@ -1,0 +1,29 @@
+---
+import Base from "@layouts/Base.astro";
+import { getTaxonomy } from "@lib/taxonomyParser.astro";
+import { humanize } from "@lib/utils/textConverter";
+
+const categories = await getTaxonomy("posts", "categories");
+---
+
+<Base title={"categories"}>
+  <section class="section">
+    <div class="container text-center">
+      <h1 class="h2 mb-16">Categories</h1>
+      <ul class="space-x-4">
+        {
+          categories.map((category) => (
+            <li class="inline-block">
+              <a
+                href={`/categories/${category}`}
+                class="rounded-lg bg-theme-light px-4 py-2 text-dark transition hover:bg-primary hover:text-white"
+              >
+                &#8226; {humanize(category || "")}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Base>
