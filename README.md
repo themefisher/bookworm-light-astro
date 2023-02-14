@@ -98,10 +98,3 @@ Besides developing unique, blazing-fast Astro templates, we also provide customi
 
 If you need to customize the theme or complete website development from scratch, you can hire us. **Check Our
 [Contact Page](https://themefisher.com/contact)**
-
-## Astro Templates By Us
-
-<a href="https://themefisher.com/products/bigspring-light-astro">
-<img src="https://demo.gethugothemes.com/thumbnails/bigspring.png" height="300" width="400"/>
-<p>Bigspring Light Astro</p>
-</a>
