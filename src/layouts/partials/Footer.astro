@@ -13,7 +13,7 @@ import { markdownify } from "@lib/utils/textConverter";
       {
         menu.footer.map((menu) => (
           <li class="inline-block">
-            <a href={menu.url} class="p-4 text-light hover:text-white">
+            <a href={menu.url} class="p-4 text-white/80 hover:text-white">
               {menu.name}
             </a>
           </li>
@@ -23,6 +23,6 @@ import { markdownify } from "@lib/utils/textConverter";
     {/* social icons */}
     <Social source={social} className="social-icons mb-8" />
     {/* copyright */}
-    <p set:html={markdownify(config.params.copyright)} />
+    <p set:html={markdownify(config.params.copyright)} class="text-white/80" />
   </div>
 </footer>
