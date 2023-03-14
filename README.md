@@ -1,5 +1,5 @@
 <h1 align=center>Bookworm Light Astro</h1>
-<p align=center>Bookworm Light is a feature-rich, minimal, highly customizable, easy-to-use free Astro blog theme. This theme is ideal for creating any type of blog website like tech, food, recipes, beauty, lifestyle, photography, travel, health, fitness, and more.</p>
+<p align=center>Bookworm Light is a feature-rich, minimal, highly customizable, easy-to-use free Astro blog theme.</p>
 <h2 align="center"> <a target="_blank" href="https://bookworm-light-astro.vercel.app/" rel="nofollow">Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fbookworm-light-astro.vercel.app%2F&form_factor=desktop">Page Speed (100%)</a>
 </h2>
 
@@ -19,17 +19,29 @@
 
 ![bookworm-light](https://demo.gethugothemes.com/thumbnails/bookworm-light.png)
 
+Bookworm Light is a minimal multi-author free Astro blog theme which is perfect for any kind of blog website. Whether you're interested in food, beauty, travel, photography, lifestyle, fitness, health, or other topics, this theme is a great fit. The theme is super first and SEO friendly which makes it easier for your content to be discovered by search engines.
+
 ## Key Features
 
-- Multi-Author support
-- Google Page Speed score 100! (Desktop)
-- Supports Contact Form
-- Search Functionality
-- Related Posts Suggestion
-- Semantic HTML Document Structure
-- Custom Logo Support
-- Includes All SCSS Files
-- Image Optimized With Astro/image
+- Highly customizable (Color, Font, Menu, Social Links, SEO Meta Tags, etc.)
+- Multi-author support
+- Authors page
+- Author single page
+- Search Functionality with FuseJS
+- Tags and categories support
+- Post social share option
+- Similar post suggestion 
+- Fast by default (95+ Google PageSpeed Score)
+- Netlify setting pre-configured
+- Contact form support
+- Support OG image
+- Write and update content in Markdown / MDX
+- MDX components auto import
+- Includes draft pages and posts
+- Built with Tailwind CSS framework
+- Fully responsive on desktops, tablets, and smartphones
+- SEO Friendly 
+
 
 <!-- installation -->
 ## Installation
@@ -82,9 +94,8 @@ Copyright (c) 2016 - Present, Designed & Developed by [Themefisher](https://them
 
 **Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
 
-## Hire Us
+## Need Custom Development Services?
 
-Besides developing unique, blazing-fast Astro templates, we also provide customized services. We specialize in creating affordable, high-quality static websites based on Astro.
+Besides developing beautifully designed and blazing-fast themes, we help businesses create fast, performance-focused, scalable & secure websites based on NextJs, Hugo, Astro, etc.
 
-If you need to customize the theme or complete website development from scratch, you can hire us. **Check Our
-[Contact Page](https://themefisher.com/contact)**
+If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://themefisher.com/contact). 
