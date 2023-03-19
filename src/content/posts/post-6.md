@@ -1,5 +1,5 @@
 ---
-title: "Become a morning person with the help of this a alarm clock"
+title: "Become a morning person with the help of alarm clock"
 description: "meta description"
 image: "/images/posts/06.jpg"
 date: 2021-02-03T16:56:47+06:00
