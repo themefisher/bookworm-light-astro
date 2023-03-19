@@ -70,6 +70,15 @@ module.exports = {
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
-    require("tailwind-bootstrap-grid")({ generateContainer: false }),
+    require("tailwind-bootstrap-grid")({
+      generateContainer: false,
+      gridGutters: {
+        1: "0.5rem",
+        2: "0.75rem",
+        3: "1.25rem",
+        4: "2rem",
+        5: "3.5rem",
+      },
+    }),
   ],
 };
