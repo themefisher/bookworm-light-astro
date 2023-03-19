@@ -13,11 +13,11 @@ input#nav-toggle:checked ~ #nav-menu {
 
 // navbar items
 .navbar {
-  @apply relative flex flex-wrap items-center justify-between;
+  @apply relative flex max-w-[1260px] flex-wrap items-center justify-between;
 }
 
-.navbar-brand image {
-  @apply max-h-full max-w-full;
+.navbar-brand img {
+  @apply h-auto max-w-[170px] sm:h-auto sm:max-w-full #{!important};
 }
 
 .navbar-nav {
@@ -25,19 +25,15 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-item {
-  @apply mx-3;
+  @apply mx-1;
 }
 
 .nav-link {
   @apply p-3 text-lg font-semibold text-dark transition hover:text-primary md:p-4;
 }
 
-.nav-dropdown {
-  @apply mr-0;
-}
-
 .nav-dropdown-list {
-  @apply z-10 rounded-lg bg-white p-4 shadow transition;
+  @apply z-10 rounded-lg bg-white px-6 py-3 shadow transition;
 }
 
 .nav-dropdown-item {
@@ -45,7 +41,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-dropdown-link {
-  @apply min-w-[150px] py-1 text-lg font-semibold text-dark transition hover:text-primary;
+  @apply block min-w-[150px] py-1 text-[17px] font-semibold text-dark transition hover:text-primary;
 }
 
 // search style

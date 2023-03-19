@@ -18,7 +18,7 @@ export interface NavigationLink {
 const { main }: { main: NavigationLink[] } = menu;
 ---
 
-<header class={`header`}>
+<header class="header pt-6">
   <nav class="navbar container">
     <!-- logo -->
     <div class="order-0">
@@ -29,7 +29,7 @@ const { main }: { main: NavigationLink[] } = menu;
     <label
       id="show-button"
       for="nav-toggle"
-      class="order-2 flex cursor-pointer items-center md:order-1 md:hidden"
+      class="order-2 flex cursor-pointer items-center md:order-1 md:hidden text-black"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -39,7 +39,7 @@ const { main }: { main: NavigationLink[] } = menu;
     <label
       id="hide-button"
       for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center md:order-1"
+      class="order-2 hidden cursor-pointer items-center md:order-1 text-black"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Close</title>
@@ -52,23 +52,23 @@ const { main }: { main: NavigationLink[] } = menu;
 
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto md:space-x-2"
+      class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto"
     >
       {
         main.map((menu) => (
           <>
             {menu.hasChildren ? (
-              <li class="nav-item nav-dropdown group relative">
+              <li class="nav-item nav-dropdown group relative cursor-pointer">
                 <span class="nav-link inline-flex items-center">
                   {menu.name}
-                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                  <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                   </svg>
                 </span>
                 <ul class="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
                   {menu.children?.map((child) => (
                     <li class="nav-dropdown-item">
-                      <a href={child.url} class="nav-dropdown-link block">
+                      <a href={child.url} class="nav-dropdown-link">
                         {child.name}
                       </a>
                     </li>
@@ -86,9 +86,9 @@ const { main }: { main: NavigationLink[] } = menu;
         ))
       }
     </ul>
-    <div class="order-1 ml-auto md:order-2 md:ml-0">
+    <div class="order-1 ml-auto md:order-2 md:ml-0 flex">
       <a
-        class="cursor-pointer p-2 text-xl text-dark hover:text-primary"
+        class="cursor-pointer p-2 mr-4 md:mr-0 text-xl text-dark hover:text-primary inline-block transition"
         href="search"
         title="seach"
         aria-label="seach"
