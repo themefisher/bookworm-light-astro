@@ -13,7 +13,7 @@ for (let i = 1; i <= totalPages; i++) {
 
 {
   totalPages > 1 && (
-    <nav class="mb-4 flex justify-center -space-x-px" aria-label="Pagination">
+    <nav class="mb-4 flex justify-center space-x-2 text-center" aria-label="Pagination">
       {/* previous */}
       {hasPrevPage ? (
         <a
@@ -22,11 +22,11 @@ for (let i = 1; i <= totalPages; i++) {
               ? `${section ? "/" + section : "/"}`
               : `${section ? "/" + section : ""}/page/${currentPage - 1}`
           }
-          class="border border-primary px-2 py-2 text-text"
+          class="border border-primary hover:bg-primary hover:text-white rounded-md h-10 w-10 leading-[36px] font-semibold text-dark flex items-center justify-center transition duration-200"
         >
           <span class="sr-only">Previous</span>
           <svg
-            class="mt-1 h-5 w-5"
+            class="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -40,10 +40,10 @@ for (let i = 1; i <= totalPages; i++) {
           </svg>
         </a>
       ) : (
-        <span class="border border-primary px-2 py-2 text-text">
+        <span class="border border-gray-400 opacity-40 rounded-md h-10 w-10 leading-[36px] font-semibold text-dark flex items-center justify-center pointer-events-none">
           <span class="sr-only">Previous</span>
           <svg
-            class="mt-1 h-5 w-5"
+            class="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -63,7 +63,7 @@ for (let i = 1; i <= totalPages; i++) {
         pagination === currentPage ? (
           <span
             aria-current="page"
-            class={`border border-primary bg-primary px-4 py-2 text-white`}
+            class={`border border-primary bg-primary rounded-md h-10 w-10 leading-[35px] font-semibold text-white`}
           >
             {pagination}
           </span>
@@ -75,7 +75,7 @@ for (let i = 1; i <= totalPages; i++) {
                 : `${section ? "/" + section : ""}/page/${pagination}`
             }
             aria-current="page"
-            class={`border border-primary px-4 py-2 text-text`}
+            class={`border border-primary hover:bg-primary hover:text-white rounded-md h-10 w-10 leading-[36px] font-semibold text-dark flex items-center justify-center transition duration-200`}
           >
             {pagination}
           </a>
@@ -86,11 +86,11 @@ for (let i = 1; i <= totalPages; i++) {
       {hasNextPage ? (
         <a
           href={`${section ? "/" + section : ""}/page/${currentPage + 1}`}
-          class="border border-primary px-2 py-2 text-text"
+          class="border border-primary hover:bg-primary hover:text-white rounded-md h-10 w-10 leading-[36px] font-semibold text-dark flex items-center justify-center transition duration-200"
         >
           <span class="sr-only">Next</span>
           <svg
-            class="mt-1 h-5 w-5"
+            class="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -104,10 +104,10 @@ for (let i = 1; i <= totalPages; i++) {
           </svg>
         </a>
       ) : (
-        <span class="border border-primary px-2 py-2 text-text">
+        <span class="border border-gray-400 opacity-40 rounded-md h-10 w-10 leading-[36px] font-semibold text-dark flex items-center justify-center pointer-events-none">
           <span class="sr-only">Next</span>
           <svg
-            class="mt-1 h-5 w-5"
+            class="h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
