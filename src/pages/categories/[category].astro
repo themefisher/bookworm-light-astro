@@ -4,6 +4,7 @@ import Posts from "@layouts/Posts.astro";
 import { getSinglePage } from "@lib/contentParser.astro";
 import { getTaxonomy } from "@lib/taxonomyParser.astro";
 import taxonomyFilter from "@lib/utils/taxonomyFilter";
+import { humanize } from "@lib/utils/textConverter";
 
 export async function getStaticPaths() {
   const categories = await getTaxonomy("posts", "categories");
@@ -18,16 +19,17 @@ export async function getStaticPaths() {
 const { category } = Astro.params;
 
 const posts = await getSinglePage("posts");
-const filterByTags = taxonomyFilter(posts, "categories", category);
+const filterByCategory = taxonomyFilter(posts, "categories", category);
+
+const title = humanize(category || "")
 ---
 
-<Base title={category}>
+<Base title={title || "Category"}>
   <div class="section">
     <div class="container">
-      <h1 class="h2 mb-8 text-center">
-        Showing posts from <span class="text-primary">{category}</span> category
-      </h1>
-      <Posts posts={filterByTags} />
+      <p class="text-center mb-4">Showing Posts From</p>
+      <h1 class="h2 mb-16 text-center text-primary">{title}</h1>
+      <Posts posts={filterByCategory} fluid={false} />
     </div>
   </div>
 </Base>

@@ -4,9 +4,9 @@ import Base from "@layouts/Base.astro";
 import { markdownify } from "@lib/utils/textConverter";
 import { getEntryBySlug } from "astro:content";
 
-const entry = await getEntryBySlug("pages", "about");
+const entry = await getEntryBySlug("about", "index");
 const { Content } = await entry.render();
-const { title, description, meta_title, image } = entry.data;
+const { title, description, meta_title, image, what_i_do } = entry.data;
 ---
 
 <Base
@@ -16,24 +16,44 @@ const { title, description, meta_title, image } = entry.data;
   image={image}
 >
   <section class="section">
-    <div class="container text-center">
-      {
-        image && (
-          <div class="img-cover mb-8">
-            <Image
-              src={image}
-              width={920}
-              height={515}
-              alt={title}
-              class="rounded-lg"
-            />
+    <div class="container">
+      <div class="row md:gx-4">
+        <div class="sm:col-5 md:col-4">
+          {image && (
+            <div class="img-cover mb-8">
+              <Image
+                src={image}
+                width={295}
+                height={395}
+                alt={title}
+                class="rounded-lg w-full"
+              />
+            </div>
+          )}
+        </div>
+        <div class="sm:col-7 md:col-8">
+          <h1 set:html={markdownify(title)} class="h3 mb-8" />
+    
+          <div class="content">
+            <Content />
           </div>
-        )
-      }
-      <h1 set:html={markdownify(title)} class="h2 mb-8 text-center" />
+          <a href="/contact" class="btn btn-primary text-white py-2">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="content">
-        <Content />
+  <section class="section pt-0">
+    <div class="container">
+      <h3 class="page-heading mb-20">{what_i_do.title}</h3>
+      <div class="row justify-center gy-4 text-center">
+        {what_i_do.items.map((item: any) => (
+          <div class="lg:col-4 md:col-6">
+            <i class="{{.icon}} fa-3x text-primary mb-4"></i>
+            <h4 class="text-dark font-weight-700 mb-3">{item.title}</h4>
+            <p>{item.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>

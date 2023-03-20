@@ -35,7 +35,7 @@ const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 <Base title={"Authors"}>
   <section class="section">
     <div class="container text-center">
-      <h1 set:text={markdownify("Authors")} class="h2 mb-16" />
+      <h1 set:text={markdownify("Authors")} class="page-heading h2" />
       <Authors authors={currentPosts} />
       <Pagination
         section={"authors"}

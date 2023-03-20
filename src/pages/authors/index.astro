@@ -16,7 +16,7 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
 <Base title={"Authors"}>
   <section class="section">
     <div class="container text-center">
-      <h1 set:text={markdownify("Authors")} class="h2 mb-16" />
+      <h1 set:text={markdownify("Authors")} class="page-heading h2" />
       <Authors authors={currentPosts} />
       <Pagination section={"authors"} currentPage={1} totalPages={totalPages} />
     </div>

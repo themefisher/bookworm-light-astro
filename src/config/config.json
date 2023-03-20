@@ -13,17 +13,23 @@
 
   "settings": {
     "pagination": 5,
-    "summary_length": 200
-  },
-
-  "params": {
-    "contact_form_action": "#",
-    "copyright": "Copyright © 2023 a theme by [themefisher](https://themefisher.com)"
+    "summary_length": 100
   },
 
   "metadata": {
     "meta_author": "Themefisher",
     "meta_image": "/images/og-image.png",
     "meta_description": "Bookworm Light Astro Blog Template"
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2023 a theme by [Themefisher](https://themefisher.com)"
+  },
+
+  "contactinfo": {
+    "address": "355 S Grand Ave <br/> Los Angeles, CA 90071",
+    "email": "info@bookworm.org",
+    "phone": "+800 567 1234"
   }
 }
