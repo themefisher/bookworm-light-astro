@@ -1,6 +1,5 @@
-import githubSlugger from 'github-slugger';
+import { slug } from 'github-slugger';
 import { marked } from "marked";
-const { slug } = githubSlugger;
 
 // slugify
 export const slugify = (content: string) => {
