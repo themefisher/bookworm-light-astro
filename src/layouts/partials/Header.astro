@@ -29,7 +29,7 @@ const { main }: { main: NavigationLink[] } = menu;
     <label
       id="show-button"
       for="nav-toggle"
-      class="order-2 flex cursor-pointer items-center md:order-1 md:hidden text-black"
+      class="order-2 flex cursor-pointer items-center text-black md:order-1 md:hidden"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -39,7 +39,7 @@ const { main }: { main: NavigationLink[] } = menu;
     <label
       id="hide-button"
       for="nav-toggle"
-      class="order-2 hidden cursor-pointer items-center md:order-1 text-black"
+      class="order-2 hidden cursor-pointer items-center text-black md:order-1"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Close</title>
@@ -86,10 +86,10 @@ const { main }: { main: NavigationLink[] } = menu;
         ))
       }
     </ul>
-    <div class="order-1 ml-auto md:order-2 md:ml-0 flex">
+    <div class="order-1 ml-auto flex md:order-2 md:ml-0">
       <a
-        class="cursor-pointer p-2 mr-4 md:mr-0 text-xl text-dark hover:text-primary inline-block transition"
-        href="search"
+        class="mr-4 inline-block cursor-pointer p-2 text-xl text-dark transition hover:text-primary md:mr-0"
+        href="/search"
         title="seach"
         aria-label="seach"
       >
