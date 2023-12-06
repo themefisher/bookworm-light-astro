@@ -6,17 +6,18 @@ import Posts from "@components/Posts.astro";
 import { getAllPosts } from "@lib/contentParser";
 import { sortByDate } from "@lib/utils/sortFunctions";
 
-const posts = await getAllPosts();
-const sortedPosts = sortByDate(posts);
-const totalPages = Math.ceil(posts.length / config.settings.pagination);
-const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+const allPosts = await getAllPosts();
+
+const featuredPosts = sortByDate(allPosts.filter(post => post.data.featured));
+const otherPosts = sortByDate(allPosts.filter(post => !post.data.featured));
+
+const posts = featuredPosts.concat(otherPosts).slice(0, 4);
 ---
 
 <Base>
   <section class="section">
     <div class="container">
-      <Posts posts={currentPosts} className="mb-16" />
-      <Pagination currentPage={1} totalPages={totalPages} />
+      <Posts posts={posts} className="mb-16" />
     </div>
   </section>
 </Base>

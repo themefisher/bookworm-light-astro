@@ -13,6 +13,10 @@ export async function getAllPosts() {
   return getCollection('posts', ({ data }) => !data.draft);
 };
 
+export async function getFeaturedPosts() {
+  return getCollection('posts', ({ data }) => !data.draft && data.featured);
+};
+
 export async function getAllPostCategories() {
   const taxonomyPages = (await getAllPosts()).map(({ data }) => data.categories);
 
