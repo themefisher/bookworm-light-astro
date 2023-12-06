@@ -14,9 +14,7 @@ export default defineConfig({
     react(),
     sitemap(),
     tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
+      applyBaseStyles: false,
     }),
     mdx(),
   ],
@@ -26,6 +24,5 @@ export default defineConfig({
       theme: "one-dark-pro",
       wrap: true,
     },
-    extendDefaultPlugins: true,
   },
 });

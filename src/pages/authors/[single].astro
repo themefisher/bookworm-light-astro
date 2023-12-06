@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 
-import AuthorSingle from "@layouts/AuthorSingle.astro";
+import Author from "@components/Author.astro";
 import Base from "@layouts/Base.astro";
-import { getSinglePage } from "@lib/contentParser.astro";
+import { getAllAuthors, getAllPosts } from "@lib/contentParser";
 import dateFormat from "@lib/utils/dateFormat";
 
 import { sortByDate } from "@lib/utils/sortFunctions";
@@ -11,7 +11,7 @@ import { humanize,slugify } from "@lib/utils/textConverter";
 import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
 
 export async function getStaticPaths() {
-  const authors = await getSinglePage("authors");
+  const authors = await getAllAuthors();
 
   const paths = authors.map((author) => ({
     params: {
@@ -26,7 +26,7 @@ const { author } = Astro.props;
 const { title, meta_title, description, image } = author.data;
 
 // Author Posts
-const posts = await getSinglePage("posts");
+const posts = await getAllPosts();
 const sortPostsByDate = sortByDate(posts);
 const currentPosts = sortPostsByDate.filter((post) => {
   return post.data.authors.map((author: string) => slugify(author)).includes(slugify(title))
@@ -39,7 +39,7 @@ const currentPosts = sortPostsByDate.filter((post) => {
   description={description}
   image={image}
 >
-  <AuthorSingle author={author} />
+  <Author author={author} />
 
   {currentPosts.length > 0 && (
     <section class="section pt-0">

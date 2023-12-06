@@ -1,14 +1,14 @@
 ---
 import config from "@config/config.json";
-import Authors from "@layouts/Authors.astro";
+import Authors from "@components/Authors.astro";
 import Base from "@layouts/Base.astro";
-import Pagination from "@layouts/components/Pagination.astro";
-import { getSinglePage } from "@lib/contentParser.astro";
+import Pagination from "@components/Pagination.astro";
+import { getAllAuthors } from "@lib/contentParser";
 import { sortByDate } from "@lib/utils/sortFunctions";
 import { markdownify } from "@lib/utils/textConverter";
 
 export async function getStaticPaths() {
-  const authors = await getSinglePage("authors");
+  const authors = await getAllAuthors();
   const totalPages = Math.ceil(authors.length / config.settings.pagination);
   const paths = [];
 
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const authors = await getSinglePage("authors");
+const authors = await getAllAuthors();
 const sortedPosts = sortByDate(authors);
 const totalPages = Math.ceil(authors.length / config.settings.pagination);
 const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
@@ -35,7 +35,7 @@ const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 <Base title={"Authors"}>
   <section class="section">
     <div class="container text-center">
-      <h1 set:text={markdownify("Authors")} class="page-heading h2" />
+      <h1 transition:animate="slide" set:text={markdownify("Authors")} class="page-heading h2" />
       <Authors authors={currentPosts} />
       <Pagination
         section={"authors"}

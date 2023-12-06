@@ -1,11 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import config from "@config/config.json";
-import { getSinglePage } from "@lib/contentParser.astro";
+import { getAllAuthors } from "@lib/contentParser";
 import dateFormat from "@lib/utils/dateFormat";
 import { humanize,slugify } from "@lib/utils/textConverter";
 import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
-const authors = await getSinglePage("authors");
+const authors = await getAllAuthors();
 const { summary_length } = config.settings;
 const { className, posts, fluid } = Astro.props;
 ---

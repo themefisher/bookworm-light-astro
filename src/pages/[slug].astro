@@ -1,0 +1,28 @@
+---
+import Base from "@layouts/Base.astro";
+import Post from "@components/Post.astro";
+import { getAllPosts } from "@lib/contentParser";
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+
+  return posts.map((post) => ({
+    params: {
+      slug: post.slug,
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { title, meta_title, description, image } = post.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <Post post={post} />
+</Base>

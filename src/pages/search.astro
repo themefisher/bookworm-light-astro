@@ -1,10 +1,10 @@
 ---
 import Base from "@layouts/Base.astro";
 import Search from "@layouts/Search";
-import { getSinglePage } from "@lib/contentParser.astro";
+import { getAllPosts } from "@lib/contentParser";
 
 // Retrieve all articles
-const posts = await getSinglePage("posts");
+const posts = await getAllPosts();
 
 // List of items to search in
 const searchList = posts.map((item) => ({

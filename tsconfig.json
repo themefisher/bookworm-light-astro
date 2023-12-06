@@ -6,13 +6,14 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@layouts/*": ["./src/layouts/*"],
-      "@components/*": ["./src/layouts/components/*"],
+      "@components/*": ["./src/components/*"],
       "@partials/*": ["./src/layouts/partials/*"],
       "@shortcodes/*": ["./src/layouts/shortcodes/*"],
       "@config/*": ["./src/config/*"],
       "@content/*": ["./src/content/*"],
       "@styles/*": ["./src/styles/*"],
-      "@lib/*": ["./src/lib/*"]
+      "@lib/*": ["./src/lib/*"],
+      "@images/*": ["./src/images/*"],
     }
   }
 }

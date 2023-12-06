@@ -1,28 +1,46 @@
 ---
 import { Image } from 'astro:assets';
+
 import Base from "@layouts/Base.astro";
 import { markdownify } from "@lib/utils/textConverter";
-import { getEntryBySlug } from "astro:content";
 
-const entry = await getEntryBySlug("about", "index");
-const { Content } = await entry.render();
-const { title, description, meta_title, image, what_i_do } = entry.data;
+import author from '@images/author.png';
+
+const title = "I’m John Doe, A content writer based in LDN, Currently at Bookworm";
+const meta_title = "About";
+
+const what_i_do = {
+  title: "What I Do",
+  items: [
+    {
+      title: "Content Writing",
+      description: "Purus eget ipsum elementum venenatis, quis rutrum mi semper nonpurus eget ipsum elementum venenatis."
+    },
+    {
+      title: "Photography",
+      description: "Aenean maximus urna magna elementum, quis rutrum mi semper non purus eget ipsum venenatis."
+    },
+    {
+      title: "Web Research",
+      description: "Aenean maximus urna magna elementum venenatis, quis semper non purus eget ipsum venenatis."
+    },
+  ]
+}
 ---
 
 <Base
   title={title}
   meta_title={meta_title}
-  description={description}
-  image={image}
+  image={author}
 >
   <section class="section">
     <div class="container">
       <div class="row md:gx-4">
         <div class="sm:col-5 md:col-4">
-          {image && (
+          {author && (
             <div class="img-cover mb-8">
               <Image
-                src={image}
+                src={author}
                 width={295}
                 height={395}
                 alt={title}
@@ -32,10 +50,20 @@ const { title, description, meta_title, image, what_i_do } = entry.data;
           )}
         </div>
         <div class="sm:col-7 md:col-8">
-          <h1 set:html={markdownify(title)} class="h3 mb-8" />
+          <h1 transition:animate="slide" set:html={markdownify(title)} class="h3 mb-8" />
 
           <div class="content">
-            <Content />
+            <p>
+              A content writer with over 12 years experience working across
+              brand identity, publishing and digital products. Maecenas sit
+              amet purus eget ipsum elementum venenatis. Aenean maximus urna
+              magna elementum venenatis quis non purus.
+            </p>
+            <p>
+              Purus eget ipsum elementum venenatis. Aenean maximus urna magna
+              elementum venenatis, quis rutrum mi semper non purus eget ipsum
+              elementum venenatis, aenean maximus urna magna elementum.
+            </p>
           </div>
           <a href="/contact" class="btn btn-primary text-white py-2">Get In Touch</a>
         </div>

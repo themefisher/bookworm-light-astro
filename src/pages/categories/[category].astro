@@ -1,13 +1,12 @@
 ---
 import Base from "@layouts/Base.astro";
-import Posts from "@layouts/Posts.astro";
-import { getSinglePage } from "@lib/contentParser.astro";
-import { getTaxonomy } from "@lib/taxonomyParser.astro";
+import Posts from "@components/Posts.astro";
+import { getAllPosts, getAllPostCategories } from "@lib/contentParser";
 import taxonomyFilter from "@lib/utils/taxonomyFilter";
 import { humanize } from "@lib/utils/textConverter";
 
 export async function getStaticPaths() {
-  const categories = await getTaxonomy("posts", "categories");
+  const categories = await getAllPostCategories();
 
   return categories.map((category) => {
     return {
@@ -18,7 +17,7 @@ export async function getStaticPaths() {
 
 const { category } = Astro.params;
 
-const posts = await getSinglePage("posts");
+const posts = await getAllPosts();
 const filterByCategory = taxonomyFilter(posts, "categories", category);
 
 const title = humanize(category || "")
@@ -28,7 +27,7 @@ const title = humanize(category || "")
   <div class="section">
     <div class="container">
       <p class="text-center mb-4">Showing Posts From</p>
-      <h1 class="h2 mb-16 text-center text-primary">{title}</h1>
+      <h1 transition:animate="slide" class="h2 mb-16 text-center text-primary">{title}</h1>
       <Posts posts={filterByCategory} fluid={false} />
     </div>
   </div>

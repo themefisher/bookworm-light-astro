@@ -1,9 +1,9 @@
 ---
 import Base from "@layouts/Base.astro";
-import { getTaxonomy } from "@lib/taxonomyParser.astro";
+import { getAllPostCategories } from "@lib/contentParser";
 import { humanize } from "@lib/utils/textConverter";
 
-const categories = await getTaxonomy("posts", "categories");
+const categories = await getAllPostCategories();
 
 import { BiCategoryAlt } from "react-icons/bi/index.js";
 ---
@@ -11,7 +11,7 @@ import { BiCategoryAlt } from "react-icons/bi/index.js";
 <Base title={"Categories"}>
   <section class="section">
     <div class="container text-center">
-      <h1 class="h2 page-heading">Categories</h1>
+      <h1 transition:animate="slide" class="h2 page-heading">Categories</h1>
       <ul class="space-x-4">
         {
           categories.map((category) => (
