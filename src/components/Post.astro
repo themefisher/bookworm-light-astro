@@ -21,7 +21,7 @@ const { title, description, authors, categories, image, date, tags } =
   <div class="container">
     <article class="row justify-center">
       <div class="md:col-10 text-center">
-        <h1 transition:animate="slide" set:html={markdownify(title)} class="h2" />
+        <h1 transition:animate="slide" set:html={markdownify(title)} class="font-bold text-3xl md:text-4xl" />
         <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
           <li class="mx-3">
             {
@@ -124,7 +124,7 @@ const { title, description, authors, categories, image, date, tags } =
   similarPosts.length > 0 && (
     <section class="section pt-0">
       <div class="container">
-        <h2 class="mb-8 text-center h3">Similar Posts</h2>
+        <h2 class="mb-8 font-bold text-center text-2xl md:text-3xl">Similar Posts</h2>
         <SimilarPosts posts={similarPosts.slice(0, 3)} />
       </div>
     </section>
