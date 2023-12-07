@@ -24,11 +24,11 @@ const title = humanize(tag || "");
 ---
 
 <Base title={title || "Tag"}>
-  <div class="section">
+  <section>
     <div class="container">
       <p class="text-center mb-4">Showing Posts From</p>
       <h1 transition:animate="slide" class="text-3xl md:text-4xl font-bold mb-16 text-center text-primary">{title}</h1>
       <Posts posts={filterByTags} fluid={false} />
     </div>
-  </div>
+  </section>
 </Base>
