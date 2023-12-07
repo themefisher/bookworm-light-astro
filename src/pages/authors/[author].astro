@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
   const paths = authors.map((author) => ({
     params: {
-      single: author.slug,
+      author: author.slug,
     },
     props: { author },
   }));

@@ -14,18 +14,18 @@ export async function getStaticPaths() {
   for (let i = 1; i < totalPages; i++) {
     paths.push({
       params: {
-        slug: (i + 1).toString(),
+        page: (i + 1).toString(),
       },
     });
   }
   return paths;
 }
 
-const { slug } = Astro.params;
+const { page } = Astro.params;
 const posts = await getAllPosts();
 const sortedPosts = sortByDate(posts);
 const totalPages = Math.ceil(posts.length / config.settings.pagination);
-const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
+const currentPage = page && !isNaN(Number(page)) ? Number(page) : 1;
 const indexOfLastPost = currentPage * config.settings.pagination;
 const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
 const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
