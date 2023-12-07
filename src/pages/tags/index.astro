@@ -1,5 +1,6 @@
 ---
 import Base from "@layouts/Base.astro";
+import ContentHeader from "@components/ContentHeader.astro";
 import { getAllPostTags } from "@lib/contentParser";
 import { humanize } from "@lib/utils/textConverter";
 
@@ -11,7 +12,7 @@ const tags = await getAllPostTags();
 <Base title={"Tags"}>
   <section class="section">
     <div class="container text-center">
-      <h1 transition:animate="slide" class="text-3xl md:text-4xl font-bold page-heading">Tags</h1>
+      <ContentHeader title={"Tags"} />
       <ul class="space-x-4">
         {
           tags.map((tag) => (

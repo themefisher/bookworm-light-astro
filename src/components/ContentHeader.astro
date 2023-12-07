@@ -1,6 +1,14 @@
 ---
+import { markdownify } from "@lib/utils/textConverter";
+
 const { title, subTitle } = Astro.props;
 ---
-<h1 transition:animate="slide" class="text-center text-3xl">{title}</h1>
+<div class="mb-8">
+  <h1 transition:animate="slide" set:html={markdownify(title)} class="text-center text-3xl md:text-4xl font-bold" />
 
-<h3 class="text-center text-lg">{subTitle}</h3>
+  {subTitle ? (
+    <h3 set:html={markdownify(subTitle)} class="text-center md:text-lg" />
+  ) : (
+    <div class="mx-auto mt-4 block h-1 w-10 rounded-full bg-primary"></div>
+  )}
+</div>

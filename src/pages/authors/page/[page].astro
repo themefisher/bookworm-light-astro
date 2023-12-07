@@ -1,11 +1,11 @@
 ---
 import config from "@config/config.json";
+import ContentHeader from "@components/ContentHeader.astro";
 import Authors from "@components/Authors.astro";
 import Base from "@layouts/Base.astro";
 import Pagination from "@components/Pagination.astro";
 import { getAllAuthors } from "@lib/contentParser";
 import { sortByDate } from "@lib/utils/sortFunctions";
-import { markdownify } from "@lib/utils/textConverter";
 
 export async function getStaticPaths() {
   const authors = await getAllAuthors();
@@ -35,7 +35,7 @@ const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 <Base title={"Authors"}>
   <section class="section">
     <div class="container text-center">
-      <h1 transition:animate="slide" set:text={markdownify("Authors")} class="page-heading font-bold text-3xl md:text-4xl" />
+      <ContentHeader title={"Authors"} />
       <Authors authors={currentPosts} />
       <Pagination
         section={"authors"}

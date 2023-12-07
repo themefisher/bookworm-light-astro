@@ -1,11 +1,12 @@
 ---
 import { Image } from 'astro:assets';
+import ContentHeader from '@components/ContentHeader.astro';
 import Share from "@components/Share.astro";
 import SimilarPosts from "@components/SimilarPosts.astro";
 import { getAllAuthors, getAllPosts } from "@lib/contentParser";
 import dateFormat from "@lib/utils/dateFormat";
 import similerItems from "@lib/utils/similarItems";
-import { humanize,markdownify,slugify } from "@lib/utils/textConverter";
+import { humanize, slugify } from "@lib/utils/textConverter";
 import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
 
 const allAuthors = await getAllAuthors();
@@ -21,7 +22,7 @@ const { title, description, authors, categories, image, date, tags } =
   <div class="container">
     <article class="row justify-center">
       <div class="md:col-10 text-center">
-        <h1 transition:animate="slide" set:html={markdownify(title)} class="font-bold text-3xl md:text-4xl" />
+        <ContentHeader title={title} />
         <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
           <li class="mx-3">
             {
