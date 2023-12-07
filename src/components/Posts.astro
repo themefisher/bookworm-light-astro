@@ -7,7 +7,7 @@ import { humanize,slugify } from "@lib/utils/textConverter";
 import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
 const authors = await getAllAuthors();
 const { summary_length } = config.settings;
-const { className, posts, fluid } = Astro.props;
+const { class: className, posts, fluid } = Astro.props;
 ---
 
 <div class={`row gy-5 gx-4 ${className} ${posts.length === 1 ? "justify-center" : ""} `}>
