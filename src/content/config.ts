@@ -38,6 +38,19 @@ const authorsCollection = defineCollection({
   }),
 });
 
+const servicesCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    id: z.string().optional(),
+    title: z.string(),
+    meta_title: z.string().optional(),
+    image: image().optional(),
+    description: z.string().optional(),
+    topics: z.array(z.string()).default([]),
+    draft: z.boolean().optional(),
+  }),
+});
+
 const portfolioCollection = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
@@ -54,5 +67,6 @@ const portfolioCollection = defineCollection({
 export const collections = {
   posts: postsCollection,
   authors: authorsCollection,
+  services: servicesCollection,
   portfolio: portfolioCollection,
 };

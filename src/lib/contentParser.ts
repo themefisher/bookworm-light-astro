@@ -37,6 +37,10 @@ export async function getAllPostTags() {
   return [...new Set(taxonomies)];
 };
 
+export async function getAllServices() {
+  return getCollection('services', ({ data }) => !data.draft);
+};
+
 export async function getAllPortfolioProjects() {
   return getCollection('portfolio', ({ data }) => !data.draft);
 };
