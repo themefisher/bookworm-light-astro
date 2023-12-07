@@ -1,5 +1,6 @@
 ---
 import Base from "@layouts/Base.astro";
+import ContentHeader from "@components/ContentHeader.astro";
 import Posts from "@components/Posts.astro";
 import { getAllPosts, getAllPostCategories } from "@lib/contentParser";
 import taxonomyFilter from "@lib/utils/taxonomyFilter";
@@ -27,7 +28,7 @@ const title = humanize(category || "")
   <section>
     <div class="container">
       <p class="text-center mb-4">Showing Posts From</p>
-      <h1 transition:animate="slide" class="text-3xl md:text-4xl font-bold mb-16 text-center text-primary">{title}</h1>
+      <ContentHeader title={title} />
       <Posts posts={filterByCategory} fluid={false} />
     </div>
   </section>
