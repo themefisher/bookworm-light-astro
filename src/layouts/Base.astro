@@ -149,10 +149,13 @@ const { title, meta_title, description, image, noindex, canonical } = Astro.prop
   </head>
   <body>
     <TwSizeIndicator />
+
     <Header />
-    <main id="main-content" class="min-h-[60vh]">
+
+    <main id="main-content" class="min-h-[60vh] bg-[#ebeaeb] p-14">
       <slot />
     </main>
+
     <Footer />
   </body>
 </html>
