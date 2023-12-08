@@ -1,6 +1,11 @@
 ---
 import { markdownify } from "@lib/utils/textConverter";
 
+interface Props {
+  title: string;
+  subTitle?: string;
+}
+
 const { title, subTitle } = Astro.props;
 ---
 <div class="mb-8">

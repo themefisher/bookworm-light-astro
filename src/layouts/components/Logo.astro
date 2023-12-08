@@ -1,7 +1,13 @@
 ---
+import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+
 import config from "@config/config.json";
-const { src } = Astro.props;
+
+interface Props {
+  src?: ImageMetadata;
+}
+
 const {
   logo,
   logo_width,
@@ -15,25 +21,27 @@ const {
   logo_text: string;
   title: string;
 } = config.site;
+const { src } = Astro.props;
 ---
 
 <a href="/" class="navbar-brand block">
   {
-    src || logo ? (
+    src ? (
       <Image
         width={logo_width.replace("px", "") * 2}
         height={logo_height.replace("px", "") * 2}
-        src={src ? src : logo}
-        alt={title}
-        style={{
-          height: logo_height.replace("px", "") + "px",
-          width: logo_width.replace("px", "") + "px",
-        }}
+        src={src}
+        alt={logo_text || title}
       />
-    ) : logo_text ? (
-      logo_text
+    ) : logo ? (
+      <Image
+        width={logo_width.replace("px", "") * 2}
+        height={logo_height.replace("px", "") * 2}
+        src={logo}
+        alt={logo_text || title}
+      />
     ) : (
-      title
+      logo_text || title
     )
   }
 </a>

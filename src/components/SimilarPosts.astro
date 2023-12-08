@@ -1,8 +1,15 @@
 ---
 import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
 import dateFormat from "@lib/utils/dateFormat";
 import { humanize,slugify } from "@lib/utils/textConverter";
 import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
+
+interface Props {
+  posts: CollectionEntry<"posts">[];
+}
+
 const { posts } = Astro.props;
 ---
 

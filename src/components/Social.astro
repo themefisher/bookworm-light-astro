@@ -1,6 +1,4 @@
 ---
-const { source, class: className } = Astro.props;
-
 import {
   IoCall,
   IoGlobeOutline,
@@ -34,6 +32,14 @@ import {
   IoLogoYoutube,
   IoMail,
 } from "react-icons/io5/index.js";
+
+interface Props {
+  //TODO type this
+  source: any;
+  class?: string;
+}
+
+const { source, class: className } = Astro.props;
 
 const {
   facebook,

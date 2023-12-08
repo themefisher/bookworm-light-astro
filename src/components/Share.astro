@@ -7,6 +7,13 @@ import {
   IoLogoTwitter,
 } from "react-icons/io5/index.js";
 
+interface Props {
+  title: string;
+  description?: string;
+  slug: string;
+  class?: string;
+}
+
 const { base_url } = config.site;
 const { title, description, slug, class: className } = Astro.props;
 ---

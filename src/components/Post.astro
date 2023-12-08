@@ -1,5 +1,7 @@
 ---
 import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
 import ContentHeader from '@components/ContentHeader.astro';
 import Share from "@components/Share.astro";
 import SimilarPosts from "@components/SimilarPosts.astro";
@@ -8,6 +10,10 @@ import dateFormat from "@lib/utils/dateFormat";
 import similerItems from "@lib/utils/similarItems";
 import { humanize, slugify } from "@lib/utils/textConverter";
 import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
 
 const allAuthors = await getAllAuthors();
 const posts = await getAllPosts();

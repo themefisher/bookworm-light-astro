@@ -1,4 +1,6 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
 import Base from "@layouts/Base.astro";
 import Post from "@components/Post.astro";
 import { getAllPosts } from "@lib/contentParser";
@@ -12,6 +14,10 @@ export async function getStaticPaths() {
     },
     props: { post },
   }));
+}
+
+interface Props {
+  post: CollectionEntry<"posts">;
 }
 
 const { post } = Astro.props;

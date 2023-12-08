@@ -8,7 +8,7 @@ const postsCollection = defineCollection({
     title: z.string(),
     meta_title: z.string().optional(),
     description: z.string().optional(),
-    date: z.date().optional(),
+    date: z.date(),
     image: image().optional(),
     authors: z.array(z.string()).default(["admin"]),
     categories: z.array(z.string()).default(["other"]),

@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
 
 import Author from "@components/Author.astro";
 import Base from "@layouts/Base.astro";
@@ -20,6 +21,10 @@ export async function getStaticPaths() {
     props: { author },
   }));
   return paths;
+}
+
+interface Props {
+  author: CollectionEntry<"authors">;
 }
 
 const { author } = Astro.props;

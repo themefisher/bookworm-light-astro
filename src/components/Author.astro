@@ -1,7 +1,13 @@
 ---
 import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
 import ContentHeader from '@components/ContentHeader.astro';
 import Social from "@components/Social.astro";
+
+interface Props {
+  author: CollectionEntry<"authors">;
+}
 
 const { author } = Astro.props;
 const { title, image, social } = author.data;

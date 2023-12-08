@@ -16,12 +16,16 @@ export async function getStaticPaths() {
   });
 }
 
+interface Params {
+  category: string;
+}
+
 const { category } = Astro.params;
 
 const posts = await getAllPosts();
 const filterByCategory = taxonomyFilter(posts, "categories", category);
 
-const title = humanize(category || "")
+const title = humanize(category || "")!;
 ---
 
 <Base title={title || "Category"}>

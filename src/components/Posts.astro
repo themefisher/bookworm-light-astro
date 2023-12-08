@@ -1,10 +1,19 @@
 ---
 import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
 import config from "@config/config.json";
 import { getAllAuthors } from "@lib/contentParser";
 import dateFormat from "@lib/utils/dateFormat";
 import { humanize,slugify } from "@lib/utils/textConverter";
 import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
+
+interface Props {
+  class?: string;
+  posts: CollectionEntry<"posts">[];
+  fluid?: boolean;
+}
+
 const authors = await getAllAuthors();
 const { summary_length } = config.settings;
 const { class: className, posts, fluid } = Astro.props;
