@@ -20,8 +20,7 @@ const posts = await getAllPosts();
 const { post } = Astro.props;
 const similarPosts = similerItems(post, posts, post.slug);
 const { Content } = await post.render();
-const { title, description, authors, categories, image, date, tags } =
-  post.data;
+const { title, description, authors, categories, image, date, tags } = post.data;
 ---
 
 <section>
@@ -115,7 +114,7 @@ const { title, description, authors, categories, image, date, tags } =
             }
           </ul>
           <Share
-            className="social-share mb-4"
+            class="social-share mb-4"
             title={title}
             description={description}
             slug={post.slug}
