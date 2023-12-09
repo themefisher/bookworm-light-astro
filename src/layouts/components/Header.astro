@@ -13,12 +13,10 @@ interface NavigationLink {
 const main: NavigationLink[] = menu.main;
 ---
 
-<header class="header pt-6">
-  <nav class="navbar container">
+<header class="container">
+  <nav class="flex flex-wrap justify-between p-2 md:px-0">
     <!-- logo -->
-    <div class="order-0">
-      <Logo />
-    </div>
+    <Logo class="self-center order-0" />
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
@@ -47,14 +45,14 @@ const main: NavigationLink[] = menu.main;
 
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto"
+      class="text-center md:text-left order-3 hidden w-full md:order-1 md:flex md:w-auto"
     >
       {
         main.map((navLink) => (
           <>
             {navLink.children ? (
-              <li class="nav-item nav-dropdown group relative cursor-pointer">
-                <span class="nav-link inline-flex items-center">
+              <li class="nav-dropdown group relative cursor-pointer mx-1">
+                <span class="inline-flex items-center p-1 text-lg rounded font-semibold text-dark transition hover:text-primary md:p-2 outline-2" class:list={[{ 'outline': navLink.outline }]}>
                   {navLink.name}
                   <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
@@ -62,7 +60,7 @@ const main: NavigationLink[] = menu.main;
                 </span>
                 <ul class="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
                   {navLink.children?.map((childNavLink) => (
-                    <li class="nav-dropdown-item">
+                    <li class="mb-1">
                       <a href={childNavLink.url} class="nav-dropdown-link">
                         {childNavLink.name}
                       </a>
@@ -71,8 +69,8 @@ const main: NavigationLink[] = menu.main;
                 </ul>
               </li>
             ) : (
-              <li class="nav-item">
-                <a href={navLink.url} class="nav-link block">
+              <li class="mx-1">
+                <a href={navLink.url} class="inline-flex p-1 text-lg rounded font-semibold text-dark transition hover:text-primary md:p-2 outline-2" class:list={[{ 'outline': navLink.outline }]}>
                   {navLink.name}
                 </a>
               </li>
