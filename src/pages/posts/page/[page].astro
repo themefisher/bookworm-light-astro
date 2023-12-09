@@ -38,7 +38,7 @@ const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 <Base>
   <section>
     <div class="container">
-      <Posts class="mb-16" posts={currentPosts} />
+      <Posts class="mb-16" fluid={false} posts={currentPosts} />
       <Pagination section={"posts"} totalPages={totalPages} currentPage={currentPage}  />
     </div>
   </section>
