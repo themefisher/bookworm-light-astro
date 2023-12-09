@@ -147,12 +147,12 @@ const { title, meta_title, description, image, noindex, canonical } = Astro.prop
 
     <ViewTransitions />
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col">
     <TwSizeIndicator />
 
     <Header />
 
-    <main id="main-content" class="min-h-[60vh] bg-[#ebeaeb] p-14">
+    <main id="main-content" class="grow bg-[#ebeaeb] p-10">
       <slot />
     </main>
 
