@@ -1,6 +1,7 @@
 ---
 import config from "@config/config.json";
 import Base from "@layouts/Base.astro";
+import ContentHeader from "@components/ContentHeader.astro";
 import Pagination from "@components/Pagination.astro";
 import Posts from "@components/Posts.astro";
 import { getAllPosts } from "@lib/contentParser";
@@ -15,6 +16,7 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
 <Base>
   <section>
     <div class="container">
+      <ContentHeader title={"Blog"} />
       <Posts posts={currentPosts} fluid={false} class="mb-16" />
       <Pagination section={"posts"} currentPage={1} totalPages={totalPages} />
     </div>
