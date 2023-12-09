@@ -22,6 +22,10 @@ export async function getStaticPaths() {
   return paths;
 }
 
+interface Props {
+  page: number
+}
+
 const { page } = Astro.params;
 const authors = await getAllAuthors();
 const sortedPosts = sortByDate(authors);
