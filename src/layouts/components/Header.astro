@@ -1,7 +1,6 @@
 ---
 import Logo from "./Logo.astro";
 import menu from "@config/menu.json";
-import { IoSearch } from "react-icons/io5/index.js";
 
 interface NavigationLink {
   name: string;
@@ -16,13 +15,13 @@ const main: NavigationLink[] = menu.main;
 <header class="container">
   <nav class="flex flex-wrap justify-between p-2 md:px-0">
     <!-- logo -->
-    <Logo class="self-center order-0" />
+    <Logo class="self-center" />
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       id="show-button"
       for="nav-toggle"
-      class="order-2 flex cursor-pointer items-center text-black md:order-1 md:hidden"
+      class="flex cursor-pointer items-center text-black md:hidden"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -45,7 +44,7 @@ const main: NavigationLink[] = menu.main;
 
     <ul
       id="nav-menu"
-      class="text-center md:text-left order-3 hidden w-full md:order-1 md:flex md:w-auto"
+      class="text-center md:text-left hidden w-full md:flex md:w-auto"
     >
       {
         main.map((navLink) => (
@@ -79,15 +78,5 @@ const main: NavigationLink[] = menu.main;
         ))
       }
     </ul>
-    <div class="order-1 ml-auto flex md:order-2 md:ml-0">
-      <a
-        class="mr-4 inline-block cursor-pointer p-2 text-xl text-dark transition hover:text-primary md:mr-0"
-        href="/search"
-        title="seach"
-        aria-label="seach"
-      >
-        <IoSearch />
-      </a>
-    </div>
   </nav>
 </header>

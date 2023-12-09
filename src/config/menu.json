@@ -13,9 +13,13 @@
       "url": "/contact"
     },
     {
-      "name": "Pages",
+      "name": "Blog",
       "url": "",
       "children": [
+        {
+          "name": "Posts",
+          "url": "/posts"
+        },
         {
           "name": "Categories",
           "url": "/categories"
@@ -23,6 +27,10 @@
         {
           "name": "Tags",
           "url": "/tags"
+        },
+        {
+          "name": "Search",
+          "url": "/search"
         }
       ]
     }

@@ -39,7 +39,7 @@ const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
   <section>
     <div class="container">
       <Posts class="mb-16" posts={currentPosts} />
-      <Pagination totalPages={totalPages} currentPage={currentPage} />
+      <Pagination section={"posts"} totalPages={totalPages} currentPage={currentPage}  />
     </div>
   </section>
 </Base>
