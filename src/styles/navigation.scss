@@ -22,17 +22,3 @@ input#nav-toggle:checked ~ #nav-menu {
 .nav-dropdown-link {
   @apply block min-w-[150px] py-1 text-[17px] font-semibold text-dark transition hover:text-primary;
 }
-
-// search style
-.search-modal {
-  @apply invisible absolute top-0 left-0 right-0 z-10 h-10 bg-white opacity-0 transition md:h-full;
-  .form-input {
-    @apply h-full w-full border-0 text-lg;
-  }
-  .search-close {
-    @apply absolute top-1/2 right-2 -translate-y-1/2 p-3 text-h4;
-  }
-  &.open {
-    @apply visible opacity-100;
-  }
-}
