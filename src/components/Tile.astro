@@ -13,7 +13,7 @@ interface Props {
 const { image, title, body, url, class: className } = Astro.props;
 ---
 <div class={className}>
-  <div class="bg-white">
+  <div class="bg-white h-full">
     <slot name="icon">
       {image && (
         <a href={url} class="bg-black block hover:text-primary overflow-hidden group p-3">
