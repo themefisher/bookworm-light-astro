@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import Tile from '@components/Tile.astro';
+
+import config from "@config/config.json";
+
+interface Props {
+  services: CollectionEntry<"services">[];
+  class?: string,
+}
+
+const { summary_length } = config.settings;
+const { services, class: className } = Astro.props;
+---
+
+<div class={`row gx-2 ${className || ''}`}>
+  {
+    services.map((service: any, i: number) => (
+      <Tile
+        image={service.data.image}
+        title={service.data.title}
+        body={service.body && service.body?.slice(0, Number(summary_length)) + '...'}
+        url={`/posts/${service.slug}`}
+        class="col-12 md:col-4"
+      />
+    ))
+  }
+</div>

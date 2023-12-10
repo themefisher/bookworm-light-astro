@@ -1,8 +1,8 @@
 {
   "main": [
     {
-      "name": "Home",
-      "url": "/"
+      "name": "Services",
+      "url": "/services"
     },
     {
       "name": "Blog",
