@@ -13,12 +13,13 @@ import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
 interface Props {
   posts: CollectionEntry<"posts">[];
   fluid?: boolean;
+  hideMeta?: boolean;
   class?: string;
 }
 
 const authors = await getAllAuthors();
 const { summary_length } = config.settings;
-const { posts, fluid, class: className } = Astro.props;
+const { posts, fluid, hideMeta, class: className } = Astro.props;
 ---
 <div class={`row g-2 ${className || ''} ${posts.length === 1 ? "justify-center" : ""} `}>
   {
@@ -31,52 +32,54 @@ const { posts, fluid, class: className } = Astro.props;
         class="col-12"
         class:list={[{ 'sm:col-6': !fluid || i > 0, 'lg:col-3': !fluid || i > 0 }]}
       >
-        <ul slot="meta" class="mt-2 mb-2 flex flex-wrap items-center text-text p-1">
-          <li class="mr-5">
-            {authors
-              .filter((author) =>
-                post.data.authors
-                  .map((author: string) => slugify(author))
-                  .includes(slugify(author.data.title))
-              )
-              .map((author) => (
-                <a
-                  href={`/authors/${slugify(author.data.title)}`}
-                  class="flex items-center hover:text-primary font-medium"
-                >
-                  {author.data.image && (
-                    <Image
-                      src={author.data.image}
-                      alt={author.data.title}
-                      height={50}
-                      width={50}
-                      class="mr-2 h-6 w-6 rounded-full"
-                    />
-                  )}
-                  <span>{author.data.title}</span>
-                </a>
-              ))}
-          </li>
-          <li class="mr-5 flex items-center flex-wrap font-medium">
-            <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
-            {dateFormat(post.data.date)}
-          </li>
-          <li class="mr-5 flex items-center flex-wrap">
-            <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
-            <ul>
-              {post.data.categories.map((category: string, i: number) => (
-                <li class="inline-block">
+        {!hideMeta && (
+          <ul slot="meta" class="mt-2 mb-2 flex flex-wrap items-center text-text p-1">
+            <li class="mr-5">
+              {authors
+                .filter((author) =>
+                  post.data.authors
+                    .map((author: string) => slugify(author))
+                    .includes(slugify(author.data.title))
+                )
+                .map((author) => (
                   <a
-                    href={`/categories/${slugify(category)}`}
-                    class="mr-2 hover:text-primary font-medium"
+                    href={`/authors/${slugify(author.data.title)}`}
+                    class="flex items-center hover:text-primary font-medium"
                   >
-                    {humanize(category)}{i !== post.data.categories.length - 1 && ","}
+                    {author.data.image && (
+                      <Image
+                        src={author.data.image}
+                        alt={author.data.title}
+                        height={50}
+                        width={50}
+                        class="mr-2 h-6 w-6 rounded-full"
+                      />
+                    )}
+                    <span>{author.data.title}</span>
                   </a>
-                </li>
-              ))}
-            </ul>
-          </li>
-        </ul>
+                ))}
+            </li>
+            <li class="mr-5 flex items-center flex-wrap font-medium">
+              <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
+              {dateFormat(post.data.date)}
+            </li>
+            <li class="mr-5 flex items-center flex-wrap">
+              <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
+              <ul>
+                {post.data.categories.map((category: string, i: number) => (
+                  <li class="inline-block">
+                    <a
+                      href={`/categories/${slugify(category)}`}
+                      class="mr-2 hover:text-primary font-medium"
+                    >
+                      {humanize(category)}{i !== post.data.categories.length - 1 && ","}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          </ul>
+        )}
       </Tile>
     ))
   }

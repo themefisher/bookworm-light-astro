@@ -21,6 +21,6 @@ const posts = featuredPosts.concat(otherPosts).slice(0, 4);
   <ContentHeader title={title} subTitle={subTitle} />
 
   <section class="container mb-16">
-    <Posts posts={posts} fluid={false} />
+    <Posts posts={posts} fluid={false} hideMeta={true} />
   </section>
 </Base>
