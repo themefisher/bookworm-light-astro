@@ -128,11 +128,11 @@ export default function SearchBar({ searchList }: Props) {
               </li>
             </ul>
 
-            <h3 className="text-2xl md:text-3xl font-bold mb-2">
+            <div className="text-2xl md:text-3xl font-bold mb-2">
               <a href={`/posts/${item.slug}`} className="block hover:text-primary transition duration-300">
                 {item.data.title}
               </a>
-            </h3>
+            </div>
             <p className="text-text">
               {item.content?.slice(0, Number(summary_length))}...
             </p>

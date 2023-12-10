@@ -73,12 +73,12 @@ const what_i_do = {
 
   <section>
     <div class="container">
-      <h3 class="text-center text-xl md:text-2xl font-bold mb-8">{what_i_do.title}</h3>
+      <h2 class="text-center text-xl md:text-2xl font-bold mb-8">{what_i_do.title}</h2>
       <div class="row justify-center gy-4 text-center">
         {what_i_do.items.map((item: any) => (
           <div class="lg:col-4 md:col-6">
             <i class="{{.icon}} fa-3x text-primary mb-4"></i>
-            <h4 class="text-dark font-semibold text-xl md:text-2xl mb-3">{item.title}</h4>
+            <h3 class="text-dark font-semibold text-xl md:text-2xl mb-3">{item.title}</h3>
             <p>{item.description}</p>
           </div>
         ))}
