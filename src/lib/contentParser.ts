@@ -31,7 +31,7 @@ export async function getAllPostTags() {
   const taxonomyPages = (await getAllPosts()).map(({ data }) => data.tags);
 
   const taxonomies = taxonomyPages.reduce((acc, currentValue) => {
-    return acc.concat(currentValue.map(category => slugify(category)!));
+    return acc.concat(currentValue.map(tag => slugify(tag)!));
   }, []);
 
   return [...new Set(taxonomies)];
