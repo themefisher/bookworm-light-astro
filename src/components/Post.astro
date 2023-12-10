@@ -1,13 +1,13 @@
 ---
 import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
+import { type CollectionEntry } from 'astro:content';
 
 import ContentHeader from '@components/ContentHeader.astro';
 import Share from "@components/Share.astro";
 import SimilarPosts from "@components/SimilarPosts.astro";
-import { getAllAuthors, getAllPosts } from "@lib/contentParser";
+import { getAllPosts, getAuthorsByPost } from "@lib/contentParser";
 import dateFormat from "@lib/utils/dateFormat";
-import similerItems from "@lib/utils/similarItems";
+import similarPostsFn from "@lib/utils/similarItems";
 import { humanize, slugify } from "@lib/utils/textConverter";
 import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
 
@@ -15,12 +15,12 @@ interface Props {
   post: CollectionEntry<"posts">;
 }
 
-const allAuthors = await getAllAuthors();
 const posts = await getAllPosts();
 const { post } = Astro.props;
-const similarPosts = similerItems(post, posts, post.slug);
+const similarPosts = similarPostsFn(post, posts);
 const { Content } = await post.render();
-const { title, description, authors, categories, image, date, tags } = post.data;
+const { title, description, categories, image, date, tags } = post.data;
+const authors = await getAuthorsByPost(post);
 ---
 
 <section>
@@ -31,15 +31,10 @@ const { title, description, authors, categories, image, date, tags } = post.data
         <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
           <li class="mx-3">
             {
-              allAuthors
-                .filter((author) =>
-                  authors
-                    .map((author: string) => slugify(author))
-                    .includes(slugify(author.data.title))
-                )
-                .map((author, i) => (
+              authors
+                .map((author) => (
                   <a
-                    href={`/authors/${slugify(author.slug)}`}
+                    href={`/authors/${author.slug}`}
                     class="flex items-center hover:text-primary font-medium"
                   >
                     {author.data.image && (

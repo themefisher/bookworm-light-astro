@@ -5,7 +5,7 @@ image: "../../images/posts/04.jpg"
 date: 2021-02-02T16:56:47+06:00
 draft: false
 featured: false
-authors: ["Mark Dinn"]
+authors: ["mark-dinn"]
 tags: ["Balloon", "Gas"]
 categories: ["Accessories"]
 ---

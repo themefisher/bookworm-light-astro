@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 
 import Author from "@components/Author.astro";
 import Base from "@layouts/Base.astro";
-import { getAllAuthors, getAllPosts } from "@lib/contentParser";
+import { getAllAuthors, getAllPostsByAuthor } from "@lib/contentParser";
 import dateFormat from "@lib/utils/dateFormat";
 
 import { sortByDate } from "@lib/utils/sortFunctions";
@@ -31,11 +31,8 @@ const { author } = Astro.props;
 const { title, meta_title, description, image } = author.data;
 
 // Author Posts
-const posts = await getAllPosts();
-const sortPostsByDate = sortByDate(posts);
-const currentPosts = sortPostsByDate.filter((post) => {
-  return post.data.authors.map((author: string) => slugify(author)).includes(slugify(title))
-});
+const posts = await getAllPostsByAuthor(author);
+const currentPosts = sortByDate(posts);
 ---
 
 <Base

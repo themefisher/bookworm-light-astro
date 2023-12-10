@@ -1,4 +1,5 @@
-import { getCollection } from "astro:content";
+import { getCollection, getEntries } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
 import { slugify } from "./utils/textConverter";
 
@@ -11,6 +12,14 @@ export async function getAllAuthors() {
 
 export async function getAllPosts() {
   return getCollection('posts', ({ data }) => !data.draft);
+};
+
+export async function getAuthorsByPost(post: CollectionEntry<'posts'>) {
+  return getEntries(post.data.authors);
+};
+
+export async function getAllPostsByAuthor(author: CollectionEntry<'authors'>) {
+  return getCollection('posts', ({ data }) => !data.draft && data.authors.map(author => author.slug).includes(author.slug));
 };
 
 export async function getFeaturedPosts() {

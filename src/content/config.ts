@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 
 // Post collection schema
 const postsCollection = defineCollection({
@@ -10,7 +10,7 @@ const postsCollection = defineCollection({
     description: z.string().optional(),
     date: z.date(),
     image: image().optional(),
-    authors: z.array(z.string()).default(["admin"]),
+    authors: z.array(reference('authors')),
     categories: z.array(z.string()).default(["other"]),
     tags: z.array(z.string()).default(["other"]),
     draft: z.boolean().optional(),
