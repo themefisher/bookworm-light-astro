@@ -17,7 +17,7 @@
   },
   "fonts": {
     "font_family": {
-      "primary": "Mulish:wght@400;600;700",
+      "primary": "Lexend:wght@200;400;600",
       "primary_type": "sans-serif"
     },
     "font_size": {

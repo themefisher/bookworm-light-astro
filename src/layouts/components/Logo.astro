@@ -25,7 +25,7 @@ const {
 const { src, class: className } = Astro.props;
 ---
 
-<a href="/" class={`navbar-brand block ${className || ''}`}>
+<a href="/" class={`navbar-brand block uppercase text-lg font-semibold ${className || ''}`}>
   {
     src ? (
       <Image
@@ -33,6 +33,7 @@ const { src, class: className } = Astro.props;
         height={logo_height}
         src={src}
         alt={logo_text || title}
+        class="h-auto max-w-[170px] sm:h-auto sm:max-w-full"
       />
     ) : logo ? (
       <Image
@@ -40,6 +41,7 @@ const { src, class: className } = Astro.props;
         height={logo_height}
         src={logo}
         alt={logo_text || title}
+        class="h-auto max-w-[170px] sm:h-auto sm:max-w-full"
       />
     ) : (
       logo_text || title

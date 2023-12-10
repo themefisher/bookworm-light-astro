@@ -10,15 +10,3 @@ input#nav-toggle:checked ~ label#hide-button {
 input#nav-toggle:checked ~ #nav-menu {
   @apply block md:flex;
 }
-
-.navbar-brand img {
-  @apply h-auto max-w-[170px] sm:h-auto sm:max-w-full #{!important};
-}
-
-.nav-dropdown-list {
-  @apply z-10 rounded-lg bg-white px-6 py-3 shadow transition;
-}
-
-.nav-dropdown-link {
-  @apply block min-w-[150px] py-1 text-[17px] font-semibold text-dark transition hover:text-primary;
-}
