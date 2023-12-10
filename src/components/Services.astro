@@ -20,7 +20,6 @@ const { services, class: className } = Astro.props;
         image={service.data.image}
         title={service.data.title}
         body={service.body && service.body?.slice(0, Number(summary_length)) + '...'}
-        url={`/posts/${service.slug}`}
         class="col-12 md:col-4"
       />
     ))
