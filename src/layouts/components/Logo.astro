@@ -22,10 +22,10 @@ const {
   logo_text: string;
   title: string;
 } = config.site;
-const { src, class: className } = Astro.props;
+const { src, class: className = '' } = Astro.props;
 ---
 
-<a href="/" class={`navbar-brand block uppercase text-lg font-semibold ${className || ''}`}>
+<a href="/" class={`navbar-brand block uppercase text-lg font-semibold ${className}`}>
   {
     src ? (
       <Image

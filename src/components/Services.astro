@@ -11,9 +11,9 @@ interface Props {
 }
 
 const { summary_length } = config.settings;
-const { services, class: className } = Astro.props;
+const { services, class: className = '' } = Astro.props;
 ---
-<div class={`row g-2 ${className || ''}`}>
+<div class={`row g-2 ${className}`}>
   {
     services.map((service: any, i: number) => (
       <Tile

@@ -39,7 +39,7 @@ interface Props {
   class?: string;
 }
 
-const { source, class: className } = Astro.props;
+const { source, class: className = '' } = Astro.props;
 
 const {
   facebook,

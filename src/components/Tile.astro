@@ -10,7 +10,7 @@ interface Props {
   class?: string;
 }
 
-const { image, title, body, url, class: className } = Astro.props;
+const { image, title, body, url, class: className = '' } = Astro.props;
 ---
 <div class={className}>
   <div class="bg-white h-full">

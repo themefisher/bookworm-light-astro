@@ -17,14 +17,14 @@ interface Props {
 }
 
 const { summary_length } = config.settings;
-const { posts, fluid, hideMeta, class: className } = Astro.props;
+const { posts, fluid, hideMeta, class: className = '' } = Astro.props;
 
 const postAuthorsMap = new Map<CollectionEntry<"posts">, CollectionEntry<"authors">[]>();
 for (const post of posts) {
   postAuthorsMap.set(post, await getEntries(post.data.authors));
 }
 ---
-<div class={`row g-2 ${className || ''} ${posts.length === 1 ? "justify-center" : ""} `}>
+<div class={`row g-2 ${className}`} class:list={[{ 'justify-center': posts.length === 1 }]}>
   {
     posts.map((post: any, i: number) => (
       <Tile

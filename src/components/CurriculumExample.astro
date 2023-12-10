@@ -7,7 +7,7 @@ interface Props {
   class?: string;
 }
 
-const { image, imageAlt, class: className } = Astro.props;
+const { image, imageAlt, class: className = '' } = Astro.props;
 ---
 
 <div class={`flex m-2 ${className}`}>
