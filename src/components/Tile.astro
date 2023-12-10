@@ -29,7 +29,6 @@ const { image, title, body, url, class: className } = Astro.props;
     <slot name="meta" />
 
     <slot name="title">
-      <!-- <h3 class="text-m md:text-l font-bold mb-4"> -->
       <h3 class="text-lg font-bold px-1">
         <a href={url} class="block hover:text-primary transition duration-300">
           {title}
