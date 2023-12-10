@@ -16,9 +16,9 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
 <Base>
   <section>
     <div class="container">
-      <ContentHeader title={"Blog"} />
+      <ContentHeader title="Blog" />
       <Posts posts={currentPosts} fluid={false} class="mb-16" />
-      <Pagination section={"posts"} currentPage={1} totalPages={totalPages} />
+      <Pagination section="posts" currentPage={1} totalPages={totalPages} />
     </div>
   </section>
 </Base>

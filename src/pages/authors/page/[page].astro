@@ -36,13 +36,13 @@ const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
 const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 ---
 
-<Base title={"Authors"}>
+<Base title="Authors"}>
   <section>
     <div class="container text-center">
-      <ContentHeader title={"Authors"} />
+      <ContentHeader title="Authors" />
       <Authors authors={currentPosts} />
       <Pagination
-        section={"authors"}
+        section="authors"
         currentPage={currentPage}
         totalPages={totalPages}
       />
