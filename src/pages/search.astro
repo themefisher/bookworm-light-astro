@@ -1,6 +1,8 @@
 ---
 import Base from "@layouts/Base.astro";
+import ContentHeader from "@components/ContentHeader.astro";
 import Search from "@components/Search";
+
 import { getAllPosts } from "@lib/contentParser";
 
 // Retrieve all articles
@@ -17,6 +19,8 @@ const searchList = posts.map((item) => ({
 <Base title={`Search`}>
   <section>
     <div class="container">
+      <ContentHeader title="Search" />
+
       <Search client:load searchList={searchList} />
     </div>
   </section>
