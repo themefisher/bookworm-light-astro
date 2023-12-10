@@ -29,15 +29,15 @@ const { src, class: className } = Astro.props;
   {
     src ? (
       <Image
-        width={logo_width.replace("px", "") * 2}
-        height={logo_height.replace("px", "") * 2}
+        width={logo_width}
+        height={logo_height}
         src={src}
         alt={logo_text || title}
       />
     ) : logo ? (
       <Image
-        width={logo_width.replace("px", "") * 2}
-        height={logo_height.replace("px", "") * 2}
+        width={logo_width}
+        height={logo_height}
         src={logo}
         alt={logo_text || title}
       />
