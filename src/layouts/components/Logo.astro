@@ -25,7 +25,7 @@ const {
 const { src, class: className } = Astro.props;
 ---
 
-<a href="/" class={`navbar-brand block ${className}`}>
+<a href="/" class={`navbar-brand block ${className || ''}`}>
   {
     src ? (
       <Image

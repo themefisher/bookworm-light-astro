@@ -11,17 +11,16 @@ import { humanize,slugify } from "@lib/utils/textConverter";
 import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
 
 interface Props {
-  class?: string;
   posts: CollectionEntry<"posts">[];
   fluid?: boolean;
+  class?: string;
 }
 
 const authors = await getAllAuthors();
 const { summary_length } = config.settings;
-const { class: className, posts, fluid } = Astro.props;
+const { posts, fluid, class: className } = Astro.props;
 ---
-
-<div class={`row gy-5 gx-4 ${className} ${posts.length === 1 ? "justify-center" : ""} `}>
+<div class={`row g-2 ${className || ''} ${posts.length === 1 ? "justify-center" : ""} `}>
   {
     posts.map((post: any, i: number) => (
       <Tile
@@ -29,7 +28,8 @@ const { class: className, posts, fluid } = Astro.props;
         title={post.data.title}
         body={post.body && post.body?.slice(0, Number(i === 0 && fluid !== false ? summary_length * 2 : summary_length)) + '...'}
         url={`/posts/${post.slug}`}
-        class={i === 0 && fluid !== false ? "col-12" : "col-12 sm:col-6"}
+        class="col-12"
+        class:list={[{ 'sm:col-6': !fluid || i > 0, 'lg:col-3': !fluid || i > 0 }]}
       >
         <ul slot="meta" class="mt-6 mb-4 flex flex-wrap items-center text-text">
           <li class="mr-5">
