@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  image: ImageMetadata;
+  imageAlt: string;
+  class?: string;
+}
+
+const { image, imageAlt, class: className } = Astro.props;
+---
+
+<div class={`flex m-2 ${className}`}>
+  <div>
+    <Image
+      src={image}
+      width={150}
+      alt={imageAlt}
+      class="object-cover aspect-square"
+    />
+  </div>
+
+  <div>
+    Example from curriculum
+  </div>
+</div>
