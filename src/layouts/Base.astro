@@ -18,12 +18,7 @@ export interface Props {
   title?: string;
   meta_title?: string;
   description?: string;
-  image?: {
-		src: string;
-		width: number;
-		height: number;
-		format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
-  };
+  image?: ImageMetadata;
   noindex?: boolean;
   canonical?: string;
 }
