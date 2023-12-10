@@ -1,0 +1,46 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  image?: ImageMetadata;
+  title?: string,
+  body?: string,
+  url?: string,
+  class?: string;
+}
+
+const { image, title, body, url, class: className } = Astro.props;
+---
+<div class={className}>
+  <div class="bg-white">
+    <slot name="icon">
+      {image && (
+        <a href={url} class="bg-black block hover:text-primary overflow-hidden group p-3">
+          <Image
+            class="object-cover aspect-square rounded-lg"
+            src={image}
+            alt={title || ''}
+          />
+        </a>
+      )}
+    </slot>
+
+    <slot name="meta" />
+
+    <slot name="title">
+      <!-- <h3 class="text-m md:text-l font-bold mb-4"> -->
+      <h3 class="text-lg font-bold px-1">
+        <a href={url} class="block hover:text-primary transition duration-300">
+          {title}
+        </a>
+      </h3>
+    </slot>
+
+    <slot name="body">
+      <p class="text-text p-1 text-justify">
+        {body}
+      </p>
+    </slot>
+  </div>
+</div>
