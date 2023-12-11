@@ -30,7 +30,7 @@ for (const post of posts) {
       <Tile
         image={post.data.image}
         title={post.data.title}
-        body={post.body && post.body?.slice(0, Number(i === 0 && fluid !== false ? summary_length * 2 : summary_length)) + '...'}
+        body={post.body?.slice(0, Number(summary_length)) + '...'}
         url={`/posts/${post.slug}`}
         class:list={['col-12', { 'sm:col-6 lg:col-3': !fluid || i > 0 }]}
       >
