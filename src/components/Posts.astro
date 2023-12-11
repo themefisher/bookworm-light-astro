@@ -17,14 +17,14 @@ interface Props {
 }
 
 const { summary_length } = config.settings;
-const { posts, fluid, hideMeta, class: className = '' } = Astro.props;
+const { posts, fluid, hideMeta, class: className } = Astro.props;
 
 const postAuthorsMap = new Map<CollectionEntry<"posts">, CollectionEntry<"authors">[]>();
 for (const post of posts) {
   postAuthorsMap.set(post, await getEntries(post.data.authors));
 }
 ---
-<div class={`row g-2 ${className}`} class:list={[{ 'justify-center': posts.length === 1 }]}>
+<div class:list={['row g-2', className, { 'justify-center': posts.length === 1 }]}>
   {
     posts.map((post: any, i: number) => (
       <Tile
@@ -32,8 +32,7 @@ for (const post of posts) {
         title={post.data.title}
         body={post.body && post.body?.slice(0, Number(i === 0 && fluid !== false ? summary_length * 2 : summary_length)) + '...'}
         url={`/posts/${post.slug}`}
-        class="col-12"
-        class:list={[{ 'sm:col-6': !fluid || i > 0, 'lg:col-3': !fluid || i > 0 }]}
+        class:list={['col-12', { 'sm:col-6 lg:col-3': !fluid || i > 0 }]}
       >
         {!hideMeta && (
           <ul slot="meta" class="mt-2 mb-2 flex flex-wrap items-center text-text p-1">
