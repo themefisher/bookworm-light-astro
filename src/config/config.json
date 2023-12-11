@@ -6,8 +6,8 @@
     "trailing_slash": false,
     "favicon": "/favicon/favicon.png",
     "logo": "",
-    "logo_width": "200",
-    "logo_height": "34",
+    "logo_width": 200,
+    "logo_height": 34,
     "logo_text": "Cones & Shells"
   },
 

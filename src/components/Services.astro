@@ -15,7 +15,7 @@ const { services, class: className = '' } = Astro.props;
 ---
 <div class={`row g-2 ${className}`}>
   {
-    services.map((service: any, i: number) => (
+    services.map(service => (
       <Tile
         image={service.data.image}
         title={service.data.title}

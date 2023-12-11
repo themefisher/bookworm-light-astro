@@ -1,11 +1,8 @@
+import type { CollectionEntry } from "astro:content";
+
 // sort by date
-export const sortByDate = (array: any[]) => {
-  const sortedArray = array.sort(
-    (a:any, b:any) =>
-      new Date(b.data.date && b.data.date) -
-      new Date(a.data.date && a.data.date)
-  );
-  return sortedArray;
+export const sortByDate = (array: CollectionEntry<'posts'>[]) => {
+  return array.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 };
 
 // sort product by weight

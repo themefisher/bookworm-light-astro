@@ -26,7 +26,7 @@ for (const post of posts) {
 ---
 <div class:list={['row g-2', className, { 'justify-center': posts.length === 1 }]}>
   {
-    posts.map((post: any, i: number) => (
+    posts.map((post, i) => (
       <Tile
         image={post.data.image}
         title={post.data.title}

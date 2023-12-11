@@ -1,6 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 
-const similarPosts = (currentItem: CollectionEntry<'posts'>, allItems: any): CollectionEntry<'posts'>[] => {
+const similarPosts = (currentItem: CollectionEntry<'posts'>, allItems: CollectionEntry<'posts'>[]): CollectionEntry<'posts'>[] => {
   let categories: string[] = [];
   let tags: string[] = [];
 
@@ -16,13 +16,12 @@ const similarPosts = (currentItem: CollectionEntry<'posts'>, allItems: any): Col
 
   // filter by categories
   const filterByCategories = allItems.filter(
-    (item: { data: { categories: string } }) =>
-      categories.find((category) => item.data.categories.includes(category))
+    item => categories.find((category) => item.data.categories.includes(category))
   );
 
   // filter by tags
-  const filterByTags = allItems.filter((item: { data: { tags: string } }) =>
-    tags.find((tag) => item.data.tags.includes(tag))
+  const filterByTags = allItems.filter(
+    item => tags.find((tag) => item.data.tags.includes(tag))
   );
 
   // merged after filter
