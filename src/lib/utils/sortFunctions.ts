@@ -5,6 +5,10 @@ export const sortByDate = (array: CollectionEntry<'posts'>[]) => {
   return array.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 };
 
+export const sortByName = (array: CollectionEntry<'authors'>[]) => {
+  return array.sort((a, b) => b.data.title.localeCompare(a.data.title));
+};
+
 // sort product by weight
 export const sortByWeight = (array: any[]) => {
   const withWeight = array.filter(

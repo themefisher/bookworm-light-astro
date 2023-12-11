@@ -5,7 +5,7 @@ import Authors from "@components/Authors.astro";
 import Base from "@layouts/Base.astro";
 import Pagination from "@components/Pagination.astro";
 import { getAllAuthors } from "@lib/contentParser";
-import { sortByDate } from "@lib/utils/sortFunctions";
+import { sortByName } from "@lib/utils/sortFunctions";
 
 export async function getStaticPaths() {
   const authors = await getAllAuthors();
@@ -28,19 +28,19 @@ interface Props {
 
 const { page } = Astro.params;
 const authors = await getAllAuthors();
-const sortedPosts = sortByDate(authors);
+const sortedAuthors = sortByName(authors);
 const totalPages = Math.ceil(authors.length / config.settings.pagination);
 const currentPage = page && !isNaN(Number(page)) ? Number(page) : 1;
 const indexOfLastPost = currentPage * config.settings.pagination;
 const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
-const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+const currentAuthors = sortedAuthors.slice(indexOfFirstPost, indexOfLastPost);
 ---
 
 <Base title="Authors"}>
   <section>
     <div class="container text-center">
       <ContentHeader title="Authors" />
-      <Authors authors={currentPosts} />
+      <Authors authors={currentAuthors} />
       <Pagination
         section="authors"
         currentPage={currentPage}

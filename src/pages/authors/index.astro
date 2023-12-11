@@ -5,19 +5,19 @@ import Authors from "@components/Authors.astro";
 import Base from "@layouts/Base.astro";
 import Pagination from "@components/Pagination.astro";
 import { getAllAuthors } from "@lib/contentParser";
-import { sortByDate } from "@lib/utils/sortFunctions";
+import { sortByName } from "@lib/utils/sortFunctions";
 
 const authors = await getAllAuthors();
-const sortedPosts = sortByDate(authors);
+const sortedAuthors = sortByName(authors);
 const totalPages = Math.ceil(authors.length / config.settings.pagination);
-const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+const currentAuthors = sortedAuthors.slice(0, config.settings.pagination);
 ---
 
 <Base title="Authors">
   <section>
     <div class="container text-center">
       <ContentHeader title="Authors" />
-      <Authors authors={currentPosts} />
+      <Authors authors={currentAuthors} />
       <Pagination section="authors" currentPage={1} totalPages={totalPages} />
     </div>
   </section>
