@@ -1,5 +1,5 @@
 ---
-title: 'Customizable Curriculum Blueprint'
+title: 'Service Here'
 image: "../../images/posts/01.jpg"
 description: this is meta description
 topics: []

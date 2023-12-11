@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Cones & Shells",
+    "title": "Bookworm Light Astro | Blog Template",
     "base_url": "https://bookworm-light-astro.vercel.app",
     "base_path": "/",
     "trailing_slash": false,
@@ -8,7 +8,7 @@
     "logo": "",
     "logo_width": 200,
     "logo_height": 34,
-    "logo_text": "Cones & Shells"
+    "logo_text": "Bookworm Light"
   },
 
   "settings": {
