@@ -22,6 +22,9 @@ This theme is based on [this one](https://github.com/themefisher/bookworm-light-
 * Reduced usage of TailwindCSS's `@apply` rule
   * It is considered a code smell to use this too much. TailwindCSS provides a [guide on reusability](https://tailwindcss.com/docs/reusing-styles) which suggests using framework components for reusable styles rather than CSS classes.
 
+* **Significant style changes**
+  * These were made in anticipation for use on a production site and interspersed with the other changes, so they can't easily be undone. However, you are encouraged to make changes to the theme anyway, and the TailwindCSS improvements should make that easier.
+
 ## [👀Demo](https://bookworm-light-astro-v4.pages.dev/) | [99-100 Lighthouse score🚀](https://pagespeed.web.dev/analysis/https-bookworm-light-astro-v4-pages-dev/2qsbt54hn5?form_factor=desktop)
 
 Bookworm Light is a minimal multi-author free Astro blog theme which is perfect for any kind of blog website. Whether you're interested in food, beauty, travel, photography, lifestyle, fitness, health, or other topics, this theme is a great fit. The theme is super fast and SEO friendly which makes it easier for your content to be discovered by search engines.
