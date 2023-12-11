@@ -1,20 +1,21 @@
-<h1 align=center>Bookworm Light Astro</h1>
-<p align=center>Bookworm Light is a feature-rich, minimal, highly customizable, easy-to-use free Astro blog theme.</p>
-<h2 align="center"> <a target="_blank" href="https://bookworm-light-astro.vercel.app/" rel="nofollow">👀Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fbookworm-light-astro.vercel.app%2F&form_factor=desktop">Page Speed (100%)🚀</a>
-</h2>
+# Bookworm Light Astro
+
+Bookworm Light is a feature-rich, minimal, highly customizable, easy-to-use free Astro blog theme.
+
+## [👀Demo](https://bookworm-light-astro.vercel.app/) | [Page Speed (100%)🚀](https://pagespeed.web.dev/report?url=https%3A%2F%2Fbookworm-light-astro.vercel.app%2F&form_factor=desktop)
 
 <p align=center>
-  <a href="https://github.com/withastro/astro/releases/tag/astro%402.0.11" alt="Contributors">
-    <img src="https://img.shields.io/static/v1?label=ASTRO&message=2.0&color=000&logo=astro" />
+  <a href="https://github.com/withastro/astro/releases/tag/astro%404.0.0" alt="Contributors">
+    <img src="https://img.shields.io/static/v1?label=ASTRO&message=4.0&color=000&logo=astro" />
   </a>
 
-  <a href="https://github.com/themefisher/bookworm-light-astro/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/themefisher/bookworm-light-astro" alt="license"></a>
+  <a href="https://github.com/krazkidd/bookworm-light-astro/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/krazkidd/bookworm-light-astro" alt="license"></a>
 
-  <img src="https://img.shields.io/github/languages/code-size/themefisher/bookworm-light-astro" alt="code size">
+  <img src="https://img.shields.io/github/languages/code-size/krazkidd/bookworm-light-astro" alt="code size">
 
-  <a href="https://github.com/themefisher/bookworm-light-astro/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/themefisher/bigspring-light-astro" alt="contributors"></a>
+  <a href="https://github.com/krazkidd/bookworm-light-astro/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/krazkidd/bigspring-light-astro" alt="contributors"></a>
 </p>
 
 ![bookworm-light](https://demo.gethugothemes.com/thumbnails/bookworm-light.png)
@@ -50,7 +51,7 @@ After downloading the template, you have some prerequisites to install. Then you
 
 ### ⚙️Install prerequisites (once for a machine)
 
-- **Node Installation:** [Install node js](https://nodejs.org/en/download/) [Recommended LTS version]
+- **Node Installation:** [Install node js](https://nodejs.org/en/download/) [Recommended LTS version, Minimum 18.1.4]
 
 ### 🖥️Local setup
 
@@ -81,8 +82,8 @@ npm run build
 <!-- reporting issue -->
 ## 🐞Reporting Issues
 
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/themefisher/bookworm-light-astro/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/themefisher/bookworm-light-astro/issues).
+We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/krazkidd/bookworm-light-astro/issues). It’s possible someone has already reported the same problem.
+If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/krazkidd/bookworm-light-astro/issues).
 
 
 <!-- licence -->
@@ -90,12 +91,8 @@ If your problem or idea has not been addressed yet, feel free to [open a new iss
 
 Copyright (c) 2016 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
 
-**Code License:** Released under the [MIT](https://github.com/themefisher/bookworm-light-astro/blob/main/LICENSE) license.
+Copyright (c) 2023, Mark Ross (Xericode)
+
+**Code License:** Released under the [MIT](https://github.com/krazkidd/bookworm-light-astro/blob/main/LICENSE) license.
 
 **Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
-
-## 👨‍💻Need Custom Development Services?
-
-Besides developing beautifully designed and blazing-fast themes, we help businesses create fast, performance-focused, scalable & secure websites based on NextJs, Hugo, Astro, etc.
-
-If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://themefisher.com/contact). 
