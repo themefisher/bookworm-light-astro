@@ -15,13 +15,13 @@ const main: NavigationLink[] = menu.main;
 <header class="container">
   <nav class="flex flex-wrap justify-between p-2 md:px-0">
     <!-- logo -->
-    <Logo class="self-center" />
+    <Logo class="self-center order-0" />
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       id="show-button"
       for="nav-toggle"
-      class="flex cursor-pointer items-center text-black md:hidden"
+      class="order-1 flex cursor-pointer items-center text-black md:order-2 md:hidden"
     >
       <svg class="h-6 fill-current" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -44,7 +44,7 @@ const main: NavigationLink[] = menu.main;
 
     <ul
       id="nav-menu"
-      class="text-center md:text-left text-lg hidden w-full md:flex lg:gap-4 md:w-auto"
+      class="text-center md:text-left text-lg order-2 hidden w-full md:order-1 md:flex lg:gap-4 md:w-auto"
     >
       {
         main.map((navLink) => (
