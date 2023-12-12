@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "format": "prettier -w ."
+    "format": "prettier -w .",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/mdx": "^2.0.0",
