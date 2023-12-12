@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 interface Props {
   image: ImageMetadata;
   imageAlt: string;
-  class?: Record<string, boolean> | string;
+  class?: string;
 }
 
 const { image, imageAlt, class: className } = Astro.props;
