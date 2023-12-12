@@ -36,10 +36,10 @@ import {
 interface Props {
   //TODO type this
   source: any;
-  class?: string;
+  class?: Record<string, boolean> | string,
 }
 
-const { source, class: className = '' } = Astro.props;
+const { source, class: className } = Astro.props;
 
 const {
   facebook,
@@ -76,7 +76,7 @@ const {
 } = source;
 ---
 
-<ul class={className}>
+<ul class:list={[className]}>
   {
     facebook && (
       <li class="inline-block">

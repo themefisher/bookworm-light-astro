@@ -4,13 +4,13 @@ import { Image } from 'astro:assets';
 interface Props {
   image: ImageMetadata;
   imageAlt: string;
-  class?: string;
+  class?: Record<string, boolean> | string,
 }
 
-const { image, imageAlt, class: className = '' } = Astro.props;
+const { image, imageAlt, class: className } = Astro.props;
 ---
 
-<div class={`flex m-2 ${className}`}>
+<div class:list={['flex m-2', className]}>
   <div>
     <Image
       src={image}

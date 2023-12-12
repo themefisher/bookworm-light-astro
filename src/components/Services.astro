@@ -7,13 +7,13 @@ import config from "@config/config.json";
 
 interface Props {
   services: CollectionEntry<"services">[];
-  class?: string,
+  class?: Record<string, boolean> | string,
 }
 
 const { summary_length } = config.settings;
-const { services, class: className = '' } = Astro.props;
+const { services, class: className } = Astro.props;
 ---
-<div class={`row g-2 ${className}`}>
+<div class:list={['row g-2', className]}>
   {
     services.map(service => (
       <Tile

@@ -11,14 +11,14 @@ interface Props {
   title: string;
   description?: string;
   slug: string;
-  class?: string;
+  class?: Record<string, boolean> | string,
 }
 
 const { base_url } = config.site;
-const { title, description, slug, class: className = '' } = Astro.props;
+const { title, description, slug, class: className } = Astro.props;
 ---
 
-<ul class={className}>
+<ul class:list={[className]}>
   <li class="inline-block">
     <a
       aria-label="facebook share button"

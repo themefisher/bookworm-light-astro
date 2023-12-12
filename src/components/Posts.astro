@@ -13,7 +13,7 @@ interface Props {
   posts: CollectionEntry<"posts">[];
   fluid?: boolean;
   hideMeta?: boolean;
-  class?: string;
+  class?: Record<string, boolean> | string,
 }
 
 const { summary_length } = config.settings;
