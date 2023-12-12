@@ -5,18 +5,14 @@ import ContentHeader from '@components/ContentHeader.astro';
 import { markdownify } from '@lib/utils/textConverter';
 import { FaAddressCard, FaEnvelope, FaPhoneAlt } from 'react-icons/fa/index.js';
 
-const title = 'Contact';
-
 const { contact_form_action } = config.params;
 const { address, email, phone } = config.contactinfo;
 ---
 
-<Base
-  title={title}
->
+<Base title="Contact">
   <section>
     <div class="container">
-      <ContentHeader title={title} />
+      <ContentHeader title="Contact" />
       <div class="row md:gx-5 gy-5">
         <div class="sm:col-5 md:col-4">
           <p class="mb-8 text-2xl font-bold text-theme-dark">Contact Info</p>
