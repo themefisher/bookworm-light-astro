@@ -39,13 +39,20 @@ module.exports = {
     },
     extend: {
       colors: {
+        //TODO not used
         text: theme.colors.default.text_color.default,
+        //TODO not used
         light: theme.colors.default.text_color.light,
+        //TODO this is used nearly everywhere but is for a "light"
+        //     theme, not a "dark" theme (the color itself is dark)
         dark: theme.colors.default.text_color.dark,
         primary: theme.colors.default.theme_color.primary,
+        //TODO not used
         secondary: theme.colors.default.theme_color.secondary,
+        //TODO not used
         body: theme.colors.default.theme_color.body,
         border: theme.colors.default.theme_color.border,
+        //TODO these are both for a "light" theme, not a "dark" theme
         'theme-light': theme.colors.default.theme_color.theme_light,
         'theme-dark': theme.colors.default.theme_color.theme_dark,
       },

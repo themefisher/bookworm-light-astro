@@ -9,7 +9,7 @@
   li {
     @apply inline-block;
     a {
-      @apply block h-11 w-11 rounded-lg border border-light bg-transparent text-center text-white transition hover:border-primary hover:bg-primary;
+      @apply block h-11 w-11 rounded-lg border border-border bg-transparent text-center text-white transition hover:border-primary hover:bg-primary;
       svg {
         @apply m-auto h-11 text-base;
       }
@@ -43,7 +43,7 @@
 // form style
 .form-input,
 .form-textarea {
-  @apply rounded-md border-border py-3 text-text focus:border-primary focus:ring-transparent;
+  @apply rounded-md border-border py-3 focus:border-primary focus:ring-transparent;
 }
 
 // content style

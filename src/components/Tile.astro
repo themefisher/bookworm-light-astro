@@ -28,15 +28,13 @@ const { image, title, body, url, class: className } = Astro.props;
     <slot name="meta" />
 
     <slot name="title">
-      <div class="text-lg m-4">
-        <a href={url} class="block hover:text-primary transition duration-300">
-          {title}
-        </a>
-      </div>
+      <a href={url} class="block hover:text-primary transition duration-300 text-lg m-2">
+        {title}
+      </a>
     </slot>
 
     <slot name="body">
-      <p class="text-text m-4">
+      <p class="m-2">
         {body}
       </p>
     </slot>

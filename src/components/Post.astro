@@ -28,13 +28,13 @@ const authors = await getAuthorsByPost(post);
     <article class="row justify-center">
       <div class="md:col-10 text-center">
         <ContentHeader title={title} />
-        <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
-          <li class="mx-3">
+        <ul class="mt-4 flex flex-wrap gap-3 items-center justify-center">
+          <li>
             {
               authors.map(author => (
                 <a
                   href={`/authors/${author.slug}`}
-                  class="flex items-center hover:text-primary font-medium"
+                  class="flex items-center hover:text-primary"
                 >
                   {author.data.image && (
                     <Image
@@ -50,19 +50,19 @@ const authors = await getAuthorsByPost(post);
               ))
             }
           </li>
-          <li class="mx-3 flex items-center flex-wrap font-medium">
-            <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
+          <li class="flex items-center gap-1">
+            <BiCalendarEdit />
             {dateFormat(date)}
           </li>
-          <li class="mx-3 flex items-center flex-wrap">
-            <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
+          <li class="flex items-center gap-1">
+            <BiCategoryAlt />
             <ul>
               {
                 categories.map((category: string, i: number) => (
                   <li class="inline-block">
                     <a
                       href={`/categories/${slugify(category)}`}
-                      class="mr-2 hover:text-primary font-medium"
+                      class="mr-2 hover:text-primary"
                     >
                       {humanize(category)}{i !== post.data.categories.length - 1 && ','}
                     </a>
