@@ -32,7 +32,7 @@ const { authors } = Astro.props;
             {author.data.title}
           </a>
         </h3>
-        <p class="mb-3" set:text={markdownify(author.body.slice(0, 100))} />
+        <p class="mb-3" set:html={markdownify(author.body.slice(0, 100))} />
         <a href={`/authors/${author.slug}`} class="inline-flex items-center text-primary transition duration-200 hover:opacity-70">
           Read More <BsArrowRightCircle className="inline ml-2" />
         </a>
