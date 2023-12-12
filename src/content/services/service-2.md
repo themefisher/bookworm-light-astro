@@ -1,5 +1,5 @@
 ---
-title: 'Service There'
+title: 'Something There'
 image: "../../images/posts/02.jpg"
 description: this is meta description
 topics: ['Topic 1', 'Topic 2', 'Topic 3']
