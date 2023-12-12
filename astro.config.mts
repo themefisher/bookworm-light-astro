@@ -11,7 +11,12 @@ export default defineConfig({
   base: config.site.base_path ? config.site.base_path : '/',
   trailingSlash: config.site.trailing_slash ? 'always' : 'never',
   integrations: [
-    react(),
+    react({
+      include: [
+        './src/**/*.jsx',
+        './src/**/*.tsx'
+      ],
+    }),
     sitemap(),
     tailwind({
       applyBaseStyles: false,
