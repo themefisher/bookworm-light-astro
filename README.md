@@ -1,4 +1,4 @@
-# Bookworm Blight Astro (v4)
+# Bookworm Blight Astro
 
 Bookworm Blight is a feature-rich, minimal, highly customizable, easy-to-use free Astro 4.x blog theme.
 
