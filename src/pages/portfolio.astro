@@ -1,0 +1,21 @@
+---
+import Base from "@layouts/Base.astro";
+import ContentHeader from "@components/ContentHeader.astro";
+import Portfolio from "@components/Portfolio.astro";
+
+import { getAllPortfolioProjects } from "@lib/contentParser";
+
+const title = 'Portfolio';
+const subTitle = 'Some other stuff you might like';
+
+//TODO sort?
+const portfolioProjects = await getAllPortfolioProjects();
+---
+
+<Base>
+  <ContentHeader title={title} subTitle={subTitle} />
+
+  <section class="container mb-16">
+    <Portfolio projects={portfolioProjects} />
+  </section>
+</Base>

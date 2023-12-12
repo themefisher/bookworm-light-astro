@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import Tile from '@components/Tile.astro';
+
+import config from "@config/config.json";
+
+interface Props {
+  projects: CollectionEntry<"portfolio">[];
+  class?: Record<string, boolean> | string,
+}
+
+const { summary_length } = config.settings;
+const { projects, class: className } = Astro.props;
+---
+<div class:list={['row g-2', className]}>
+  {
+    projects.map(project => (
+      <Tile
+        image={project.data.image}
+        title={project.data.title}
+        body={project.body && project.body?.slice(0, Number(summary_length)) + '...'}
+        class="col-12 md:col-4"
+      />
+    ))
+  }
+</div>

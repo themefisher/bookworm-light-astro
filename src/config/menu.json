@@ -5,6 +5,10 @@
       "url": "/services"
     },
     {
+      "name": "Portfolio",
+      "url": "/portfolio"
+    },
+    {
       "name": "Blog",
       "url": "",
       "children": [
