@@ -1,8 +1,8 @@
-# Bookworm Light Astro (v4)
+# Bookworm Blight Astro (v4)
 
-Bookworm Light is a feature-rich, minimal, highly customizable, easy-to-use free Astro 4.x blog theme.
+Bookworm Blight is a feature-rich, minimal, highly customizable, easy-to-use free Astro 4.x blog theme.
 
-This theme is based on [this one](https://github.com/themefisher/bookworm-light-astro) by [Themefisher](https://themefisher.com). A number of improvements and other changes have been made:
+This theme is based on [Bookworm Light Astro](https://github.com/themefisher/bookworm-light-astro) by [Themefisher](https://themefisher.com). A number of improvements and opinionated changes have been made:
 
 * Astro upgraded to v4, following these guides:
   * [v2 -> v3](https://docs.astro.build/en/guides/upgrade-to/v3/)
@@ -34,9 +34,9 @@ This theme is based on [this one](https://github.com/themefisher/bookworm-light-
 * Opt-In to RSS feed
   * An RSS configuration has been added. To enable, rename `src/pages/_rss.xml.ts` without the underscore (`_`) prefix.
 
-## [👀Demo](https://bookworm-light-astro-v4.app.xericode.dev/) | [99-100 Lighthouse score🚀](https://pagespeed.web.dev/analysis/https-bookworm-light-astro-v4-app-xericode-dev/wo748bj1c3?form_factor=desktop)
+## [👀Demo](https://bookworm-blight-astro.app.xericode.dev/) | [99-100 Lighthouse score🚀](https://pagespeed.web.dev/analysis/https-bookworm-blight-astro-app-xericode-dev/wo748bj1c3?form_factor=desktop)
 
-Bookworm Light is a minimal multi-author free Astro blog theme which is perfect for any kind of blog website. Whether you're interested in food, beauty, travel, photography, lifestyle, fitness, health, or other topics, this theme is a great fit. The theme is super fast and SEO friendly which makes it easier for your content to be discovered by search engines.
+Bookworm Blight is a minimal multi-author free Astro blog theme which is perfect for any kind of blog website. Whether you're interested in food, beauty, travel, photography, lifestyle, fitness, health, or other topics, this theme is a great fit. The theme is super fast and SEO friendly which makes it easier for your content to be discovered by search engines.
 
 ## 🔑Key Features
 
@@ -98,8 +98,8 @@ npm run build
 <!-- reporting issue -->
 ## 🐞Reporting Issues
 
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/krazkidd/bookworm-light-astro-v4/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/krazkidd/bookworm-light-astro-v4/issues).
+We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/krazkidd/bookworm-blight-astro/issues). It’s possible someone has already reported the same problem.
+If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/krazkidd/bookworm-blight-astro/issues).
 
 
 <!-- licence -->
@@ -109,6 +109,6 @@ Copyright (c) 2016 - Present, Designed & Developed by [Themefisher](https://them
 
 Copyright (c) 2023, Mark Ross (Xericode)
 
-**Code License:** Released under the [MIT](https://github.com/krazkidd/bookworm-light-astro-v4/blob/main/LICENSE) license.
+**Code License:** Released under the [MIT](https://github.com/krazkidd/bookworm-blight-astro/blob/main/LICENSE) license.
 
 **Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.

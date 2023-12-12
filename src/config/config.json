@@ -1,14 +1,14 @@
 {
   "site": {
-    "title": "Bookworm Light Astro | Blog Template",
-    "base_url": "https://bookworm-light-astro-v4.app.xericode.dev/",
+    "title": "Bookworm Blight Astro | Blog Template",
+    "base_url": "https://bookworm-blight-astro.app.xericode.dev/",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/favicon/favicon.png",
     "logo": "",
     "logo_width": 200,
     "logo_height": 34,
-    "logo_text": "Bookworm Light"
+    "logo_text": "Bookworm Blight"
   },
 
   "settings": {
@@ -19,7 +19,7 @@
   "metadata": {
     "meta_author": "Themefisher",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Bookworm Light Astro Blog Template"
+    "meta_description": "Bookworm Blight Astro Blog Template"
   },
 
   "params": {
