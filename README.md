@@ -31,6 +31,9 @@ This theme is based on [this one](https://github.com/themefisher/bookworm-light-
 * **Significant style changes**
   * These were made in anticipation for use on a production site and interspersed with the other changes, so they can't easily be undone. However, you are encouraged to make changes to the theme anyway, and the TailwindCSS improvements should make that easier.
 
+* Opt-In to RSS feed
+  * An RSS configuration has been added. To enable, rename `src/pages/_rss.xml.ts` without the underscore (`_`) prefix.
+
 ## [👀Demo](https://bookworm-light-astro-v4.app.xericode.dev/) | [99-100 Lighthouse score🚀](https://pagespeed.web.dev/analysis/https-bookworm-light-astro-v4-app-xericode-dev/wo748bj1c3?form_factor=desktop)
 
 Bookworm Light is a minimal multi-author free Astro blog theme which is perfect for any kind of blog website. Whether you're interested in food, beauty, travel, photography, lifestyle, fitness, health, or other topics, this theme is a great fit. The theme is super fast and SEO friendly which makes it easier for your content to be discovered by search engines.
