@@ -23,17 +23,15 @@ interface SearchResult {
 
 export default function SearchBar({ searchList }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [inputVal, setInputVal] = useState("");
-  const [searchResults, setSearchResults] = useState<SearchResult[] | null>(
-    null
-  );
+  const [inputVal, setInputVal] = useState('');
+  const [searchResults, setSearchResults] = useState<SearchResult[] | null>(null);
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     setInputVal(e.currentTarget.value);
   };
 
   const fuse = new Fuse(searchList, {
-    keys: ["data.title", "data.categories", "data.tags"],
+    keys: ['data.title', 'data.categories', 'data.tags'],
     includeMatches: true,
     minMatchCharLength: 2,
     threshold: 0.5,
@@ -41,12 +39,11 @@ export default function SearchBar({ searchList }: Props) {
 
   useEffect(() => {
     const searchUrl = new URLSearchParams(window.location.search);
-    const searchStr = searchUrl.get("q");
+    const searchStr = searchUrl.get('q');
     if (searchStr) setInputVal(searchStr);
 
     setTimeout(function () {
-      inputRef.current!.selectionStart = inputRef.current!.selectionEnd =
-        searchStr?.length || 0;
+      inputRef.current!.selectionStart = inputRef.current!.selectionEnd = searchStr?.length || 0;
     }, 50);
   }, []);
 
@@ -56,12 +53,11 @@ export default function SearchBar({ searchList }: Props) {
 
     if (inputVal.length > 0) {
       const searchParams = new URLSearchParams(window.location.search);
-      searchParams.set("q", inputVal);
-      const newRelativePathQuery =
-        window.location.pathname + "?" + searchParams.toString();
-      history.pushState(null, "", newRelativePathQuery);
+      searchParams.set('q', inputVal);
+      const newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+      history.pushState(null, '', newRelativePathQuery);
     } else {
-      history.pushState(null, "", window.location.pathname);
+      history.pushState(null, '', window.location.pathname);
     }
   }, [inputVal]);
 
@@ -119,7 +115,7 @@ export default function SearchBar({ searchList }: Props) {
                           href={`/categories/${slugify(category)}`}
                           className="mr-2 hover:text-primary font-medium"
                         >
-                          {humanize(category)}{i !== item.data.categories.length - 1 && ","}
+                          {humanize(category)}{i !== item.data.categories.length - 1 && ','}
                         </a>
                       </li>
                     ))}

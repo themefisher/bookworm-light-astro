@@ -1,5 +1,5 @@
 ---
-import { markdownify } from "@lib/utils/textConverter";
+import { markdownify } from '@lib/utils/textConverter';
 
 interface Props {
   title: string;
@@ -8,6 +8,7 @@ interface Props {
 
 const { title, subTitle } = Astro.props;
 ---
+
 <div class="mb-8">
   <h1 transition:animate="slide" set:html={markdownify(title)} class="text-center text-3xl md:text-4xl" />
 

@@ -1,11 +1,11 @@
 ---
 title: Why a balloon is a flexible bag
-description: "meta description"
+description: 'meta description'
 date: 2022-04-04T05:00:00Z
-image: "../../images/posts/02.jpg"
-categories: ["development"]
-authors: ["john-doe"]
-tags: ["diy", "toy"]
+image: '../../images/posts/02.jpg'
+categories: ['development']
+authors: ['john-doe']
+tags: ['diy', 'toy']
 draft: false
 featured: false
 ---

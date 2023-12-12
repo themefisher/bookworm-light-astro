@@ -1,15 +1,15 @@
 ---
-import Base from "@layouts/Base.astro";
-import ContentHeader from "@components/ContentHeader.astro";
-import Posts from "@components/Posts.astro";
-import { getAllPosts, getAllPostCategories } from "@lib/contentParser";
-import taxonomyFilter from "@lib/utils/taxonomyFilter";
-import { humanize } from "@lib/utils/textConverter";
+import Base from '@layouts/Base.astro';
+import ContentHeader from '@components/ContentHeader.astro';
+import Posts from '@components/Posts.astro';
+import { getAllPosts, getAllPostCategories } from '@lib/contentParser';
+import taxonomyFilter from '@lib/utils/taxonomyFilter';
+import { humanize } from '@lib/utils/textConverter';
 
 export async function getStaticPaths() {
   const categories = await getAllPostCategories();
 
-  return categories.map((category) => {
+  return categories.map(category => {
     return {
       params: { category },
     };
@@ -23,12 +23,12 @@ interface Props {
 const { category } = Astro.params;
 
 const posts = await getAllPosts();
-const filterByCategory = taxonomyFilter(posts, "categories", category);
+const filterByCategory = taxonomyFilter(posts, 'categories', category);
 
-const title = humanize(category || "")!;
+const title = humanize(category || '')!;
 ---
 
-<Base title={title || "Category"}>
+<Base title={title || 'Category'}>
   <section>
     <div class="container">
       <p class="text-center mb-4">Showing Posts From</p>

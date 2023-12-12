@@ -1,13 +1,13 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 
-import TwSizeIndicator from "./components/TwSizeIndicator.astro";
-import config from "@config/config.json";
-import theme from "@config/theme.json";
-import { plainify } from "@lib/utils/textConverter";
-import Footer from "./components/Footer.astro";
-import Header from "./components/Header.astro";
-import "@styles/style.scss";
+import TwSizeIndicator from './components/TwSizeIndicator.astro';
+import config from '@config/config.json';
+import theme from '@config/theme.json';
+import { plainify } from '@lib/utils/textConverter';
+import Footer from './components/Footer.astro';
+import Header from './components/Header.astro';
+import '@styles/style.scss';
 
 // font families
 const pf = theme.fonts.font_family.primary;
@@ -53,7 +53,7 @@ const { title, meta_title, description, image, noindex, canonical } = Astro.prop
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href={`https://fonts.googleapis.com/css2?family=${pf}${
-        sf ? "&family=" + sf : ""
+        sf ? '&family=' + sf : ''
       }&display=swap`}
       rel="stylesheet"
     />

@@ -3,16 +3,16 @@ import { Image } from 'astro:assets';
 import { type CollectionEntry } from 'astro:content';
 
 import ContentHeader from '@components/ContentHeader.astro';
-import Share from "@components/Share.astro";
-import SimilarPosts from "@components/SimilarPosts.astro";
-import { getAllPosts, getAuthorsByPost } from "@lib/contentParser";
-import dateFormat from "@lib/utils/dateFormat";
-import similarPostsFn from "@lib/utils/similarItems";
-import { humanize, slugify } from "@lib/utils/textConverter";
-import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
+import Share from '@components/Share.astro';
+import SimilarPosts from '@components/SimilarPosts.astro';
+import { getAllPosts, getAuthorsByPost } from '@lib/contentParser';
+import dateFormat from '@lib/utils/dateFormat';
+import similarPostsFn from '@lib/utils/similarItems';
+import { humanize, slugify } from '@lib/utils/textConverter';
+import { BiCalendarEdit, BiCategoryAlt } from 'react-icons/bi/index.js';
 
 interface Props {
-  post: CollectionEntry<"posts">;
+  post: CollectionEntry<'posts'>;
 }
 
 const posts = await getAllPosts();
@@ -31,24 +31,23 @@ const authors = await getAuthorsByPost(post);
         <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
           <li class="mx-3">
             {
-              authors
-                .map((author) => (
-                  <a
-                    href={`/authors/${author.slug}`}
-                    class="flex items-center hover:text-primary font-medium"
-                  >
-                    {author.data.image && (
-                      <Image
-                        src={author.data.image}
-                        alt={author.data.title}
-                        height={50}
-                        width={50}
-                        class="mr-2 h-6 w-6 rounded-full"
-                      />
-                    )}
-                    <span>{author.data.title}</span>
-                  </a>
-                ))
+              authors.map(author => (
+                <a
+                  href={`/authors/${author.slug}`}
+                  class="flex items-center hover:text-primary font-medium"
+                >
+                  {author.data.image && (
+                    <Image
+                      src={author.data.image}
+                      alt={author.data.title}
+                      height={50}
+                      width={50}
+                      class="mr-2 h-6 w-6 rounded-full"
+                    />
+                  )}
+                  <span>{author.data.title}</span>
+                </a>
+              ))
             }
           </li>
           <li class="mx-3 flex items-center flex-wrap font-medium">
@@ -57,7 +56,6 @@ const authors = await getAuthorsByPost(post);
           </li>
           <li class="mx-3 flex items-center flex-wrap">
             <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
-            <>
             <ul>
               {
                 categories.map((category: string, i: number) => (
@@ -66,13 +64,12 @@ const authors = await getAuthorsByPost(post);
                       href={`/categories/${slugify(category)}`}
                       class="mr-2 hover:text-primary font-medium"
                     >
-                      {humanize(category)}{i !== post.data.categories.length - 1 && ","}
+                      {humanize(category)}{i !== post.data.categories.length - 1 && ','}
                     </a>
                   </li>
                 ))
               }
             </ul>
-            </>
           </li>
         </ul>
       </div>

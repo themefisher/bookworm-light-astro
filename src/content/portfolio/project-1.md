@@ -1,6 +1,6 @@
 ---
 title: 'Cool Thing I Did #1'
-image: "../../images/posts/01.jpg"
+image: '../../images/posts/01.jpg'
 description: this is meta description
 url: 'https://example.com/project'
 ---

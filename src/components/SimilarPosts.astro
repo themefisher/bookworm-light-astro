@@ -2,12 +2,12 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
-import dateFormat from "@lib/utils/dateFormat";
-import { humanize,slugify } from "@lib/utils/textConverter";
-import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
+import dateFormat from '@lib/utils/dateFormat';
+import { humanize, slugify } from '@lib/utils/textConverter';
+import { BiCalendarEdit, BiCategoryAlt } from 'react-icons/bi/index.js';
 
 interface Props {
-  posts: CollectionEntry<"posts">[];
+  posts: CollectionEntry<'posts'>[];
 }
 
 const { posts } = Astro.props;
@@ -16,7 +16,7 @@ const { posts } = Astro.props;
 <div class="row gy-4 justify-center">
   {
     posts.map((post, i) => (
-      <div class={`col-12 sm:col-6 md:col-4 ${i === 2 && "hidden md:block"}`}>
+      <div class:list={['col-12 sm:col-6 md:col-4', { 'hidden md:block': i === 2 }]}>
         {post.data.image && (
           <a href={`/posts/${post.slug}`} class="rounded-lg block hover:text-primary overflow-hidden group">
             <Image
@@ -43,7 +43,7 @@ const { posts } = Astro.props;
                       href={`/categories/${slugify(category)}`}
                       class="mr-2 hover:text-primary font-medium"
                     >
-                      {humanize(category)}{i !== post.data.categories.length - 1 && ","}
+                      {humanize(category)}{i !== post.data.categories.length - 1 && ','}
                     </a>
                   </li>
                 ))}

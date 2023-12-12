@@ -1,10 +1,10 @@
 ---
-import Base from "@layouts/Base.astro";
-import ContentHeader from "@components/ContentHeader.astro";
-import { getAllPostTags } from "@lib/contentParser";
-import { humanize } from "@lib/utils/textConverter";
+import Base from '@layouts/Base.astro';
+import ContentHeader from '@components/ContentHeader.astro';
+import { getAllPostTags } from '@lib/contentParser';
+import { humanize } from '@lib/utils/textConverter';
 
-import { FaHashtag } from "react-icons/fa/index.js";
+import { FaHashtag } from 'react-icons/fa/index.js';
 
 const tags = await getAllPostTags();
 ---
@@ -15,14 +15,14 @@ const tags = await getAllPostTags();
       <ContentHeader title="Tags" />
       <ul class="flex flex-wrap justify-center gap-4">
         {
-          tags.map((tag) => (
+          tags.map(tag => (
             <li class="inline-block">
               <a
                 href={`/tags/${tag}`}
                 class="rounded-lg bg-theme-light px-4 py-2 text-dark transition hover:bg-primary hover:text-white flex items-center group"
               >
                 <FaHashtag className="mr-1 text-primary group-hover:text-white transition" />
-                <>{humanize(tag || "")}</>
+                <>{humanize(tag || '')}</>
               </a>
             </li>
           ))

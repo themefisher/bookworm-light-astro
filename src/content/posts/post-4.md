@@ -1,13 +1,13 @@
 ---
-title: "Why a balloon is a flexible bag that can be inflated with a gas"
-description: "meta description"
-image: "../../images/posts/04.jpg"
+title: 'Why a balloon is a flexible bag that can be inflated with a gas'
+description: 'meta description'
+image: '../../images/posts/04.jpg'
 date: 2021-02-02T16:56:47+06:00
 draft: false
 featured: false
-authors: ["mark-dinn"]
-tags: ["Balloon", "Gas"]
-categories: ["Accessories"]
+authors: ['mark-dinn']
+tags: ['Balloon', 'Gas']
+categories: ['Accessories']
 ---
 
 A balloon is a flexible bag that can be inflated with a gas, such as helium, hydrogen, nitrous oxide, oxygen, and air. For special tasks, balloons can be filled with smoke, liquid water, granular media, or light sources.

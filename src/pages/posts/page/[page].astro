@@ -1,10 +1,10 @@
 ---
-import config from "@config/config.json";
-import Base from "@layouts/Base.astro";
-import Pagination from "@components/Pagination.astro";
-import Posts from "@components/Posts.astro";
-import { getAllPosts } from "@lib/contentParser";
-import { sortByDate } from "@lib/utils/sortFunctions";
+import config from '@config/config.json';
+import Base from '@layouts/Base.astro';
+import Pagination from '@components/Pagination.astro';
+import Posts from '@components/Posts.astro';
+import { getAllPosts } from '@lib/contentParser';
+import { sortByDate } from '@lib/utils/sortFunctions';
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
@@ -39,7 +39,7 @@ const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
   <section>
     <div class="container">
       <Posts class="mb-16" fluid={false} posts={currentPosts} />
-      <Pagination section="posts" totalPages={totalPages} currentPage={currentPage}  />
+      <Pagination section="posts" totalPages={totalPages} currentPage={currentPage} />
     </div>
   </section>
 </Base>

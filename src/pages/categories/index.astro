@@ -1,12 +1,12 @@
 ---
-import Base from "@layouts/Base.astro";
-import ContentHeader from "@components/ContentHeader.astro";
-import { getAllPostCategories } from "@lib/contentParser";
-import { humanize } from "@lib/utils/textConverter";
+import Base from '@layouts/Base.astro';
+import ContentHeader from '@components/ContentHeader.astro';
+import { getAllPostCategories } from '@lib/contentParser';
+import { humanize } from '@lib/utils/textConverter';
 
 const categories = await getAllPostCategories();
 
-import { BiCategoryAlt } from "react-icons/bi/index.js";
+import { BiCategoryAlt } from 'react-icons/bi/index.js';
 ---
 
 <Base title="Categories">
@@ -15,14 +15,14 @@ import { BiCategoryAlt } from "react-icons/bi/index.js";
       <ContentHeader title="Categories" />
       <ul class="flex flex-wrap justify-center gap-4">
         {
-          categories.map((category) => (
+          categories.map(category => (
             <li class="inline-block">
               <a
                 href={`/categories/${category}`}
                 class="rounded-lg bg-theme-light px-4 py-2 text-dark transition hover:bg-primary hover:text-white flex items-center group"
               >
                 <BiCategoryAlt className="mr-1 text-primary group-hover:text-white transition h-6 w-6 scale-75" />
-                <>{humanize(category || "")}</>
+                <>{humanize(category || '')}</>
               </a>
             </li>
           ))

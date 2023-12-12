@@ -1,17 +1,17 @@
 ---
-import config from "@config/config.json";
+import config from '@config/config.json';
 import {
   IoLogoFacebook,
   IoLogoLinkedin,
   IoLogoPinterest,
   IoLogoTwitter,
-} from "react-icons/io5/index.js";
+} from 'react-icons/io5/index.js';
 
 interface Props {
   title: string;
   description?: string;
   slug: string;
-  class?: Record<string, boolean> | string,
+  class?: Record<string, boolean> | string;
 }
 
 const { base_url } = config.site;

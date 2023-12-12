@@ -1,4 +1,4 @@
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
 // sort by date
 export const sortByDate = (array: CollectionEntry<'posts'>[]) => {

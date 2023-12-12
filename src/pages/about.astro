@@ -1,31 +1,31 @@
 ---
 import { Image } from 'astro:assets';
 
-import Base from "@layouts/Base.astro";
-import { markdownify } from "@lib/utils/textConverter";
+import Base from '@layouts/Base.astro';
+import { markdownify } from '@lib/utils/textConverter';
 
 import author from '@images/author.png';
 
-const title = "I’m John Doe, A content writer based in LDN, Currently at Bookworm";
-const meta_title = "About";
+const title = 'I’m John Doe, A content writer based in LDN, Currently at Bookworm';
+const meta_title = 'About';
 
 const what_i_do = {
-  title: "What I Do",
+  title: 'What I Do',
   items: [
     {
-      title: "Content Writing",
-      description: "Purus eget ipsum elementum venenatis, quis rutrum mi semper nonpurus eget ipsum elementum venenatis."
+      title: 'Content Writing',
+      description: 'Purus eget ipsum elementum venenatis, quis rutrum mi semper nonpurus eget ipsum elementum venenatis.',
     },
     {
-      title: "Photography",
-      description: "Aenean maximus urna magna elementum, quis rutrum mi semper non purus eget ipsum venenatis."
+      title: 'Photography',
+      description: 'Aenean maximus urna magna elementum, quis rutrum mi semper non purus eget ipsum venenatis.',
     },
     {
-      title: "Web Research",
-      description: "Aenean maximus urna magna elementum venenatis, quis semper non purus eget ipsum venenatis."
+      title: 'Web Research',
+      description: 'Aenean maximus urna magna elementum venenatis, quis semper non purus eget ipsum venenatis.',
     },
-  ]
-}
+  ],
+};
 ---
 
 <Base

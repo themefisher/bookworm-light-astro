@@ -2,19 +2,19 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
-import Author from "@components/Author.astro";
-import Base from "@layouts/Base.astro";
-import { getAllAuthors, getAllPostsByAuthor } from "@lib/contentParser";
-import dateFormat from "@lib/utils/dateFormat";
+import Author from '@components/Author.astro';
+import Base from '@layouts/Base.astro';
+import { getAllAuthors, getAllPostsByAuthor } from '@lib/contentParser';
+import dateFormat from '@lib/utils/dateFormat';
 
-import { sortByDate } from "@lib/utils/sortFunctions";
-import { humanize,slugify } from "@lib/utils/textConverter";
-import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
+import { sortByDate } from '@lib/utils/sortFunctions';
+import { humanize, slugify } from '@lib/utils/textConverter';
+import { BiCalendarEdit, BiCategoryAlt } from 'react-icons/bi/index.js';
 
 export async function getStaticPaths() {
   const authors = await getAllAuthors();
 
-  const paths = authors.map((author) => ({
+  const paths = authors.map(author => ({
     params: {
       author: author.slug,
     },
@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  author: CollectionEntry<"authors">;
+  author: CollectionEntry<'authors'>;
 }
 
 const { author } = Astro.props;

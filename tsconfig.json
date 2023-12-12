@@ -13,7 +13,7 @@
       "@content/*": ["./src/content/*"],
       "@styles/*": ["./src/styles/*"],
       "@lib/*": ["./src/lib/*"],
-      "@images/*": ["./src/images/*"],
+      "@images/*": ["./src/images/*"]
     }
   }
 }

@@ -1,11 +1,11 @@
 ---
-import config from "@config/config.json";
-import ContentHeader from "@components/ContentHeader.astro";
-import Authors from "@components/Authors.astro";
-import Base from "@layouts/Base.astro";
-import Pagination from "@components/Pagination.astro";
-import { getAllAuthors } from "@lib/contentParser";
-import { sortByName } from "@lib/utils/sortFunctions";
+import config from '@config/config.json';
+import ContentHeader from '@components/ContentHeader.astro';
+import Authors from '@components/Authors.astro';
+import Base from '@layouts/Base.astro';
+import Pagination from '@components/Pagination.astro';
+import { getAllAuthors } from '@lib/contentParser';
+import { sortByName } from '@lib/utils/sortFunctions';
 
 export async function getStaticPaths() {
   const authors = await getAllAuthors();
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  page: number
+  page: number;
 }
 
 const { page } = Astro.params;
@@ -36,7 +36,7 @@ const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
 const currentAuthors = sortedAuthors.slice(indexOfFirstPost, indexOfLastPost);
 ---
 
-<Base title="Authors"}>
+<Base title="Authors">
   <section>
     <div class="container text-center">
       <ContentHeader title="Authors" />

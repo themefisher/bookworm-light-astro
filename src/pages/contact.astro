@@ -1,11 +1,11 @@
 ---
-import config from "@config/config.json";
-import Base from "@layouts/Base.astro";
-import ContentHeader from "@components/ContentHeader.astro";
-import { markdownify } from "@lib/utils/textConverter";
-import { FaAddressCard, FaEnvelope, FaPhoneAlt } from "react-icons/fa/index.js";
+import config from '@config/config.json';
+import Base from '@layouts/Base.astro';
+import ContentHeader from '@components/ContentHeader.astro';
+import { markdownify } from '@lib/utils/textConverter';
+import { FaAddressCard, FaEnvelope, FaPhoneAlt } from 'react-icons/fa/index.js';
 
-const title = "Contact";
+const title = 'Contact';
 
 const { contact_form_action } = config.params;
 const { address, email, phone } = config.contactinfo;

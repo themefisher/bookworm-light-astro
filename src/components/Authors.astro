@@ -2,11 +2,11 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
-import { markdownify } from "@lib/utils/textConverter";
-import { BsArrowRightCircle } from "react-icons/bs/index.js";
+import { markdownify } from '@lib/utils/textConverter';
+import { BsArrowRightCircle } from 'react-icons/bs/index.js';
 
 interface Props {
-  authors: CollectionEntry<"authors">[];
+  authors: CollectionEntry<'authors'>[];
 }
 
 const { authors } = Astro.props;

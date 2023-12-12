@@ -1,15 +1,15 @@
 ---
-import Base from "@layouts/Base.astro";
-import ContentHeader from "@components/ContentHeader.astro";
-import Search from "@components/Search";
+import Base from '@layouts/Base.astro';
+import ContentHeader from '@components/ContentHeader.astro';
+import Search from '@components/Search';
 
-import { getAllPosts } from "@lib/contentParser";
+import { getAllPosts } from '@lib/contentParser';
 
 // Retrieve all articles
 const posts = await getAllPosts();
 
 // List of items to search in
-const searchList = posts.map((item) => ({
+const searchList = posts.map(item => ({
   slug: item.slug,
   data: item.data,
   content: item.body,

@@ -3,10 +3,10 @@ import { Image } from 'astro:assets';
 
 interface Props {
   image?: ImageMetadata;
-  title?: string,
-  body?: string,
-  url?: string,
-  class?: Record<string, boolean> | string,
+  title?: string;
+  body?: string;
+  url?: string;
+  class?: Record<string, boolean> | string;
 }
 
 const { image, title, body, url, class: className } = Astro.props;

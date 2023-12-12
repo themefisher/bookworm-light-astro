@@ -1,11 +1,11 @@
 ---
-import config from "@config/config.json";
-import Base from "@layouts/Base.astro";
-import ContentHeader from "@components/ContentHeader.astro";
-import Pagination from "@components/Pagination.astro";
-import Posts from "@components/Posts.astro";
-import { getAllPosts } from "@lib/contentParser";
-import { sortByDate } from "@lib/utils/sortFunctions";
+import config from '@config/config.json';
+import Base from '@layouts/Base.astro';
+import ContentHeader from '@components/ContentHeader.astro';
+import Pagination from '@components/Pagination.astro';
+import Posts from '@components/Posts.astro';
+import { getAllPosts } from '@lib/contentParser';
+import { sortByDate } from '@lib/utils/sortFunctions';
 
 const posts = await getAllPosts();
 const sortedPosts = sortByDate(posts);

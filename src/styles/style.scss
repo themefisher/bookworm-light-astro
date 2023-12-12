@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @layer base {
-  @import "base";
+  @import 'base';
 }
 
 @layer components {
-  @import "components";
-  @import "navigation";
+  @import 'components';
+  @import 'navigation';
 }

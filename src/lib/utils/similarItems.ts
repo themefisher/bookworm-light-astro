@@ -1,4 +1,4 @@
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from 'astro:content';
 
 const similarPosts = (currentItem: CollectionEntry<'posts'>, allItems: CollectionEntry<'posts'>[]): CollectionEntry<'posts'>[] => {
   let categories: string[] = [];
@@ -16,19 +16,19 @@ const similarPosts = (currentItem: CollectionEntry<'posts'>, allItems: Collectio
 
   // filter by categories
   const filterByCategories = allItems.filter(
-    item => categories.find((category) => item.data.categories.includes(category))
+    item => categories.find(category => item.data.categories.includes(category))
   );
 
   // filter by tags
   const filterByTags = allItems.filter(
-    item => tags.find((tag) => item.data.tags.includes(tag))
+    item => tags.find(tag => item.data.tags.includes(tag))
   );
 
   // merged after filter
   const mergedItems = [...new Set([...filterByCategories, ...filterByTags])];
 
   // filter by slug
-  return mergedItems.filter((product) => product.slug !== currentItem.slug);
+  return mergedItems.filter(product => product.slug !== currentItem.slug);
 };
 
 export default similarPosts;
