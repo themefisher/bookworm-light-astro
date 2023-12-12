@@ -34,7 +34,7 @@ This theme is based on [Bookworm Light Astro](https://github.com/themefisher/boo
 * Opt-In to RSS feed
   * An RSS configuration has been added. To enable, rename `src/pages/_rss.xml.ts` without the underscore (`_`) prefix.
 
-## [👀Demo](https://bookworm-blight-astro.app.xericode.dev/) | [99-100 Lighthouse score🚀](https://pagespeed.web.dev/analysis/https-bookworm-blight-astro-app-xericode-dev/wo748bj1c3?form_factor=desktop)
+## [👀Demo](https://bookworm-blight-astro.app.xericode.dev/) | [98-100 Lighthouse score🚀](https://pagespeed.web.dev/analysis/https-bookworm-blight-astro-app-xericode-dev/bj58dxjb2k?form_factor=desktop)
 
 Bookworm Blight is a minimal multi-author free Astro blog theme which is perfect for any kind of blog website. Whether you're interested in food, beauty, travel, photography, lifestyle, fitness, health, or other topics, this theme is a great fit. The theme is super fast and SEO friendly which makes it easier for your content to be discovered by search engines.
 
