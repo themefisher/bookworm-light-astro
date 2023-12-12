@@ -46,6 +46,10 @@
       "url": "/about"
     },
     {
+      "name": "Blog",
+      "url": "/posts"
+    },
+    {
       "name": "Book a Consult",
       "url": "/contact"
     }
