@@ -103,24 +103,22 @@ export default function SearchBar({ searchList }: Props) {
             <ul className="mt-6 mb-4 flex flex-wrap items-center text-text">
               <li className="mr-5 flex items-center flex-wrap font-medium">
                 <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
-                <>{dateFormat(item.data.date)}</>
+                {dateFormat(item.data.date)}
               </li>
               <li className="mr-5 flex items-center flex-wrap">
                 <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
-                <>
-                  <ul>
-                    {item.data.categories.map((category: string, i: number) => (
-                      <li className="inline-block">
-                        <a
-                          href={`/categories/${slugify(category)}`}
-                          className="mr-2 hover:text-primary font-medium"
-                        >
-                          {humanize(category)}{i !== item.data.categories.length - 1 && ','}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </>
+                <ul>
+                  {item.data.categories.map((category: string, i: number) => (
+                    <li className="inline-block">
+                      <a
+                        href={`/categories/${slugify(category)}`}
+                        className="mr-2 hover:text-primary font-medium"
+                      >
+                        {humanize(category)}{i !== item.data.categories.length - 1 && ','}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </li>
             </ul>
 

@@ -47,35 +47,33 @@ const main: NavigationLink[] = menu.main;
       class="text-center md:text-left text-lg order-2 hidden w-full md:order-1 md:flex lg:gap-4 md:w-auto"
     >
       {
-        main.map((navLink) => (
-          <>
-            {navLink.children ? (
-              <li class="nav-dropdown group relative cursor-pointer mx-1">
-                <span class:list={['inline-flex items-center p-1 rounded text-dark transition hover:text-primary md:p-2 outline-2', { 'outline': navLink.outline }]}>
-                  {navLink.name}
-                  <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                  </svg>
-                </span>
-                <ul class="z-10 rounded-lg bg-white px-6 py-3 shadow transition hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
-                  {navLink.children?.map((childNavLink) => (
-                    <li class="mb-1">
-                      <a href={childNavLink.url} class="block min-w-[150px] py-1 text-dark transition hover:text-primary">
-                        {childNavLink.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : (
-              <li class="mx-1">
-                <a href={navLink.url} class:list={['inline-flex items-center p-1 text-lg rounded text-dark transition hover:text-primary md:p-2 outline-2', { 'outline': navLink.outline }]}>
-                  {navLink.name}
-                </a>
-              </li>
-            )}
-          </>
-        ))
+        main.map((navLink) =>
+          navLink.children ? (
+            <li class="nav-dropdown group relative cursor-pointer mx-1">
+              <span class:list={['inline-flex items-center p-1 rounded text-dark transition hover:text-primary md:p-2 outline-2', { 'outline': navLink.outline }]}>
+                {navLink.name}
+                <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </span>
+              <ul class="z-10 rounded-lg bg-white px-6 py-3 shadow transition hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
+                {navLink.children?.map((childNavLink) => (
+                  <li class="mb-1">
+                    <a href={childNavLink.url} class="block min-w-[150px] py-1 text-dark transition hover:text-primary">
+                      {childNavLink.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ) : (
+            <li class="mx-1">
+              <a href={navLink.url} class:list={['inline-flex items-center p-1 text-lg rounded text-dark transition hover:text-primary md:p-2 outline-2', { 'outline': navLink.outline }]}>
+                {navLink.name}
+              </a>
+            </li>
+          )
+        )
       }
     </ul>
   </nav>
