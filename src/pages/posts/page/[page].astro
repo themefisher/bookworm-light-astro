@@ -35,7 +35,7 @@ const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
 const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 ---
 
-<Base>
+<Base title="Blog">
   <section>
     <div class="container">
       <Posts class="mb-16" fluid={false} posts={currentPosts} />
