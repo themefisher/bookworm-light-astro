@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Bookworm Light Astro | Blog Template",
-    "base_url": "https://bookworm-light-astro-v4.pages.dev/",
+    "base_url": "https://bookworm-light-astro-v4.app.xericode.dev/",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/favicon/favicon.png",
