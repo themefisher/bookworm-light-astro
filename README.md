@@ -16,6 +16,12 @@ This theme is based on [this one](https://github.com/themefisher/bookworm-light-
 * Blog post routes were moved to `/posts/`
   * The Themefisher template created routes for posts directly under the base path (i.e. `/post-slug`).
 
+* Images are optimized with the [`<Image />` Astro component](https://docs.astro.build/en/guides/images/#image--astroassets)
+  * This component was released as a built-in in [Astro 3.0](https://astro.build/blog/astro-3/).
+
+* View Transitions support added
+  * This was also released in [Astro 3.0](https://astro.build/blog/astro-3/) but improved in [Astro 4.0](https://astro.build/blog/astro-4/#new-view-transition-apis).
+
 * Better use of TypeScript
   * Content types are more transparently handled in this project and typings were added to all component props.
 
