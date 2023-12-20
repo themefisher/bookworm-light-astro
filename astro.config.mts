@@ -7,7 +7,7 @@ import config from './src/config/config.json';
 
 // https://astro.build/config
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : 'http://examplesite.com',
+  site: config.site.base_url ? config.site.base_url : 'http://example.com',
   base: config.site.base_path ? config.site.base_path : '/',
   // for dev server, strictly enforce route matching behavior
   // (so that we remember to add trailing slashes where needed in <a> tags)
