@@ -33,7 +33,7 @@ for (const post of posts) {
         image={post.data.image}
         title={post.data.title}
         body={post.body?.slice(0, Number(summary_length)) + '...'}
-        url={`/posts/${post.slug}`}
+        url={`/posts/${post.slug}/`}
         class:list={['col-12', { 'sm:col-6 lg:col-3': !fluid || i > 0 }]}
       >
         {!hideMeta && (
@@ -41,7 +41,7 @@ for (const post of posts) {
             <li>
               {postAuthorsMap.get(post)!.map(author => (
                 <a
-                  href={`/authors/${author.slug}`}
+                  href={`/authors/${author.slug}/`}
                   class="flex items-center hover:text-primary"
                 >
                   {author.data.image && (
@@ -67,7 +67,7 @@ for (const post of posts) {
                 {post.data.categories.map((category: string, i: number) => (
                   <li class="inline-block">
                     <a
-                      href={`/categories/${slugify(category)}`}
+                      href={`/categories/${slugify(category)}/`}
                       class="mr-2 hover:text-primary"
                     >
                       {humanize(category)}{i !== post.data.categories.length - 1 && ','}

@@ -89,7 +89,7 @@ export default function SearchBar({ searchList }: Props) {
         {searchResults?.map(({ item }) => (
           <div key={item.slug} className={"col-12 mb-8 sm:col-6"}>
             {item.data.image && (
-              <a href={`/posts/${item.slug}`} className="rounded-lg block hover:text-primary overflow-hidden group">
+              <a href={`/posts/${item.slug}/`} className="rounded-lg block hover:text-primary overflow-hidden group">
                 <img
                   className="inline-block group-hover:scale-[1.03] transition duration-300 w-full"
                   src={item.data.image.src}
@@ -111,7 +111,7 @@ export default function SearchBar({ searchList }: Props) {
                   {item.data.categories.map((category: string, i: number) => (
                     <li className="inline-block">
                       <a
-                        href={`/categories/${slugify(category)}`}
+                        href={`/categories/${slugify(category)}/`}
                         className="mr-2 hover:text-primary font-medium"
                       >
                         {humanize(category)}{i !== item.data.categories.length - 1 && ','}
@@ -123,7 +123,7 @@ export default function SearchBar({ searchList }: Props) {
             </ul>
 
             <div className="text-2xl md:text-3xl font-bold mb-2">
-              <a href={`/posts/${item.slug}`} className="block hover:text-primary transition duration-300">
+              <a href={`/posts/${item.slug}/`} className="block hover:text-primary transition duration-300">
                 {item.data.title}
               </a>
             </div>

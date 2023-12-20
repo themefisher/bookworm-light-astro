@@ -21,7 +21,7 @@ const { projects, class: className } = Astro.props;
         image={project.data.image}
         title={project.data.title}
         body={project.body && project.body?.slice(0, Number(summary_length)) + '...'}
-        url={`/portfolio/${project.slug}`}
+        url={`/portfolio/${project.slug}/`}
         class="col-12 md:col-4"
       />
     ))
