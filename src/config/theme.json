@@ -18,7 +18,9 @@
   "fonts": {
     "font_family": {
       "primary": "Lexend:wght@200;400;600",
-      "primary_type": "sans-serif"
+      "primary_type": "sans-serif",
+      "secondary": "",
+      "secondary_type": ""
     },
     "font_size": {
       "base": "16",
