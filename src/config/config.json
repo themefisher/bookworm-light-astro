@@ -3,7 +3,6 @@
     "title": "Bookworm Blight Astro | Blog Template",
     "base_url": "https://bookworm-blight-astro.app.xericode.dev/",
     "base_path": "/",
-    "trailing_slash": false,
     "favicon": "/favicon/favicon.png",
     "logo": "",
     "logo_width": 200,

@@ -2,11 +2,11 @@
   "main": [
     {
       "name": "Services",
-      "url": "/services"
+      "url": "/services/"
     },
     {
       "name": "Portfolio",
-      "url": "/portfolio"
+      "url": "/portfolio/"
     },
     {
       "name": "Blog",
@@ -14,44 +14,44 @@
       "children": [
         {
           "name": "Posts",
-          "url": "/posts"
+          "url": "/posts/"
         },
         {
           "name": "Categories",
-          "url": "/categories"
+          "url": "/categories/"
         },
         {
           "name": "Tags",
-          "url": "/tags"
+          "url": "/tags/"
         },
         {
           "name": "Search",
-          "url": "/search"
+          "url": "/search/"
         }
       ]
     },
     {
       "name": "About",
-      "url": "/about"
+      "url": "/about/"
     },
     {
       "name": "Book a Consult",
-      "url": "/contact",
+      "url": "/contact/",
       "outline": true
     }
   ],
   "footer": [
     {
       "name": "About",
-      "url": "/about"
+      "url": "/about/"
     },
     {
       "name": "Blog",
-      "url": "/posts"
+      "url": "/posts/"
     },
     {
       "name": "Book a Consult",
-      "url": "/contact"
+      "url": "/contact/"
     }
   ]
 }
