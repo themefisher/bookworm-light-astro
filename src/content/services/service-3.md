@@ -1,6 +1,6 @@
 ---
 title: 'Something Elsewhere'
-image: '../../images/posts/03.jpg'
+image: '../../images/posts/03.png'
 description: this is meta description
 topics: ['Topic 1', 'Topic 2', 'Topic 3']
 ---

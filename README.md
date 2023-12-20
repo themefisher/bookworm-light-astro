@@ -111,4 +111,4 @@ Copyright (c) 2023, Mark Ross (Xericode)
 
 **Code License:** Released under the [MIT](https://github.com/krazkidd/bookworm-blight-astro/blob/main/LICENSE) license.
 
-**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
+**Image license:** Released under the [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) license.

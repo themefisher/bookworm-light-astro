@@ -1,6 +1,6 @@
 ---
 title: 'Something Here'
-image: '../../images/posts/01.jpg'
+image: '../../images/posts/01.png'
 description: this is meta description
 topics: []
 ---
