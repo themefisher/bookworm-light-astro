@@ -17,9 +17,9 @@ const { image, title, body, url, class: className } = Astro.props;
       {image && (
         <a href={url} class="bg-black block hover:text-primary overflow-hidden group p-3">
           <Image
-            class="object-cover aspect-square rounded-lg"
             src={image}
             alt={title || ''}
+            class="object-cover aspect-square rounded-lg"
           />
         </a>
       )}

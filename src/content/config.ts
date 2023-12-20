@@ -87,6 +87,8 @@ const portfolioCollection = defineCollection({
     meta_title: z.string().optional(),
     image: image().optional(),
     description: z.string().optional(),
+    url: z.string().url().optional(),
+    topics: z.array(z.string()).default([]),
     draft: z.boolean().optional(),
   }),
 });
