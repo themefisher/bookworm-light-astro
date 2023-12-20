@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import Base from "@layouts/Base.astro";
+import PortfolioProject from "@components/PortfolioProject.astro";
+import { getAllPortfolioProjects } from "@lib/contentParser";
+
+export async function getStaticPaths() {
+  const projects = await getAllPortfolioProjects();
+
+  return projects.map(project => ({
+    params: {
+      slug: project.slug,
+    },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<"portfolio">;
+}
+
+const { project } = Astro.props;
+const { title, meta_title, description, image } = project.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <PortfolioProject project={project} />
+</Base>

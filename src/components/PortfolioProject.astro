@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import { type CollectionEntry } from 'astro:content';
+
+import ContentHeader from '@components/ContentHeader.astro';
+import Social from '@components/Social.astro';
+
+interface Props {
+  project: CollectionEntry<'portfolio'>;
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+const { title, description, image, url, topics } = project.data;
+---
+
+<section>
+  <div class="container">
+    <article class="row justify-center">
+      <div class="md:col-10 text-center">
+        <ContentHeader title={title} subTitle={description} />
+
+        <Social source={{ website: url }} class="text-2xl" />
+
+        <div class="col-12 mt-4 mb-2">
+          {image && (
+            <Image
+              src={image}
+              alt={title}
+              class="rounded-lg m-auto w-full md:w-72 lg:w-96"
+            />
+          )}
+        </div>
+
+        <ul class="mt-4 flex flex-wrap gap-3 items-center justify-center">
+          {
+            topics.map(topic => (
+              <li class="bg-theme-dark text-theme-light rounded-md p-2">
+                <span>{topic}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="md:col-10 prose">
+        <Content />
+      </div>
+    </article>
+  </div>
+</section>
