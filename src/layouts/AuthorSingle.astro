@@ -1,7 +1,7 @@
 ---
-import { Image } from "@astrojs/image/components";
-import Social from "@components/Social.astro";
-import { markdownify } from "@lib/utils/textConverter";
+import { Image } from "astro:assets";
+import Social from "@/components/Social.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 
 const { author } = Astro.props;
 const { title, image, social } = author.data;

@@ -1,13 +1,14 @@
 ---
-import { Image } from "@astrojs/image/components";
-import { markdownify } from "@lib/utils/textConverter";
-import { BsArrowRightCircle } from "react-icons/bs/index.js";
+import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import { BsArrowRightCircle } from "react-icons/bs";
+import type { TAuthor } from "@/types";
 const { authors } = Astro.props;
 ---
 
 <div class="row justify-center">
   {
-    authors.map((author: any) => (
+    authors.map((author: TAuthor) => (
       <div class="col-12 mb-8 sm:col-6 md:col-4">
         {author.data.image && (
           <div class="mb-4">
@@ -21,12 +22,18 @@ const { authors } = Astro.props;
           </div>
         )}
         <h3 class="h4 mt-8 mb-3">
-          <a href={`/authors/${author.slug}`} class="block hover:text-primary transition duration-200">
+          <a
+            href={`/authors/${author.slug}`}
+            class="block hover:text-primary transition duration-200"
+          >
             {author.data.title}
           </a>
         </h3>
         <p class="mb-3" set:text={markdownify(author.body.slice(0, 100))} />
-        <a href={`/authors/${author.slug}`} class="inline-flex items-center text-primary transition duration-200 hover:opacity-70">
+        <a
+          href={`/authors/${author.slug}`}
+          class="inline-flex items-center text-primary transition duration-200 hover:opacity-70"
+        >
           Read More <BsArrowRightCircle className="inline ml-2" />
         </a>
       </div>

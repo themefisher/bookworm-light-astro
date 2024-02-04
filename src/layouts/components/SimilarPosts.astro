@@ -1,8 +1,8 @@
 ---
-import { Image } from "@astrojs/image/components";
-import dateFormat from "@lib/utils/dateFormat";
-import { humanize,slugify } from "@lib/utils/textConverter";
-import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
+import { Image } from "astro:assets";
+import dateFormat from "@/lib/utils/dateFormat";
+import { humanize, slugify } from "@/lib/utils/textConverter";
+import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
 const { posts } = Astro.props;
 ---
 
@@ -11,7 +11,10 @@ const { posts } = Astro.props;
     posts.map((post: any, i: number) => (
       <div class={`col-12 sm:col-6 md:col-4 ${i === 2 && "hidden md:block"}`}>
         {post.data.image && (
-          <a href={`/${post.slug}`} class="rounded-lg block hover:text-primary overflow-hidden group">
+          <a
+            href={`/${post.slug}`}
+            class="rounded-lg block hover:text-primary overflow-hidden group"
+          >
             <Image
               class="group-hover:scale-[1.05] transition duration-300 w-full"
               src={post.data.image}
@@ -36,7 +39,8 @@ const { posts } = Astro.props;
                       href={`/categories/${slugify(category)}`}
                       class="mr-2 hover:text-primary font-medium"
                     >
-                      {humanize(category)}{i !== post.data.categories.length - 1 && ","}
+                      {humanize(category)}
+                      {i !== post.data.categories.length - 1 && ","}
                     </a>
                   </li>
                 ))}
@@ -45,7 +49,10 @@ const { posts } = Astro.props;
           </li>
         </ul>
         <h3 class="h5">
-          <a href={`/${post.slug}`} class="block hover:text-primary transition duration-300">
+          <a
+            href={`/${post.slug}`}
+            class="block hover:text-primary transition duration-300"
+          >
             {post.data.title}
           </a>
         </h3>

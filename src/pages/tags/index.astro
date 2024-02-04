@@ -1,9 +1,9 @@
 ---
-import Base from "@layouts/Base.astro";
-import { getTaxonomy } from "@lib/taxonomyParser.astro";
-import { humanize } from "@lib/utils/textConverter";
+import Base from "@/layouts/Base.astro";
+import { getTaxonomy } from "@/lib/taxonomyParser.astro";
+import { humanize } from "@/lib/utils/textConverter";
 
-import { FaHashtag } from "react-icons/fa/index.js";
+import { FaHashtag } from "react-icons/fa";
 
 const tags = await getTaxonomy("posts", "tags");
 ---
