@@ -86,7 +86,7 @@ If your problem or idea has not been addressed yet, feel free to [open a new iss
 <!-- licence -->
 ## 📄License
 
-Copyright (c) 2016 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
+Copyright (c) 2023 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
 
 **Code License:** Released under the [MIT](https://github.com/themefisher/bookworm-light-astro/blob/main/LICENSE) license.
 
