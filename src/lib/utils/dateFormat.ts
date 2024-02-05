@@ -1,18 +1,12 @@
-const dateFormat = (datetime: string | Date) => {
-  const dateTime = new Date(datetime);
+import { format } from "date-fns";
 
-  const date = dateTime.toLocaleDateString([], {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
-  const time = dateTime.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  return date;
+const dateFormat = (
+  date: Date | string,
+  pattern: string = "dd MMM, yyyy",
+): string => {
+  const dateObj = new Date(date);
+  const output = format(dateObj, pattern);
+  return output;
 };
 
 export default dateFormat;

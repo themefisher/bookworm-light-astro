@@ -1,9 +1,9 @@
 ---
-import config from "@config/config.json";
-import Base from "@layouts/Base.astro";
-import { markdownify } from "@lib/utils/textConverter";
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
 import { getEntryBySlug } from "astro:content";
-import { FaAddressCard, FaEnvelope, FaPhoneAlt } from "react-icons/fa/index.js";
+import { FaAddressCard, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const entry = await getEntryBySlug("pages", "contact");
 const { contact_form_action } = config.params;

@@ -1,11 +1,11 @@
 ---
-import config from "@config/config.json";
-import Authors from "@layouts/Authors.astro";
-import Base from "@layouts/Base.astro";
-import Pagination from "@layouts/components/Pagination.astro";
-import { getSinglePage } from "@lib/contentParser.astro";
-import { sortByDate } from "@lib/utils/sortFunctions";
-import { markdownify } from "@lib/utils/textConverter";
+import config from "@/config/config.json";
+import Authors from "@/layouts/Authors.astro";
+import Base from "@/layouts/Base.astro";
+import Pagination from "@/layouts/components/Pagination.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import { markdownify } from "@/lib/utils/textConverter";
 
 const authors = await getSinglePage("authors");
 const sortedPosts = sortByDate(authors);
