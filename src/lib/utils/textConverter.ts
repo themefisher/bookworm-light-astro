@@ -1,44 +1,47 @@
-import { slug } from 'github-slugger';
+import { slug } from "github-slugger";
 import { marked } from "marked";
 
 // slugify
 export const slugify = (content: string) => {
-  if (!content) return null;
-
   return slug(content);
 };
 
 // markdownify
-export const markdownify = (content: string) => {
-  if (!content) return null;
-
-  return marked.parseInline(content);
+export const markdownify = (content: string, div?: boolean) => {
+  return div ? marked.parse(content) : marked.parseInline(content);
 };
 
 // humanize
 export const humanize = (content: string) => {
-  if (!content) return null;
-
   return content
     .replace(/^[\s_]+|[\s_]+$/g, "")
     .replace(/[_\s]+/g, " ")
+    .replace(/[-\s]+/g, " ")
     .replace(/^[a-z]/, function (m) {
       return m.toUpperCase();
     });
 };
 
+// titleify
+export const titleify = (content: string) => {
+  const humanized = humanize(content);
+  return humanized
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+
 // plainify
 export const plainify = (content: string) => {
-  if (!content) return null;
-
-  const filterBrackets = content.replace(/<\/?[^>]+(>|$)/gm, "");
+  const parseMarkdown: any = marked.parse(content);
+  const filterBrackets = parseMarkdown.replace(/<\/?[^>]+(>|$)/gm, "");
   const filterSpaces = filterBrackets.replace(/[\r\n]\s*[\r\n]/gm, "");
   const stripHTML = htmlEntityDecoder(filterSpaces);
   return stripHTML;
 };
 
 // strip entities for plainify
-const htmlEntityDecoder = (htmlWithEntities: string): string => {
+const htmlEntityDecoder = (htmlWithEntities: string) => {
   let entityList: { [key: string]: string } = {
     "&nbsp;": " ",
     "&lt;": "<",
@@ -51,7 +54,7 @@ const htmlEntityDecoder = (htmlWithEntities: string): string => {
     /(&amp;|&lt;|&gt;|&quot;|&#39;)/g,
     (entity: string): string => {
       return entityList[entity];
-    }
+    },
   );
   return htmlWithoutEntities;
 };
