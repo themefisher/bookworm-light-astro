@@ -173,6 +173,15 @@ const { title, meta_title, description, image, noindex, canonical } =
     <link rel="alternate" type="application/rss+xml" title={`${config.site.title}`} href={`${social.rss}`} />
     <!-- sitemap -->
     <link rel="sitemap" href={`${config.site.sitemap}`} />
+    <!-- seo -->
+    {config.seo.google && (
+      <meta name="google-site-verification" content={`${config.seo.google}`} />
+    )}
+    {config.seo.bing && (
+      <meta name="msvalidate.01" content={`${config.seo.bing}`} />
+    )}
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   </head>
   <body>
     <TwSizeIndicator />

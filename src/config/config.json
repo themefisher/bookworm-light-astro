@@ -32,5 +32,10 @@
     "address": "355 S Grand Ave <br/> Los Angeles, CA 90071",
     "email": "info@bookworm.org",
     "phone": "+800 567 1234"
+  },
+
+  "seo": {
+    "google": "",
+    "bing": ""
   }
 }
