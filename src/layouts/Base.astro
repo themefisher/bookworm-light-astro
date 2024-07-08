@@ -8,6 +8,7 @@ import Header from "@/partials/Header.astro";
 import "@/styles/main.scss";
 import { AstroFont } from "astro-font";
 import { ViewTransitions } from "astro:transitions";
+import social from "@/config/social.json";
 
 // font families
 const pf = theme.fonts.font_family.primary;
@@ -168,6 +169,8 @@ const { title, meta_title, description, image, noindex, canonical } =
       }`}
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <!-- Rss feed -->
+    <link rel="alternate" type="application/rss+xml" title={`${config.site.title}`} href={`${social.rss}`} />
   </head>
   <body>
     <TwSizeIndicator />

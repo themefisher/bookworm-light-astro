@@ -41,6 +41,7 @@ Bookworm Light is a minimal multi-author free Astro blog theme which is perfect 
 - 🚀 Built with Tailwind CSS Framework
 - 📱 Fully Responsive on Desktops, Tablets, and Smartphones
 - 🔍 SEO Friendly
+- 📰 RSS Feed Support
 
 <!-- installation -->
 ## 🔧Installation

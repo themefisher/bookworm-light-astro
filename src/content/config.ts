@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+import { rssSchema } from '@astrojs/rss';
 
 // Post collection schema
 const postsCollection = defineCollection({
@@ -14,6 +15,7 @@ const postsCollection = defineCollection({
     tags: z.array(z.string()).default(["others"]),
     draft: z.boolean().optional(),
   }),
+  rssSchema,
 });
 
 // Author collection schema
