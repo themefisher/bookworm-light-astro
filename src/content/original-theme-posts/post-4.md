@@ -1,17 +1,17 @@
 ---
-title: "Become a morning person with the help of alarm clock"
+title: "Why a balloon is a flexible bag that can be inflated with a gas"
 description: "meta description"
-date: 2022-04-06T16:56:47+06:00
-image: "/images/posts/06.jpg"
-draft: false
+date: 2022-04-04T16:56:47+06:00
+image: "/images/posts/04.jpg"
+draft: true
 authors: ["Mark Dinn"]
-tags: ["Alarm", "Clock"]
-categories: ["LifeStyle"]
+tags: ["Balloon", "Gas"]
+categories: ["Accessories"]
 ---
 
-Almost every day for the past nine or so months has felt like March 13, and that can sometimes make it difficult to want to wake up for the day ahead of you.
+A balloon is a flexible bag that can be inflated with a gas, such as helium, hydrogen, nitrous oxide, oxygen, and air. For special tasks, balloons can be filled with smoke, liquid water, granular media, or light sources.
 
-To make a morning person out of you, the wake-up light simulates the sunrise to gradually ease you awake. This allows you to wake up more naturally rather than being jolted awake by the default iPhone alarm sound, which honestly triggers my fight or flight response.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
 
 ### Creative Design
 
