@@ -1,11 +1,11 @@
 ---
-title: "I’m John Doe, A content writer based in LDN, Currently at Bookworm"
-meta_title: "About"
-image: "/images/author.png"
+title: "Olá, eu sou o Arthur."
+meta_title: "Sobre"
+image: "/images/me.jpg"
 draft: false
 
 what_i_do:
-  title: "What I Do"
+  title: "O que eu faço"
   items:
   - title: "Content Writing"
     description: "Purus eget ipsum elementum venenatis, quis rutrum mi semper nonpurus eget ipsum elementum venenatis."
@@ -18,6 +18,8 @@ what_i_do:
 
 ---
 
-A content writer with over 12 years experience working across brand identity, publishing and digital products. Maecenas sit amet purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis quis non purus.
+Desde pequeno, sempre gostei de ler e aprender (um pouco) sobre as infinitas complexidades da vida.
 
-Purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis, quis rutrum mi semper non purus eget ipsum elementum venenatis, aenean maximus urna magna elementum.
+Formado em Ciência da Computação, transferi um pouco dessa curiosidade para o mundo da tecnologia e desenvolvimento.
+
+Agora, com esse blog, espero compartilhar um pouco dessa curiosidade e das pequenas descobertas que fiz ao longo do caminho.

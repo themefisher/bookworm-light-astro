@@ -1,22 +1,12 @@
 ---
-title: Why a balloon is a flexible bag
-description: "meta description"
-date: 2022-04-02T05:00:00Z
-image: "/images/posts/02.jpg"
-categories: ["development"]
-authors: ["John Doe"]
+title: "Allowance"
+description: "Uma forma simples de organizar suas finanças"
+date: 2024-12-16T00:00:00Z
+image: "/images/posts/01.jpg"
+categories: ["conversas"]
+authors: ["Arthur"]
 tags: ["diy", "toy"]
-draft: false
+draft: true
 ---
 
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-## Creative Design
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+Imagem: https://www.pexels.com/pt-br/foto/pessoa-colocando-moedas-em-um-cofrinho-1602726/

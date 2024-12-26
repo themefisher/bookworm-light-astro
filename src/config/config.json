@@ -1,14 +1,14 @@
 {
   "site": {
-    "title": "Bookworm Light Astro | Blog Template",
-    "base_url": "https://bookworm-light-astro.vercel.app",
+    "title": "Arthur V. M. Dantas | Blog",
+    "base_url": "https://blog.arthurvmdantas.work",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.png",
     "logo_width": "200",
     "logo_height": "34",
-    "logo_text": "Bookworm Light"
+    "logo_text": "Arthur V. M. Dantas | Blog"
   },
 
   "settings": {
@@ -17,19 +17,20 @@
   },
 
   "metadata": {
-    "meta_author": "Themefisher",
+    "meta_author": "Arthur V. M. Dantas",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Bookworm Light Astro Blog Template"
+    "meta_description": "Blog de Arthur V. M. Dantas"
   },
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2023 a theme by [Themefisher](https://themefisher.com)"
+    "copyright": "Copyright © 2025",
+    "theme_credit": "Baseado no [Bookworm Light theme](https://github.com/themefisher/bookworm-light-astro/)"
   },
 
   "contactinfo": {
-    "address": "355 S Grand Ave <br/> Los Angeles, CA 90071",
-    "email": "info@bookworm.org",
-    "phone": "+800 567 1234"
+    "address": "",
+    "email": "me@arthurvmdantas.work",
+    "phone": ""
   }
 }
