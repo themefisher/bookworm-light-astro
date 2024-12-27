@@ -7,7 +7,7 @@ image: "/images/posts/01.jpg"
 categories: ["conversas"]
 authors: ["Arthur"]
 tags: ["diy", "toy"]
-draft: false
+draft: true
 ---
 
 Testando... 
