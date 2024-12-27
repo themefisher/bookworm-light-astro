@@ -1,8 +1,8 @@
 ---
 title: "Conversas no Ponto - #1"
-description: "Você merece ser feliz?"
-abstract: "Você merece ser feliz?"
-date: 2024-12-25T00:00:00Z
+description: "Essa é a descrição"
+abstract: "Esse é o resumo"
+date: 2024-12-25T03:00:00Z
 image: "/images/posts/01.jpg"
 categories: ["conversas"]
 authors: ["Arthur"]

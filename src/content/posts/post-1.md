@@ -1,7 +1,8 @@
 ---
-title: "Conversas no Ponto - #1"
-description: "Sobre a felicidade"
-date: 2024-12-15T00:00:00Z
+title: "Conversas no Ponto - #111"
+description: "Essa é a descrição"
+abstract: "Esse é o resumo"
+date: 2024-12-15T03:00:00Z
 image: "/images/posts/01.jpg"
 categories: ["conversas"]
 authors: ["Arthur"]
