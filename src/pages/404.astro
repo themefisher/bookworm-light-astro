@@ -1,9 +1,10 @@
 ---
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-import { getEntryBySlug } from "astro:content";
-const entry = await getEntryBySlug("pages", "404");
-const { Content } = await entry.render();
+import type { CollectionEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
+const entry = (await getEntry("pages", "404")) as CollectionEntry<"pages">;
+const { Content } = await render(entry);
 ---
 
 <Base title={entry.data.title}>

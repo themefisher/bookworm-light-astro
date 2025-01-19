@@ -1,18 +1,19 @@
 ---
-import { Image } from "astro:assets";
 import Share from "@/components/Share.astro";
 import SimilarPosts from "@/components/SimilarPosts.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import similerItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import { render } from "astro:content";
 import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
 
 const allAuthors = await getSinglePage("authors");
 const posts = await getSinglePage("posts");
 const { post } = Astro.props;
 const similarPosts = similerItems(post, posts, post.slug);
-const { Content } = await post.render();
+const { Content } = await render(post);
 const { title, description, authors, categories, image, date, tags } =
   post.data;
 ---
@@ -29,11 +30,11 @@ const { title, description, authors, categories, image, date, tags } =
                 .filter((author) =>
                   authors
                     .map((author: string) => slugify(author))
-                    .includes(slugify(author.data.title)),
+                    .includes(slugify(author.data.title))
                 )
-                .map((author, i) => (
+                .map((author) => (
                   <a
-                    href={`/authors/${slugify(author.slug)}`}
+                    href={`/authors/${slugify(author.id)}`}
                     class="flex items-center hover:text-primary font-medium"
                   >
                     {author.data.image && (
@@ -52,27 +53,26 @@ const { title, description, authors, categories, image, date, tags } =
           </li>
           <li class="mx-3 flex items-center flex-wrap font-medium">
             <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
-            <>{dateFormat(date)}</>
+            {dateFormat(date)}
           </li>
           <li class="mx-3 flex items-center flex-wrap">
             <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
-            <>
-              <ul>
-                {
-                  categories.map((category: string, i: number) => (
-                    <li class="inline-block">
-                      <a
-                        href={`/categories/${slugify(category)}`}
-                        class="mr-2 hover:text-primary font-medium"
-                      >
-                        {humanize(category)}
-                        {i !== post.data.categories.length - 1 && ","}
-                      </a>
-                    </li>
-                  ))
-                }
-              </ul>
-            </>
+
+            <ul>
+              {
+                categories.map((category: string, i: number) => (
+                  <li class="inline-block">
+                    <a
+                      href={`/categories/${slugify(category)}`}
+                      class="mr-2 hover:text-primary font-medium"
+                    >
+                      {humanize(category)}
+                      {i !== post.data.categories.length - 1 && ","}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
           </li>
         </ul>
       </div>

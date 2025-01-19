@@ -1,20 +1,16 @@
 ---
-import { Image } from "astro:assets";
 import Base from "@/layouts/Base.astro";
 import { markdownify } from "@/lib/utils/textConverter";
-import { getEntryBySlug } from "astro:content";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 
-const entry = await getEntryBySlug("about", "index");
-const { Content } = await entry.render();
-const { title, description, meta_title, image, what_i_do } = entry.data;
+const entry = (await getEntry("about", "-index")) as CollectionEntry<"about">;
+const { Content } = await render(entry);
+const { title, meta_title, image, what_i_do } = entry.data;
 ---
 
-<Base
-  title={title}
-  meta_title={meta_title}
-  description={description}
-  image={image}
->
+<Base title={title} meta_title={meta_title} image={image}>
   <section class="section">
     <div class="container">
       <div class="row md:gx-4">

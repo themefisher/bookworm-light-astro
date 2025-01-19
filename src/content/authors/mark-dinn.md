@@ -1,5 +1,6 @@
 ---
 title: Mark Dinn
+meta_title: ""
 image: /images/authors/mark-dinn.jpg
 description: this is meta description
 social:

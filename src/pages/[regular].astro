@@ -3,19 +3,19 @@ import Base from "@/layouts/Base.astro";
 import Default from "@/layouts/Default.astro";
 import PostSingle from "@/layouts/PostSingle.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
-import type { TPost } from "@/types";
+import type { CollectionEntry } from "astro:content";
 
-const getPosts = (await getSinglePage("posts")) as TPost[];
-const postsSlug = getPosts.map((item) => item.slug);
+const getPosts = (await getSinglePage("posts")) as CollectionEntry<"posts">[];
+const postsSlug = getPosts.map((item) => item.id);
 
 export async function getStaticPaths() {
   const posts = await getSinglePage("posts");
   const pages = await getSinglePage("pages");
   const allPages = [...pages, ...posts];
 
-  const paths = allPages.map((page: any) => ({
+  const paths = allPages.map((page) => ({
     params: {
-      regular: page.slug,
+      regular: page.id.replace(/\.(md|mdx)$/, ""),
     },
     props: { page },
   }));
@@ -33,7 +33,7 @@ const { title, meta_title, description, image } = page.data;
   image={image}
 >
   {
-    postsSlug.includes(page.slug) ? (
+    postsSlug.includes(page.id) ? (
       <PostSingle post={page} />
     ) : (
       <Default data={page} />

@@ -1,10 +1,18 @@
 ---
-import { Image } from "astro:assets";
 import config from "@/config/config.json";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
 import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
+
+type Props = {
+  posts: CollectionEntry<"posts">[];
+  className?: string;
+  fluid?: boolean;
+};
+
 const authors = await getSinglePage("authors");
 const { summary_length } = config.settings;
 const { className, posts, fluid } = Astro.props;
@@ -14,11 +22,11 @@ const { className, posts, fluid } = Astro.props;
   class={`row gy-5 gx-4 ${className} ${posts.length == 1 ? "justify-center" : ""} `}
 >
   {
-    posts.map((post: any, i: number) => (
+    posts.map((post, i: number) => (
       <div class={i === 0 && fluid != false ? "col-12" : "col-12 sm:col-6"}>
         {post.data.image && (
           <a
-            href={`/${post.slug}`}
+            href={`/${post.id}`}
             class="rounded-lg block hover:text-primary overflow-hidden group"
           >
             <Image
@@ -35,7 +43,7 @@ const { className, posts, fluid } = Astro.props;
             {authors
               .filter((author) =>
                 post.data.authors
-                  .map((author: string) => slugify(author))
+                  .map((author) => slugify(author))
                   .includes(slugify(author.data.title))
               )
               .map((author) => (
@@ -58,30 +66,29 @@ const { className, posts, fluid } = Astro.props;
           </li>
           <li class="mr-5 flex items-center flex-wrap font-medium">
             <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
-            <>{dateFormat(post.data.date)}</>
+            {dateFormat(post.data.date!)}
           </li>
           <li class="mr-5 flex items-center flex-wrap">
             <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
-            <>
-              <ul>
-                {post.data.categories.map((category: string, i: number) => (
-                  <li class="inline-block">
-                    <a
-                      href={`/categories/${slugify(category)}`}
-                      class="mr-2 hover:text-primary font-medium"
-                    >
-                      {humanize(category)}
-                      {i !== post.data.categories.length - 1 && ","}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </>
+
+            <ul>
+              {post.data.categories.map((category, i: number) => (
+                <li class="inline-block">
+                  <a
+                    href={`/categories/${slugify(category)}`}
+                    class="mr-2 hover:text-primary font-medium"
+                  >
+                    {humanize(category)}
+                    {i !== post.data.categories.length - 1 && ","}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </li>
         </ul>
         <h3 class="mb-4">
           <a
-            href={`/${post.slug}`}
+            href={`/${post.id}`}
             class="block hover:text-primary transition duration-300"
           >
             {post.data.title}
@@ -89,7 +96,7 @@ const { className, posts, fluid } = Astro.props;
         </h3>
         <p class="text-text">
           {plainify(
-            post.body?.slice(
+            (post.body ?? "").slice(
               0,
               Number(
                 i === 0 && fluid != false ? summary_length * 2 : summary_length

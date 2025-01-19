@@ -1,11 +1,12 @@
 ---
-import { Image } from "astro:assets";
 import Social from "@/components/Social.astro";
 import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import { render } from "astro:content";
 
 const { author } = Astro.props;
 const { title, image, social } = author.data;
-const { Content } = await author.render();
+const { Content } = await render(author);
 ---
 
 <section class="section">
