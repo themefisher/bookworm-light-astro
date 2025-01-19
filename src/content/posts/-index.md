@@ -1,3 +1,4 @@
 ---
-title: Blog
+title: Posts
+meta_title: ""
 ---
