@@ -4,8 +4,8 @@
 </h2>
 
 <p align=center>
-  <a href="https://github.com/withastro/astro/releases/tag/astro%405.1.7" alt="Contributors">
-    <img src="https://img.shields.io/static/v1?label=ASTRO&message=5.1&color=000&logo=astro" />
+  <a href="https://github.com/withastro/astro/releases/tag/astro%405.5.2" alt="Contributors">
+    <img src="https://img.shields.io/static/v1?label=ASTRO&message=5.5&color=000&logo=astro" />
   </a>
 
   <a href="https://github.com/themefisher/bookworm-light-astro/blob/main/LICENSE">

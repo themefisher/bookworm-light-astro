@@ -1,5 +1,5 @@
 .btn {
-  @apply inline-block rounded-lg border px-6 py-3 font-semibold transition;
+  @apply inline-block rounded-lg border px-6 py-3 font-semibold transition cursor-pointer;
 }
 
 .btn-primary {
