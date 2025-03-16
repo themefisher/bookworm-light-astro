@@ -1,23 +1,10 @@
-// navbar toggler
-input#nav-toggle:checked ~ label#show-button {
-  @apply hidden;
-}
-
-input#nav-toggle:checked ~ label#hide-button {
-  @apply flex md:hidden;
-}
-
-input#nav-toggle:checked ~ #nav-menu {
-  @apply block md:flex;
-}
-
-// navbar items
+/* navbar items */
 .navbar {
   @apply relative flex max-w-[1260px] flex-wrap items-center justify-between;
 }
 
 .navbar-brand img {
-  @apply h-auto max-w-[170px] sm:h-auto sm:max-w-full #{!important};
+  @apply h-auto max-w-[170px] sm:h-auto sm:max-w-full;
 }
 
 .navbar-nav {
@@ -44,16 +31,19 @@ input#nav-toggle:checked ~ #nav-menu {
   @apply block min-w-[150px] py-1 text-[17px] font-semibold text-dark transition hover:text-primary;
 }
 
-// search style
+/* search style */
 .search-modal {
   @apply invisible absolute top-0 left-0 right-0 z-10 h-10 bg-white opacity-0 transition md:h-full;
-  .form-input {
-    @apply h-full w-full border-0 text-lg;
-  }
-  .search-close {
-    @apply absolute top-1/2 right-2 -translate-y-1/2 p-3 text-h4;
-  }
-  &.open {
-    @apply visible opacity-100;
-  }
+}
+
+.search-modal .form-input {
+  @apply h-full w-full border-0 text-lg;
+}
+
+.search-modal .search-close {
+  @apply absolute top-1/2 right-2 -translate-y-1/2 p-3 text-h4;
+}
+
+.search-modal.open {
+  @apply visible opacity-100;
 }

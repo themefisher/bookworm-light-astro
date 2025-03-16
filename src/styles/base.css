@@ -44,3 +44,12 @@ h6,
 .h6 {
   @apply text-h6;
 }
+
+b,
+strong {
+  @apply font-semibold;
+}
+
+img {
+  @apply inline-block;
+}

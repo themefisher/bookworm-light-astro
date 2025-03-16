@@ -23,17 +23,17 @@ const { title, description, meta_title, image } = entry.data;
       <h1 set:html={markdownify(title)} class="h2 page-heading" />
       <div class="row md:gx-5 gy-5">
         <div class="sm:col-5 md:col-4">
-          <p class="mb-8 text-2xl font-bold text-theme-dark">Contact Info</p>
+          <p class="mb-8 text-2xl font-bold text-text-dark">Contact Info</p>
           <ul class="flex flex-col space-y-8">
             <li>
-              <div class="flex text-theme-dark items-center text-xl">
+              <div class="flex text-text-dark items-center text-xl">
                 <FaAddressCard className="mr-3 text-primary" />
                 <p class="font-semibold">Address</p>
               </div>
               <p set:html={markdownify(address)} class="mt-2 leading-5 pl-8" />
             </li>
             <li>
-              <div class="flex text-theme-dark items-center text-xl">
+              <div class="flex text-text-dark items-center text-xl">
                 <FaEnvelope className="mr-3 text-primary" />
                 <p class="font-semibold">Email</p>
               </div>
@@ -43,7 +43,7 @@ const { title, description, meta_title, image } = entry.data;
               />
             </li>
             <li>
-              <div class="flex text-theme-dark items-center text-xl">
+              <div class="flex text-text-dark items-center text-xl">
                 <FaPhoneAlt className="mr-3 text-primary" />
                 <p class="font-semibold">Phone</p>
               </div>
