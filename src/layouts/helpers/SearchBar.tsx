@@ -1,11 +1,8 @@
-import React from "react";
-import config from "@/config/config.json";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, slugify } from "@/lib/utils/textConverter";
 import Fuse from "fuse.js";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
-const { summary_length } = config.settings;
 
 export type SearchItem = {
   slug: string;
@@ -141,8 +138,8 @@ export default function SearchBar({ searchList }: Props) {
                 {item.data.title}
               </a>
             </h3>
-            <p className="text-text">
-              {item.content?.slice(0, Number(summary_length))}...
+            <p className="text-text line-clamp-2">
+              {item.content}
             </p>
           </div>
         ))}

@@ -1,5 +1,4 @@
 ---
-import AuthorSingle from "@/layouts/AuthorSingle.astro";
 import Base from "@/layouts/Base.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
@@ -9,6 +8,7 @@ import { sortByDate } from "@/lib/utils/sortFunctions";
 import { humanize, slugify } from "@/lib/utils/textConverter";
 import type { CollectionEntry } from "astro:content";
 import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
+import AuthorSingle from "@/partials/AuthorSingle.astro";
 
 export async function getStaticPaths() {
   const authors = await getSinglePage("authors");

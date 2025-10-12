@@ -6,7 +6,10 @@ import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 import { FaAddressCard, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
-const entry = (await getEntry("pages", "contact")) as CollectionEntry<"pages">;
+const entry = (await getEntry(
+  "contact",
+  "-index"
+)) as CollectionEntry<"contact">;
 const { contact_form_action } = config.params;
 const { address, email, phone } = config.contactinfo;
 const { title, description, meta_title, image } = entry.data;

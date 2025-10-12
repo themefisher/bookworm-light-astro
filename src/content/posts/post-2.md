@@ -2,7 +2,7 @@
 title: Why a balloon is a flexible bag
 meta_title: ""
 description: "meta description"
-date: 2022-04-02T05:00:00Z
+date: 2025-04-02T05:00:00Z
 image: "/images/posts/02.jpg"
 categories: ["development"]
 authors: ["John Doe"]

@@ -2,7 +2,7 @@
 title: What you need to know about Photography
 meta_title: ""
 description: "meta description"
-date: 2022-04-03T06:00:00+00:00
+date: 2025-04-03T06:00:00+00:00
 image: "/images/posts/03.jpg"
 categories: ["art"]
 authors: ["Mark Dinn"]

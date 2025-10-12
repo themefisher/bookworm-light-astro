@@ -12,14 +12,18 @@
   },
 
   "settings": {
-    "pagination": 5,
-    "summary_length": 100
+    "pagination": 5
   },
 
   "metadata": {
     "meta_author": "Themefisher",
     "meta_image": "/images/og-image.png",
     "meta_description": "Bookworm Light Astro Blog Template"
+  },
+
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
   },
 
   "params": {

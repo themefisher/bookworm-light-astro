@@ -1,30 +1,29 @@
 {
-  "facebook": "https://facebook.com/",
-  "twitter": "https://twitter.com/",
-  "instagram": "https://instagram.com/",
-  "youtube": "https://youtube.com/",
-  "linkedin": "https://linkedin.com/",
-  "github": "",
-  "gitlab": "",
-  "medium": "",
-  "codepen": "",
-  "bitbucket": "",
-  "dribbble": "",
-  "behance": "",
-  "pinterest": "",
-  "soundcloud": "",
-  "tumblr": "",
-  "reddit": "",
-  "vk": "",
-  "whatsapp": "",
-  "snapchat": "",
-  "vimeo": "",
-  "tiktok": "",
-  "foursquare": "",
-  "rss": "",
-  "email": "",
-  "phone": "",
-  "address": "",
-  "skype": "",
-  "website": ""
+  "main": [
+    {
+      "name": "facebook",
+      "icon": "FaFacebook",
+      "link": "https://www.facebook.com/"
+    },
+    {
+      "name": "X",
+      "icon": "FaXTwitter",
+      "link": "https://x.com/"
+    },
+    {
+      "name": "instagram",
+      "icon": "FaInstagram",
+      "link": "https://www.instagram.com/"
+    },
+    {
+      "name": "linkedin",
+      "icon": "FaLinkedin",
+      "link": "https://www.linkedin.com/"
+    },
+    {
+      "name": "YouTube",
+      "icon": "FaYoutube",
+      "link": "https://www.youtube.com/"
+    }
+  ]
 }
