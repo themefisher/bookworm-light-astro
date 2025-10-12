@@ -24,7 +24,7 @@ import { markdownify } from "@/lib/utils/textConverter";
       }
     </ul>
     {/* social icons */}
-    <Social source={social} className="social-icons mb-8" />
+    <Social source={social.main} className="social-icons mb-8" />
     {/* copyright */}
     <p set:html={markdownify(config.params.copyright)} class="text-white/75" />
   </div>

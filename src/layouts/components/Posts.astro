@@ -1,5 +1,4 @@
 ---
-import config from "@/config/config.json";
 import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
@@ -14,7 +13,6 @@ type Props = {
 };
 
 const authors = await getSinglePage("authors");
-const { summary_length } = config.settings;
 const { className, posts, fluid } = Astro.props;
 ---
 
@@ -94,17 +92,7 @@ const { className, posts, fluid } = Astro.props;
             {post.data.title}
           </a>
         </h3>
-        <p class="text-text">
-          {plainify(
-            (post.body ?? "").slice(
-              0,
-              Number(
-                i === 0 && fluid != false ? summary_length * 2 : summary_length
-              )
-            )
-          )}
-          ...
-        </p>
+        <p class="text-text line-clamp-2">{plainify(post.body ?? "")}</p>
       </div>
     ))
   }
