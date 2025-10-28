@@ -24,7 +24,7 @@ const { className, posts, fluid } = Astro.props;
       <div class={i === 0 && fluid != false ? "col-12" : "col-12 sm:col-6"}>
         {post.data.image && (
           <a
-            href={`/${post.id}`}
+            href={`/blog/${post.id}`}
             class="rounded-lg block hover:text-primary overflow-hidden group"
           >
             <Image
@@ -86,7 +86,7 @@ const { className, posts, fluid } = Astro.props;
         </ul>
         <h3 class="mb-4">
           <a
-            href={`/${post.id}`}
+            href={`/blog/${post.id}`}
             class="block hover:text-primary transition duration-300"
           >
             {post.data.title}
