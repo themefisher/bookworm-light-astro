@@ -17,7 +17,7 @@
     <img src="https://img.shields.io/github/contributors/themefisher/bigspring-light-astro" alt="contributors"></a>
 </p>
 
-![bookworm-light](https://demo.gethugothemes.com/thumbnails/bookworm-light.png)
+![bookworm-light](https://assets.teamosis.com/thumbs/bookworm-light.png)
 
 Bookworm Light is a minimal multi-author free Astro blog theme which is perfect for any kind of blog website. Whether you're interested in food, beauty, travel, photography, lifestyle, fitness, health, or other topics, this theme is a great fit. The theme is super fast and SEO friendly which makes it easier for your content to be discovered by search engines.
 
@@ -78,6 +78,20 @@ After finishing all the customization, you can create a production build by runn
 npm run build
 ```
 
+<!-- edit with sitepins -->
+
+## 📝 Edit Content with CMS
+
+This template comes pre-configured with [**Sitepins**](https://sitepins.com), a Git-based Headless CMS designed for seamless content management. You can update your website’s text, images, and configuration without touching a single line of code.
+
+**How to get started:**
+
+Click the Edit with Sitepins button below and follow the on-screen instructions to start editing your content visually.
+
+  <a target="_blank" href="https://app.sitepins.com/new/clone?name=Bookworm%20Light%20Astro&repository=https://github.com/themefisher/bookworm-light-astro/">
+    <img src="https://sitepins.com/button.svg" alt="Edit with Sitepins">
+  </a>
+  
 <!-- reporting issue -->
 
 ## 🐞Reporting Issues
