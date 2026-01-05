@@ -1,146 +1,90 @@
 ---
 import Base from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
+import { type CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
+
+const allFaqs: CollectionEntry<"faqs">[] = await getCollection("faqs");
+const categories = ["STORY", "In-Person", "Virtual"] as const;
+const categoryDisplay = {
+  'STORY': 'STORY',
+  'In-Person': 'In-Person Events',
+  'Virtual': 'Virtual Events'
+};
+
+const sortedFaqs = allFaqs.sort((a, b) => a.data.order - b.data.order);
+
+const groupedFaqs = categories.map(cat => ({
+  id: cat,
+  displayName: categoryDisplay[cat],
+  items: sortedFaqs.filter(faq => faq.data.category === cat)
+}));
 ---
+
 
 <Base >
   <section class="section">
     <div class="container content">
       <div class="row md:gx-4">
-        
-        <div class="col-10 offset-1 md:col-4 md:offset-4 sm:col-8 sm:offset-2 ">
-          <Image src="/images/story-logo.png" alt="A bird." width="800" height="570" />
+        <div class="col-10 offset-1 md:col-4 md:offset-4 sm:col-8 sm:offset-2">
+          <Image src="/images/story-logo.png" alt="STORY Logo" width={800} height={570} />
         </div>
       </div>
+
       <div class="row my-12">
-        
         <div class="col-12 md:col-3">
           <h1>FAQs</h1>
         </div>
-        <div class="col-12 md:col-9">
-          <p class="mb-4">
-            STORY is committed to helping students, educators and families learn more about the college application process. We hope these FAQs about our events and offerings will help you in your college search process. Further questions? Please email STORY at <a href="mailto:story@gmail.com">story@gmail.com</a>. 
+        <div class="col-12 md:col-9 prose prose-slate prose-xl max-w-none">
+          <p class="mt-0">
+            STORY is committed to helping students, educators and families learn more about the college application process. Further questions? Please email <a href="mailto:story@gmail.com">story@gmail.com</a>. 
           </p>
         </div>
       </div>
 
       <div class="row my-12">
-        <div class="col-12 md:col-9 md:offset-3 mb-4">
-          <h6 class="mb-2 font-bold">STORY</h6>
-          <ul class="space-y-1">
-            <li>
-              <a href="#">Am I a rural or small-town student?/Who are STORY events for?</a>
-            </li>
-            <li>
-              <a href="#">What is the difference between STORY and STARS?</a>
-            </li>
-            <li>
-              <a href="#">How can I get involved in STORY?</a>
-            </li>
-            <li>
-              <a href="#">Does STORY cost anything?</a>
-            </li>
-            <li>
-              <a href="#">How does STORY use the information they collect from me on the event registration form?</a>
-            </li>
-            <li>
-              <a href="#">What colleges will be at each STORY event?</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-12 md:col-9 md:offset-3 mb-4">
-          <h6 class="mb-2">In-Person Events</h6>
-          <ul class="space-y-1">
-            <li>
-              <a href="#">Do I have to register in advance to attend?</a>
-            </li>
-            <li>
-              <a href="#">What is included in a STORY in-person event?</a>
-            </li>
-            <li>
-              <a href="#">Do I have to attend the full event?</a>
-            </li>
-            <li>
-              <a href="#">What do I wear to a STORY event?</a>
-            </li>
-            <li>
-              <a href="#">Who can attend STORY events?</a>
-            </li>
-            <li>
-              <a href="#">What should I bring with me?</a>
-            </li>
-            <li>
-              <a href="#">Are there academic requirements for students attending STORY events?</a>
-            </li>
-            <li>
-              <a href="#">I didn’t get to speak with a college I wanted to or thought of a new question. How do I get in touch after the event?</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-12 md:col-9 md:offset-3">
-          <h6 class="mb-2">Virtual Events</h6>
-          <ul class="space-y-1">
-            <li>
-              <a href="#">How often are virtual events held?</a>
-            </li>
-            <li>
-              <a href="#">Who can attend virtual STORY events?</a>
-            </li>
-            <li>
-              <a href="#">Do I have to register to attend a virtual event?</a>
-            </li>
-          </ul>
-        </div>
+        {groupedFaqs.map((group) => (
+          <div class="col-12 md:col-9 md:offset-3 mb-4 prose prose-slate prose-lg">
+            <h6 class="mt-2 mb-2 font-bold uppercase tracking-wide text-lg">{group.displayName}</h6>
+            <ul class="space-y-1">
+              {group.items.map((faq) => (
+                <li>
+                  <a href={`#${faq.id}`} class="hover:text-primary transition-colors">
+                    {faq.data.question}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
-        
-      <div class="row my-12">
-        <div class="col-12 md:col-3">
-          <h1>Mission</h1>
-        </div>
-        <div class="col-12 md:col-9">
-          <p class="mb-4">
-            The STORY Consortium is committed to empowering rural & small-town students – and the communities that support them – by preparing them for the college search and application process, with an aim of expanding access to higher education.
-          </p>
-        </div>
-        </div>
-        
-      <div class="row my-12">
-        <div class="col-12 md:col-3">
-          <h1>Where</h1>
-        </div>
-        <div class="col-12 md:col-9">
-          <p class="mb-4">
-            We host our in-person sessions in small cities with major highway access to rural communities, typically within a 100-mile radius. Prioritized locations are as accessible as possible to students, families and counselors from surrounding small-town and rural communities.
-          </p>
-          <p class="mb-4">
-            Each fall and spring, STORY chooses a different region of the U.S. and travels throughout multiple states in that area to lead sessions for the rural communities that surround them. These regions are revisited every few years. 
-          </p>
-        </div>
-        </div>
-        
-      <div class="row my-12">
-        <div class="col-12 md:col-3">
-          <h1>Who</h1>
-        </div>
-        <div class="col-12 md:col-9">
-          <p class="mb-4">
-            STORY programming welcomes all students, with an intentional focus on students from small-town and rural environments. There is no specific definition that must be fulfilled to be considered a rural or small-town student. Rural and small-town cultures vary tremendously throughout the U.S., and we acknowledge that each of these areas is unique. It is up to each individual to reflect on the area they come from and to determine if they are a rural or small-town student. The questions below could help in this process.
-          </p>
-          <ul class="mb-4 list-disc list-inside space-y-2">
-            <li>Do you feel that you have experienced a rural/small-town culture throughout your upbringing?</li>
-            <li>Do you have limited access to grocery stores or shopping centers?</li>
-            <li>Do you attend a public high school where students often have a long bus ride that covers a lot of ground?</li>
-            <li>Do you have to travel long distances to compete in high school sports or activities?</li>
-            <li>Do you have no/limited public transportation options where you live?</li>
-            <li>Do your teachers often teach multiple different subjects and/or coach sports/lead extracurriculars as well?</li>
-          </ul>
-          <p class="mb-4">
-            If you answer yes to one or multiple of these questions, you might consider yourself a small-town or rural student!
-          </p>
-        </div>
-        </div>
 
-      </div>
+      {groupedFaqs.map((group) => (
+        <div class="row my-12 pt-12">
+          <div class="col-12 md:col-3">
+            <h2 class="leading-none uppercase text-xl font-bold">{group.displayName}</h2>
+          </div>
+          <div class="col-12 md:col-9">
+            {group.items.map(async (faq) => {
+              const { Content } = await render(faq);
+              return (
+                <div class="mb-10 last:mb-0">
+                  <h5 class="mt-4"> 
+                    <span id={faq.id} class="faq-q font-bold scroll-mt-24 target:animate-spotlight inline-block">
+                      {faq.data.question}
+                    </span>
+                  </h5>
+                  <div class="prose prose-slate prose-xl mt-2 max-w-none">
+                    <Content />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+
+      
     </div>
   </section>
     <section class="section bg-gray-100">

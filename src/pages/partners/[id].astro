@@ -1,0 +1,111 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
+import DynamicIcon from "@/helpers/DynamicIcon"; // Adjust path to your file location
+
+// Generate paths only for the 35 Story (Featured) Partners
+export async function getStaticPaths() {
+  const allPartners = await getCollection("partners");
+  return allPartners
+    .filter((p) => p.data.featured === true)
+    .map((partner) => ({
+      params: { id: partner.id },
+      props: { partner },
+    }));
+}
+
+const { partner } = Astro.props;
+const { data } = partner;
+const { Content } = await render(partner);
+
+// Define the allowed platforms for the helper
+type Platform = 'instagram' | 'twitter' | 'facebook' | 'tiktok';
+
+// Social Media Link Helper
+const formatSocial = (handle: string | undefined, platform: Platform) => {
+  if (!handle) return null;
+  const bases = {
+    instagram: "https://instagram.com/",
+    twitter: "https://x.com/",
+    facebook: "https://facebook.com/",
+    tiktok: "https://tiktok.com/@",
+  };
+  return `${bases[platform]}${handle.replace("@", "")}`;
+};
+
+const socials = [
+  { name: "Website", url: data.website },
+  { name: "YouTube", url: data.video },
+  { name: "Instagram", url: formatSocial(data.instagram, "instagram") },
+  { name: "Facebook", url: formatSocial(data.facebook, "facebook") },
+  { name: "Twitter", url: formatSocial(data.twitter, "twitter") },
+  { name: "TikTok", url: formatSocial(data.tiktok, "tiktok") },
+].filter((s): s is { name: string; url: string } => s.url !== null);
+
+// Map your data keys to Font Awesome icon names
+const iconMapping: Record<string, string> = {
+  facebook: "FaFacebook",
+  twitter: "FaXTwitter", // FA6 uses XTwitter for the new logo
+  instagram: "FaInstagram",
+  tiktok: "FaTiktok",
+  youtube: "FaYoutube", 
+  website: "FaLink",
+};
+---
+
+<Base title={data.title}>
+  <section class="section">
+    <div class="container content max-w-lg">
+      <div class="row md:gx-4">
+        <div class="col-3 ">
+          <a href="/partners" class="text-s mb-6">&larr; Back to Partners</a>
+        </div>
+        <div class="col-6 justify-center text-center">
+          <Image 
+                src={data.logo} 
+                alt={data.title} 
+                width={400} 
+                height={600}
+                class="img-fluid mb-6 mx-auto object-contain" 
+              />
+        </div>
+      </div>
+    </div>
+    <div class=" max-w-5xl mx-auto">
+      <div class="row items-center mb-4">
+        <div class="col-12 md:col-6">
+            <h1 class="h2">{data.title}</h1>
+        </div>
+        <div class="col-12 md:col-6">
+          <div class="flex justify-end gap-5">
+            {socials.map(social => {
+              const iconName = iconMapping[social.name.toLowerCase()];
+              return (
+                <a 
+                  href={social.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="text-dark hover:text-primary transition-colors"
+                  aria-label={social.name}
+                >
+                  <DynamicIcon 
+                    icon={iconName} 
+                    className="w-6 h-6" 
+                    client:load 
+                  />
+                </a>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+      <hr class="mb-4 border-4" />
+      <div class="row">
+        <div class="col-12 prose prose-xl prose-slate mt-2 max-w-none">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

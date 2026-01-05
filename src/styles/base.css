@@ -50,6 +50,7 @@ strong {
   @apply font-semibold;
 }
 
+
 img {
   @apply inline-block;
 }

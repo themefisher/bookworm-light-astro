@@ -1,0 +1,83 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+const allPartners = await getCollection("partners");
+
+// Sort all partners alphabetically first
+const sortedPartners = allPartners.sort((a, b) => 
+  a.data.title.localeCompare(b.data.title)
+);
+
+// Split into Featured and Additional categories 
+const featuredPartners = sortedPartners.filter(p => p.data.featured === true);
+const additionalPartners = sortedPartners.filter(p => p.data.featured !== true);
+---
+
+<Base title="Meet Our Partners">
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-16">
+        <h1 class="h1 uppercase mb-4">Meet Our Partners</h1>
+        <p class="max-w-3xl mx-auto text-xl text-light">
+          The STORY Consortium is committed to empowering rural & small-town students 
+          and the communities that support them. [cite: 46]
+        </p>
+      </div>
+
+      {featuredPartners.length > 0 && (
+        <div class="mb-20">
+          <h2 class="h4 mb-8 uppercase tracking-widest border-b pb-2">Featured Partners</h2>
+          <div class="row g-4">
+            {featuredPartners.map((partner) => (
+              <div class="col-12 sm:col-6 md:col-4 lg:col-3">
+                <a href={`/partners/${partner.id}`} class="group block h-full p-6 bg-white border-2 border-primary/10 rounded-xl hover:border-primary transition-all duration-300">
+                  <div class="h-32 flex items-center justify-center mb-4">
+                    <Image 
+                      src={partner.data.logo} 
+                      alt={partner.data.title} 
+                      width={400} 
+                      height={200}
+                      class="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-110" 
+                    />
+                  </div>
+                  <h3 class="h6 text-center group-hover:text-primary transition-colors">{partner.data.title}</h3>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {additionalPartners.length > 0 && (
+        <div>
+          <h2 class="h4 mb-8 uppercase tracking-widest border-b pb-2 ">Additional Partners</h2>
+          <div class="row g-4">
+            {additionalPartners.map((partner) => (
+              <div class="col-12 sm:col-6 md:col-4 lg:col-3">
+                <a 
+                  href={partner.data.website} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="group block h-full p-6 bg-white border border-gray-200 rounded-xl hover:border-primary transition-all duration-300 shadow-sm"
+                >
+                  <div class="h-24 flex items-center justify-center mb-4">
+                    <Image 
+                      src={partner.data.logo} 
+                      alt={partner.data.title} 
+                      width={300} 
+                      height={150}
+                      class="max-h-full w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-500" 
+                    />
+                  </div>
+                  <p class="text-sm font-bold text-center group-hover:text-primary transition-colors">{partner.data.title}</p>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

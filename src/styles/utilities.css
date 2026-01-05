@@ -1,3 +1,15 @@
 @utility shadow {
   box-shadow: 0 10px 30px rgb(22 28 45 / 10%);
 }
+@theme {
+  --animate-spotlight: highlighter 1s 1s ease-in-out 1;
+  @keyframes highlighter {
+    0%,
+    100% {
+      background-color: transparent ;
+    }
+    15% {
+      background-color: yellow;
+    }
+  }
+}

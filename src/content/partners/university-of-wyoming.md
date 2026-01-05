@@ -1,0 +1,12 @@
+---
+title: "University of Wyoming"
+featured: false
+website: "https://www.uwyo.edu/"
+logo: "../../assets/images/logos/uwyo.png"
+video: ""
+instagram: ""
+facebook: ""
+twitter: ""
+tiktok: ""
+---
+

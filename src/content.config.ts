@@ -1,6 +1,32 @@
 import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
+// FAQs collection schema
+const faqCollection = defineCollection({
+  loader: glob({pattern: "**/*.{md,mdx}", base: "src/content/faq" }),
+  schema: z.object({
+    question: z.string(),
+    category: z.enum(['STORY', 'In-Person', 'Virtual']),
+    order: z.number(),
+  }),
+});
+
+// Partners collection schema
+const partnersCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/partners" }),
+  schema:({ image }) => z.object({
+    title: z.string(),
+    featured: z.boolean().optional(),
+    website: z.string().optional(),
+    logo: image(),
+    video: z.string().optional(),
+    instagram: z.string().optional(),
+    facebook: z.string().optional(),
+    twitter: z.string().optional(),
+    tiktok: z.string().optional(),
+  }),
+});
+
 // About collection schema
 const aboutCollection = defineCollection({
   loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/about" }),
@@ -86,6 +112,8 @@ const pagesCollection = defineCollection({
 
 // Export collections
 export const collections = {
+  faqs: faqCollection,
+  partners: partnersCollection,
   posts: postsCollection,
   about: aboutCollection,
   contact: contactCollection,
