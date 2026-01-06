@@ -1,13 +1,14 @@
 ---
-title: "University of Maryland"
+title: University of Maryland
 featured: true
-website: "https://admissions.umd.edu/"
-logo: "../../assets/images/logos/umg.png"
-video: ""
-instagram: "ApplyMaryland"
-facebook: "ApplyMaryland"
-twitter: ""
-tiktok: ""
+website: 'https://admissions.umd.edu/'
+logo: ../../assets/images/logos/umg.png
+video: ''
+instagram: ApplyMaryland
+facebook: ApplyMaryland
+twitter: ''
+tiktok: ''
+campusImage: '@/assets/images/campus/umg.jpg'
 ---
 
 Identified as the flagship university under the University System of Maryland, the University of Maryland (UMD) is committed to ensuring that all students know that the pursuit of higher education is within their reach. Committed to achieving excellence as the State's primary center for research and graduate education and the institution of choice for undergraduate students of exceptional ability and promise, UMD is charged with educating students and advancing the flow of knowledge.

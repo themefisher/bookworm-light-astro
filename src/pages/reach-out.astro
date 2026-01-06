@@ -1,0 +1,46 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+import CTA from "@/components/CTA.astro";
+
+// This page will host the Slate Request for Information form
+---
+
+<Base title="Reach Out">
+  <section class="section">
+    <div class="container content">
+      <div class="row md:gx-4">
+        <div class="col-10 offset-1 md:col-4 md:offset-4 sm:col-8 sm:offset-2">
+          <Image
+            src="/images/story-logo.png"
+            alt="STORY Logo"
+            width={800}
+            height={570}
+          />
+        </div>
+      </div>
+      <div class="row my-12">
+        <div class="col-12 md:col-3">
+          <h1>Reach Out</h1>
+        </div>
+        <div class="col-12 md:col-9 prose prose-slate prose-xl max-w-none">
+          <p class="mt-0">
+            Students, high school counselors and community-based organization advisors can fill out a brief form to share their information with STORY partner institutions. All data (form response) will be handled by each institution according to their privacy policy.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 md:p-10 shadow-sm min-h-[500px]">
+        <iframe
+          src="https://apps.admissions.yale.edu/register/STORYstudents?output=embed"
+          width="100%"
+          height="800px"
+          style="border:0;"
+          id="slate_iframe"
+        >
+        </iframe>
+      </div>
+    </div>
+  </section>
+    <CTA />
+</Base>

@@ -4,7 +4,7 @@
 }
 
 .navbar-brand img {
-  @apply h-auto max-w-[170px] sm:h-auto sm:max-w-full;
+  @apply h-auto max-w-[243px] sm:h-auto sm:max-w-full;
 }
 
 .navbar-nav {

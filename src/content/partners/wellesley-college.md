@@ -1,13 +1,14 @@
 ---
-title: "Wellesley College"
+title: Wellesley College
 featured: true
-website: "https://www.wellesley.edu/admission-aid"
-logo: "../../assets/images/logos/wellesley.png"
-video: "https://youtube.com/playlist?list=PLC78B873D952C72D6&feature=shared"
-instagram: "wellesleyadmission"
-facebook: ""
-twitter: ""
-tiktok: ""
+website: 'https://www.wellesley.edu/admission-aid'
+logo: ../../assets/images/logos/wellesley.png
+video: 'https://youtube.com/playlist?list=PLC78B873D952C72D6&feature=shared'
+instagram: wellesleyadmission
+facebook: ''
+twitter: ''
+tiktok: ''
+campusImage: '@/assets/images/campus/wellesley.jpg'
 ---
 
 Wellesley is a place filled with changemakers, barrier breakers, and bridge builders. Wellesley is a liberal arts college and women’s college that cheers on the boldest ideas and celebrates the brightest solutions. Our community is one of belonging. 

@@ -2,7 +2,6 @@
 import Logo from "@/components/Logo.astro";
 import Button from "@/shortcodes/Button";
 import menu from "@/config/menu.json";
-import { IoSearch } from "react-icons/io5";
 
 export interface ChildNavigationLink {
   name: string;
@@ -86,10 +85,6 @@ const { main }: { main: NavigationLink[] } = menu;
           </>
         ))
       }
-      <li class="nav-item">
-        
-        <Button label="Reach Out" link="#" style="solid" class="m-0" />
-      </li>
     </ul>
     
   </nav>

@@ -1,0 +1,36 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+import CTA from "@/components/CTA.astro";
+
+// This page will host the Slate Request for Information form
+---
+
+<Base title="Resources">
+  <section class="section">
+    <div class="container content">
+      <div class="row md:gx-4">
+        <div class="col-10 offset-1 md:col-4 md:offset-4 sm:col-8 sm:offset-2">
+          <Image
+            src="/images/story-logo.png"
+            alt="STORY Logo"
+            width={800}
+            height={570}
+          />
+        </div>
+      </div>
+      <div class="row my-12">
+        <div class="col-12 md:col-3">
+          <h1>Resources</h1>
+        </div>
+        <div class="col-12 md:col-9 prose prose-slate prose-xl max-w-none">
+          <p class="mt-0">
+            These resources may be helpful for students going through the college search and application process and to anyone supporting them, such as family members, counselors, teachers, coaches, librarians, mentors, supervisors, group leaders, and community members.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <CTA />
+</Base>

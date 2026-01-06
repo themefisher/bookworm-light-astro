@@ -1,13 +1,14 @@
 ---
-title: "Smith College"
+title: Smith College
 featured: true
-website: "www.smith.edu/admission-aid"
-logo: "../../assets/images/logos/smith.png"
-video: "https://www.youtube.com/@smithcollegeyoutube"
-instagram: "smithcollege"
-facebook: ""
-twitter: ""
-tiktok: ""
+website: www.smith.edu/admission-aid
+logo: ../../assets/images/logos/smith.png
+video: 'https://www.youtube.com/@smithcollegeyoutube'
+instagram: smithcollege
+facebook: ''
+twitter: ''
+tiktok: ''
+campusImage: '@/assets/images/campus/smith.jpg'
 ---
 
 Smith is a world-class, women’s liberal arts and sciences college. We offer over 50 majors, including engineering, and our open curriculum gives you the freedom to explore. We believe in the

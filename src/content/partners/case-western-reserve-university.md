@@ -1,13 +1,14 @@
 ---
-title: "Case Western Reserve University"
+title: Case Western Reserve University
 featured: true
-website: "https://case.edu/admission/"
-logo: "../../assets/images/logos/case.png"
-video: "https://www.youtube.com/user/case"
-instagram: "cwruadmission"
-facebook: ""
-twitter: ""
-tiktok: ""
+website: 'https://case.edu/admission/'
+logo: ../../assets/images/logos/case.png
+video: 'https://www.youtube.com/user/case'
+instagram: cwruadmission
+facebook: ''
+twitter: ''
+tiktok: ''
+campusImage: '@/assets/images/campus/case.jpg'
 ---
 
 At Case Western Reserve University, we're a community of innovators, knowledge-seekers and groundbreakers. As a leading national research university located in the most concentrated square mile of arts, cultural, medical and educational institutions in the U.S. and within walking distance of three major hospitals, we offer ample opportunities for you to excel. Students benefit from research experiences with faculty, top-notch internship, co-op and study abroad opportunities.

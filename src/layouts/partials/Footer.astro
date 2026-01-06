@@ -8,7 +8,8 @@ import { markdownify } from "@/lib/utils/textConverter";
 
 <footer class="section bg-dark">
   <div class="container text-center">
-    {/* footer menu */}
+
+    <h3 class="text-white mb-4">STORY</h3>
     <ul class="mb-8 space-x-4">
       {
         menu.footer.map((menu) => (
@@ -23,9 +24,7 @@ import { markdownify } from "@/lib/utils/textConverter";
         ))
       }
     </ul>
-    {/* social icons */}
-    <Social source={social.main} className="social-icons mb-8" />
-    {/* copyright */}
+
     <p set:html={markdownify(config.params.copyright)} class="text-white/75" />
   </div>
 </footer>

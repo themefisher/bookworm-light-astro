@@ -65,8 +65,8 @@ const iconMapping: Record<string, string> = {
           <Image 
                 src={data.logo} 
                 alt={data.title} 
-                width={400} 
-                height={600}
+                width={350} 
+                height={350}
                 class="img-fluid mb-6 mx-auto object-contain" 
               />
         </div>
@@ -74,10 +74,10 @@ const iconMapping: Record<string, string> = {
     </div>
     <div class=" max-w-5xl mx-auto">
       <div class="row items-center mb-4">
-        <div class="col-12 md:col-6">
+        <div class="col-12 md:col-9">
             <h1 class="h2">{data.title}</h1>
         </div>
-        <div class="col-12 md:col-6">
+        <div class="col-12 md:col-3">
           <div class="flex justify-end gap-5">
             {socials.map(social => {
               const iconName = iconMapping[social.name.toLowerCase()];
@@ -101,11 +101,28 @@ const iconMapping: Record<string, string> = {
         </div>
       </div>
       <hr class="mb-4 border-4" />
-      <div class="row">
+      <div class="row mb-8">
         <div class="col-12 prose prose-xl prose-slate mt-2 max-w-none">
           <Content />
         </div>
       </div>
+      <div class="row mb-8">
+        <div class="col-12">
+          {data.campusImage && (
+        
+            <div class="rounded-2xl overflow-hidden">
+              <Image 
+                src={data.campusImage} 
+                alt={`${data.title} Campus`} 
+                width={1200} 
+                height={675}
+                class="w-full object-cover"
+              />
+            </div>
+      )}
+        </div>
+      </div>
+      
     </div>
   </section>
 </Base>

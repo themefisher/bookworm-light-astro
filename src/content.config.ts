@@ -19,6 +19,7 @@ const partnersCollection = defineCollection({
     featured: z.boolean().optional(),
     website: z.string().optional(),
     logo: image(),
+    campusImage: image().optional(),
     video: z.string().optional(),
     instagram: z.string().optional(),
     facebook: z.string().optional(),

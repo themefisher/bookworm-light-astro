@@ -1,13 +1,14 @@
 ---
-title: "University of Iowa"
+title: University of Iowa
 featured: true
-website: "https://admissions.uiowa.edu/"
-logo: "../../assets/images/logos/uiowa.png"
-video: "https://www.youtube.com/@IowaAdmissions"
-instagram: "iowadmissions"
-facebook: ""
-twitter: ""
-tiktok: ""
+website: 'https://admissions.uiowa.edu/'
+logo: ../../assets/images/logos/uiowa.png
+video: 'https://www.youtube.com/@IowaAdmissions'
+instagram: iowadmissions
+facebook: ''
+twitter: ''
+tiktok: ''
+campusImage: '@/assets/images/campus/uiowa.jpg'
 ---
 
 The University of Iowa is among the top public research institutions in the nation. Home to more than 32,000 students, we deliver a world-class education in over 200 areas of study. From the most prestigious creative writing program in the United States, to a nationally recognized academic medical center, students are encouraged to explore their interests across the disciplines.

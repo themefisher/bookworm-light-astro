@@ -14,34 +14,26 @@
       "hasChildren": true,
       "children": [
         {
-          "name": "Authors",
-          "url": "/authors"
+          "name": "In-Person Events",
+          "url": "/in-person-events"
         },
         {
-          "name": "Categories",
-          "url": "/categories"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        },
-        {
-          "name": "Elements",
-          "url": "/elements"
-        },
-        {
-          "name": "Privacy Policy",
-          "url": "/privacy-policy"
+          "name": "Virtual Events",
+          "url": "/virtual-events"
         }
       ]
     },
     {
       "name": "Resources",
-      "url": "/contact"
+      "url": "/resources"
     },
     {
       "name": "FAQ",
       "url": "/faqs"
+    },
+    {
+      "name": "Reach Out",
+      "url": "/reach-out"
     }
   ],
   "footer": [
@@ -50,16 +42,28 @@
       "url": "/about"
     },
     {
-      "name": "Contact",
-      "url": "/contact"
+      "name": "Our Partners",
+      "url": "/partners"
     },
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "In-Person Events",
+      "url": "/in-person-events"
     },
     {
-      "name": "Privacy Policy",
-      "url": "/privacy-policy"
+      "name": "Virtual Events",
+      "url": "/virtual-events"
+    },
+    {
+      "name": "Resources",
+      "url": "/resources"
+    },
+    {
+      "name": "FAQ",
+      "url": "/faqs"
+    },
+    {
+      "name": "Reach Out",
+      "url": "/reach-out"
     }
   ]
 }

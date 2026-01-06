@@ -1,0 +1,36 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+import CTA from "@/components/CTA.astro";
+
+// This page will host the Slate Request for Information form
+---
+
+<Base title="In-Person Events">
+  <section class="section">
+    <div class="container content">
+      <div class="row md:gx-4">
+        <div class="col-10 offset-1 md:col-4 md:offset-4 sm:col-8 sm:offset-2">
+          <Image
+            src="/images/story-logo.png"
+            alt="STORY Logo"
+            width={800}
+            height={570}
+          />
+        </div>
+      </div>
+      <div class="row my-12">
+        <div class="col-12 md:col-3">
+          <h1>In-Person Events</h1>
+        </div>
+        <div class="col-12 md:col-9 prose prose-slate prose-xl max-w-none">
+          <p class="mt-0">
+            Our in-person programs typically include an admission information session followed by a comprehensive college fair. The information session will cover details about the college process, including how to identify colleges that are a good fit, college affordability, and application advice specifically for rural and small-town students. We hope you will take advantage of the college fair to ask questions and discover colleges and universities you may not have heard of before!
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+    <CTA  />
+  </Base>

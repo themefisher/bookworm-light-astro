@@ -1,11 +1,12 @@
 ---
 import Base from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
+import CTA from "@/components/CTA.astro";
 ---
 
-<Base >
+<Base title="About Story">
   <section class="section">
-    <div class="container">
+    <div class="container content">
       <div class="row md:gx-4">
         
         <div class="col-10 offset-1 md:col-4 md:offset-4 sm:col-8 sm:offset-2 ">
@@ -17,8 +18,8 @@ import { Image } from "astro:assets";
         <div class="col-12 md:col-3">
           <h1>About</h1>
         </div>
-        <div class="col-12 md:col-9">
-          <p class="mb-4">
+        <div class="col-12 md:col-9  prose prose-slate prose-xl max-w-none">
+          <p class="mb-4 mt-0">
             The Small Town Outreach, Recruitment and Yield (STORY) consortium was formed in 2023 as a creative solution to a bigger question: How can our institutions effectively reach U.S. small-town and rural communities in a way that is both accessible and impactful? While the consortium began with five institutions looking for a solution, it has expanded to include 35+ colleges and universities all dedicated to the same mission. 
           </p>
           <p class="mb-4">
@@ -34,8 +35,8 @@ import { Image } from "astro:assets";
         <div class="col-12 md:col-3">
           <h1>Mission</h1>
         </div>
-        <div class="col-12 md:col-9">
-          <p class="mb-4">
+        <div class="col-12 md:col-9  prose prose-slate prose-xl max-w-none">
+          <p class="mb-4 mt-0">
             The STORY Consortium is committed to empowering rural & small-town students – and the communities that support them – by preparing them for the college search and application process, with an aim of expanding access to higher education.
           </p>
         </div>
@@ -45,8 +46,8 @@ import { Image } from "astro:assets";
         <div class="col-12 md:col-3">
           <h1>Where</h1>
         </div>
-        <div class="col-12 md:col-9">
-          <p class="mb-4">
+        <div class="col-12 md:col-9  prose prose-slate prose-xl max-w-none">
+          <p class="mb-4 mt-0">
             We host our in-person sessions in small cities with major highway access to rural communities, typically within a 100-mile radius. Prioritized locations are as accessible as possible to students, families and counselors from surrounding small-town and rural communities.
           </p>
           <p class="mb-4">
@@ -59,11 +60,11 @@ import { Image } from "astro:assets";
         <div class="col-12 md:col-3">
           <h1>Who</h1>
         </div>
-        <div class="col-12 md:col-9">
-          <p class="mb-4">
+        <div class="col-12 md:col-9 prose prose-slate prose-xl max-w-none">
+          <p class="mb-4 mt-0">
             STORY programming welcomes all students, with an intentional focus on students from small-town and rural environments. There is no specific definition that must be fulfilled to be considered a rural or small-town student. Rural and small-town cultures vary tremendously throughout the U.S., and we acknowledge that each of these areas is unique. It is up to each individual to reflect on the area they come from and to determine if they are a rural or small-town student. The questions below could help in this process.
           </p>
-          <ul class="mb-4 list-disc list-inside space-y-2">
+          <ul class="mb-4 list-disc space-y-2">
             <li>Do you feel that you have experienced a rural/small-town culture throughout your upbringing?</li>
             <li>Do you have limited access to grocery stores or shopping centers?</li>
             <li>Do you attend a public high school where students often have a long bus ride that covers a lot of ground?</li>
@@ -80,21 +81,6 @@ import { Image } from "astro:assets";
       </div>
     </div>
   </section>
-  <section class="section bg-gray-100">
-    <div class="container  py-16 ">
-      <div class="row">
-      <div class="col-12 sm:col-5">
-        <h2>Have a question?</h2>
-      </div>
-      
-      <div class="col-12 sm:col-7">
-        <p class="pb-4">The STORY Consortium is committed to empowering rural & small-town students – and the communities that support them – by preparing them for the college search and application process, with an aim of expanding access to higher education.</p>
-        <button class="btn btn-primary mt-2">
-          Learn More
-        </button>
-      </div>
-    </div>
-    </div>
-  </section>
+    <CTA />
 
 </Base>
