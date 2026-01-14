@@ -3,6 +3,9 @@ import Base from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
 import CTA from "@/components/CTA.astro";
 
+import inPersonImg from "@/assets/images/in-person-cover.jpg";
+import virtualImg from "@/assets/images/virtual-cover.jpg"
+
 ---
 
 <Base>
@@ -47,7 +50,14 @@ import CTA from "@/components/CTA.astro";
           </div>
           <div class="col-12 md:col-6">
             <a href="#" class="block hover:text-primary overflow-hidden group">
-              <Image src="https://placehold.co/600x400" alt="placeholder" width="600" height="400" class="group-hover:scale-[1.03] transition duration-300 w-full"/></a>
+              <Image 
+                src={inPersonImg}
+                alt="placeholder" 
+                width={600} 
+              height={400} 
+                class="group-hover:scale-[1.03] transition duration-300 w-full"
+              />
+            </a>
             <h3>
               <a href="/in-person-events" class="hover:text-primary transition-duration-300">In-person Events</a>
             </h3>
@@ -55,7 +65,13 @@ import CTA from "@/components/CTA.astro";
           </div>
           <div class="col-12 md:col-6">
             <a href="#" class="block hover:text-primary overflow-hidden group">
-              <Image src="https://placehold.co/600x400" alt="placeholder" width="600" height="600" class="group-hover:scale-[1.03] transition duration-300 w-full" />
+              <Image 
+                src={virtualImg}
+                alt="placeholder" 
+                width={600} 
+              height={400} 
+                class="group-hover:scale-[1.03] transition duration-300 w-full"
+              />
             </a>
             <h3>
               <a href="/virtual-events" class="hover:text-primary transition-duration-300">Virtual Events</a>

@@ -12,4 +12,7 @@
       background-color: #FF9661;
     }
   }
+
+  --typography-links: var(--color-primary);
+  --typography-links-hover: var(--color-story-dark);
 }

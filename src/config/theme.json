@@ -4,7 +4,10 @@
       "theme_color": {
         "primary": "#3b8cc2",
         "secondary": "#F7AD3B",
-        "accent": "#FF9661",
+        "accent-red": "#FF9661",
+        "accent-purple": "#7575C9",
+        "accent-green": "#45997A",
+        "story-dark":"#475368",
         "body": "#fff",
         "border": "#D5D5D5",
         "light": "#FAFAFA",

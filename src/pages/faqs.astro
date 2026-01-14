@@ -24,7 +24,7 @@ const groupedFaqs = categories.map(cat => ({
 
 <Base title="Frequently Asked Questions">
   <section class="section">
-    <div class="container ">
+    <div class="container content">
       <div class="row md:gx-4">
         <div class="col-10 offset-1 md:col-4 md:offset-4 sm:col-8 sm:offset-2">
           <Image src="/images/story-logo.png" alt="STORY Logo" width={800} height={570} />
@@ -33,11 +33,11 @@ const groupedFaqs = categories.map(cat => ({
 
       <div class="row my-12">
         <div class="col-12 md:col-3">
-          <h1>FAQs</h1>
+          <h1 class="">FAQs</h1>
         </div>
-        <div class="col-12 md:col-9 prose prose-slate prose-xl max-w-none">
+        <div class="col-12 md:col-9 prose  prose-xl max-w-none">
           <p class="mt-0">
-            STORY is committed to helping students, educators and families learn more about the college application process. Further questions? Please email <a href="mailto:story@gmail.com">story@gmail.com</a>. 
+            STORY is committed to helping students, educators and families learn more about the college application process. Further questions? Please email <a href="mailto:info@storyconsortium.org">info@storyconsortium.org</a>. 
           </p>
         </div>
       </div>
@@ -46,10 +46,10 @@ const groupedFaqs = categories.map(cat => ({
         {groupedFaqs.map((group) => (
           <div class="col-12 md:col-9 md:offset-3 mb-4 prose prose-slate prose-lg">
             <h6 class="mt-2 mb-2 font-bold font-primary uppercase tracking-wide text-lg">{group.displayName}</h6>
-            <ul class="space-y-1">
+            <ul class="space-y-1 prose">
               {group.items.map((faq) => (
                 <li>
-                  <a href={`#${faq.id}`} class="hover:text-primary transition-colors">
+                  <a href={`#${faq.id}`} class="transition-colors">
                     {faq.data.question}
                   </a>
                 </li>
