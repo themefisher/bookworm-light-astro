@@ -25,7 +25,7 @@ const additionalPartners = sortedPartners.filter(p => p.data.featured !== true);
         </div>
       </div>
       <div class="row my-12">
-        <div class="col-12 md:col-3 content">
+        <div class="col-12 md:col-3 ">
           <h1>STORY Partners</h1>
         </div>
         <div class="col-12 md:col-9 prose prose-slate prose-xl max-w-none">
@@ -50,7 +50,7 @@ const additionalPartners = sortedPartners.filter(p => p.data.featured !== true);
                       class="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-110" 
                     />
                   </div>
-                  <h3 class="h6 text-center group-hover:text-primary transition-colors">{partner.data.title}</h3>
+                  <h3 class="h6 font-bold text-center text-text group-hover:text-primary transition-colors">{partner.data.title}</h3>
                 </a>
               </div>
             ))}

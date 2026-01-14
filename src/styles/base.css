@@ -12,7 +12,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-primary font-bold leading-tight text-dark;
+  @apply font-secondary font-black leading-tight text-text-heading;
 }
 
 h1,

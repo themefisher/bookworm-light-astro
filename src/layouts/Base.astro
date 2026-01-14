@@ -70,13 +70,32 @@ const { title, meta_title, description, image, noindex, canonical } =
     <AstroFont
       config={[
         {
-          src: [],
-          preload: false,
+          name: "Montserrat",
+          src: [
+            {
+              style: 'normal',
+              weight: '100 900',
+              path: './public/fonts/Montserrat-VariableFont_wght.ttf'
+            },
+          ],
+          preload: true,
           display: "swap",
-          name: fontPrimary!,
           fallback: "sans-serif",
-          cssVariable: "font-primary",
-          googleFontsURL: `https://fonts.googleapis.com/css2?family=${pf}&display=swap`,
+          cssVariable: "font-primary", // Primary body font
+        },
+        {
+          name: "Playfair Display",
+          src: [
+            {
+              style: 'normal',
+              weight: '300 900',
+              path: './public/fonts/PlayfairDisplay-VariableFont_wght.ttf'
+            },
+          ],
+          preload: true,
+          display: "swap",
+          fallback: "serif",
+          cssVariable: "font-secondary", // Secondary header font
         },
       ]}
     />
