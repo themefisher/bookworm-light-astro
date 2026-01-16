@@ -54,3 +54,7 @@ strong {
 img {
   @apply inline-block;
 }
+
+a{
+  @apply text-text hover:text-primary;
+}

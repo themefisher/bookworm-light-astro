@@ -12,6 +12,12 @@ const categoryDisplay = {
   'Virtual': 'Virtual Events'
 };
 
+const categoryColors = {
+  'STORY': 'border-accent-red',
+  'In-Person': 'border-accent-green',
+  'Virtual': 'border-accent-purple'
+};
+
 const sortedFaqs = allFaqs.sort((a, b) => a.data.order - b.data.order);
 
 const groupedFaqs = categories.map(cat => ({
@@ -32,19 +38,16 @@ const groupedFaqs = categories.map(cat => ({
       </div>
 
       <div class="row my-12">
-        <div class="col-12 md:col-3">
+        <div class="col-12 md:col-3 border-b-8 md:border-b-0 md:border-r-8 border-primary pt-4">
           <h1 class="">FAQs</h1>
         </div>
         <div class="col-12 md:col-9 prose  prose-xl max-w-none">
           <p class="mt-0">
             STORY is committed to helping students, educators and families learn more about the college application process. Further questions? Please email <a href="mailto:info@storyconsortium.org">info@storyconsortium.org</a>. 
           </p>
-        </div>
-      </div>
-
-      <div class="row my-12">
+      <div>
         {groupedFaqs.map((group) => (
-          <div class="col-12 md:col-9 md:offset-3 mb-4 prose prose-slate prose-lg">
+          <div class="prose prose-slate prose-lg">
             <h6 class="mt-2 mb-2 font-bold font-primary uppercase tracking-wide text-lg">{group.displayName}</h6>
             <ul class="space-y-1 prose">
               {group.items.map((faq) => (
@@ -59,18 +62,22 @@ const groupedFaqs = categories.map(cat => ({
         ))}
       </div>
 
+        </div>
+      </div>
+
+
       {groupedFaqs.map((group) => (
         <div class="row my-12 pt-12">
-          <div class="col-12 md:col-3">
-            <h2 class="leading-none uppercase font-bold">{group.displayName}</h2>
-          </div>
+          <div class={`col-12 md:col-3 border-b-8 md:border-b-0 md:border-r-8 pt-4 ${categoryColors[group.id] || 'border-primary'}`}>
+      <h2 class="leading-none uppercase font-bold">{group.displayName}</h2>
+    </div>
           <div class="col-12 md:col-9">
             {group.items.map(async (faq) => {
               const { Content } = await render(faq);
               return (
                 <div class="mb-10 last:mb-0">
                   <h5 class="mt-0 font-primary font-bold"> 
-                    <span id={faq.id} class="faq-q font-bold scroll-mt-24 target:animate-spotlight inline-block">
+                    <span id={faq.id} class="faq-q font-bold scroll-mt-10 inline-block">
                       {faq.data.question}
                     </span>
                   </h5>
@@ -87,21 +94,4 @@ const groupedFaqs = categories.map(cat => ({
       
     </div>
   </section>
-    <!-- <section class="section bg-gray-100">
-      <div class="container  py-16 ">
-        <div class="row">
-        <div class="col-12 sm:col-5">
-          <h2>Have a question?</h2>
-        </div>
-        
-        <div class="col-12 sm:col-7">
-          <p class="pb-4">The STORY Consortium is committed to empowering rural & small-town students – and the communities that support them – by preparing them for the college search and application process, with an aim of expanding access to higher education.</p>
-          <button class="btn btn-primary mt-2">
-            Learn More
-          </button>
-        </div>
-      </div>
-      </div>
-      </section> -->
-
 </Base>

@@ -8,16 +8,17 @@
         "accent-purple": "#7575C9",
         "accent-green": "#45997A",
         "story-dark":"#475368",
+        "story-bg": "#2f709b",
         "body": "#fff",
         "border": "#D5D5D5",
         "light": "#FAFAFA",
-        "dark": "#152035"
+        "dark": "#101928"
       },
       "text_color": {
         "text": "#333333",
-        "text-dark": "#152035",
+        "text-dark": "#101928",
         "text-light": "#a1a5ae",
-        "text-heading": "#3b8cc2"
+        "text-heading": "#0c1c27"
       }
     }
   },
