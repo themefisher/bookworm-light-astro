@@ -1,7 +1,7 @@
 ---
 title: California Institute of Technology
 featured: true
-website: admissions.caltech.edu
+website: https://admissions.caltech.edu
 logo: ../../assets/images/logos/caltech.png
 video: ''
 instagram: caltechadmissions

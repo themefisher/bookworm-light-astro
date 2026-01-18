@@ -1,15 +1,26 @@
 ---
 // You can add props here if you want to customize the text later
+import { Image } from 'astro:assets';
 
+import footerBg from '@/assets/images/bgs/footer-cta.jpg';
 ---
 
-<section class="section bg-primary">
-  <div class="container py-16">
+<section class="section relative overflow-hidden">
+  <div aria-hidden="true" class="absolute inset-0 select-none">
+      <Image
+        src={footerBg}
+        alt=""
+        class="absolute inset-0 -z-20 h-full w-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 -z-10 bg-story-bg/95"></div>
+    </div>
+  <div class="container py-16 z-10 relative">
     <div class="row">
       <div class="col-12 text-center  mx-auto">
         <h3 class="text-light">Want to learn more? </h3>
-        <p class="my-4 text-lg text-light">
-            Please visit our <a href="/faqs" class="underline hover:text-secondary/90">Frequently Asked Questions</a> or email us at <a href="mailto:info@storyconsortium.org" class="underline hover:text-secondary/90">info@storyconsortium.org</a>.
+        <p class="my-4 text-lg text-light font-medium">
+            Please visit our <a href="/faqs" class="underline text-white hover:text-secondary transition-all">Frequently Asked Questions</a> or email us at <a href="mailto:info@storyconsortium.org" class="underline text-white hover:text-secondary transition-all">info@storyconsortium.org</a>.
           
         </p>
       </div>

@@ -41,7 +41,7 @@ const socials = [
   { name: "Facebook", url: formatSocial(data.facebook, "facebook") },
   { name: "Twitter", url: formatSocial(data.twitter, "twitter") },
   { name: "TikTok", url: formatSocial(data.tiktok, "tiktok") },
-].filter((s): s is { name: string; url: string } => s.url !== null);
+].filter((s): s is { name: string; url: string } => !!s.url);
 
 // Map your data keys to Font Awesome icon names
 const iconMapping: Record<string, string> = {
@@ -58,9 +58,50 @@ const iconMapping: Record<string, string> = {
   <section class="section">
     <div class="container content max-w-lg">
       <div class="row md:gx-4">
-        <div class="col-3 ">
-          <a href="/partners" class="text-s mb-6">&larr; Back to Partners</a>
-        </div>
+        <div class="col-12 md:col-3">
+  <button 
+    id="back-button"
+    type="button"
+    class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-lg border border-primary/20 text-primary font-bold hover:bg-primary/10 transition-all duration-300 group cursor-pointer"
+  >
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      class="h-5 w-5 transition-transform group-hover:-translate-x-1" 
+      fill="none" 
+      viewBox="0 0 24 24" 
+      stroke="currentColor"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+    </svg>
+    <span>Back to Partners</span>
+  </button>
+</div>
+
+<script>
+  // 1. Wrap the logic in a reusable function
+  function setupBackButton() {
+    const backBtn = document.getElementById('back-button');
+    
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        const hasHistory = window.history.length > 1;
+        const isInternal = document.referrer.includes(window.location.host);
+
+        if (hasHistory && isInternal) {
+          window.history.back();
+        } else {
+          window.location.href = '/partners';
+        }
+      });
+    }
+  }
+
+  // 2. Run it on initial load
+  setupBackButton();
+
+  // 3. Run it every time Astro swaps the page content
+  document.addEventListener('astro:after-swap', setupBackButton);
+</script>
         <div class="col-6 justify-center text-center">
           <Image 
                 src={data.logo} 
@@ -100,7 +141,7 @@ const iconMapping: Record<string, string> = {
           </div>
         </div>
       </div>
-      <hr class="mb-4 border-4 border-story-dark" />
+      <hr class="mb-4 border-4 border-primary" />
       <div class="row mb-8">
         <div class="col-12 prose prose-xl prose-slate mt-2 max-w-none">
           <Content />

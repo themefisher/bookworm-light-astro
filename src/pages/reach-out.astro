@@ -23,21 +23,48 @@ import CTA from "@/components/CTA.astro";
         <div class="col-12 md:col-3">
           <h1>Reach Out</h1>
         </div>
-        <div class="col-12 md:col-9 prose prose-slate prose-xl max-w-none">
+        <div class="col-12 md:col-9 prose prose-xl max-w-none">
           <p class="mt-0">
-            Students, high school counselors and community-based organization advisors can fill out a brief form to share their information with STORY partner institutions. All data (form response) will be handled by each institution according to their privacy policy.
+            Students, high school counselors and community-based organization
+            advisors can fill out a brief form to share their information with
+            STORY partner institutions. All data (form response) will be handled
+            by each institution according to their privacy policy.
           </p>
         </div>
       </div>
       <div class="row my-12">
-        <div class="col-12 md:col-9 md:offset-3 prose prose-slate prose-xl max-w-none">
+        <div class="col-12 md:col-9 md:offset-3 prose prose-xl max-w-none">
+          {/* The container the script targets */}
           <div id="form_0f76a20c-e716-4bf5-8f8a-5ab6be776c4b">Loading...</div>
-            <script async="async" src=https://apps.admissions.yale.edu/register/?id=0f76a20c-e716-4bf5-8f8a-5ab6be776c4b&amp;output=embed&amp;div=form_0f76a20c-e716-4bf5-8f8a-5ab6be776c4b>/**/</script>
-          </div>
         </div>
       </div>
 
-      
+      <script is:inline>
+        function loadSlateForm() {
+          const containerId = "form_0f76a20c-e716-4bf5-8f8a-5ab6be776c4b";
+          const container = document.getElementById(containerId);
+
+          // If the container exists and hasn't been filled yet (still says Loading...)
+          if (container) {
+            // Create a new script element manually
+            const script = document.createElement("script");
+            script.src =
+              "https://apps.admissions.yale.edu/register/?id=0f76a20c-e716-4bf5-8f8a-5ab6be776c4b&output=embed&div=" +
+              containerId;
+            script.async = true;
+
+            // Clear the container "Loading..." text if necessary or just append
+            // Some scripts handle the clearing themselves, others don't.
+            container.innerHTML = "Loading...";
+
+            container.appendChild(script);
+          }
+        }
+
+        // Run on initial load and on every View Transition navigation
+        document.addEventListener("astro:page-load", loadSlateForm);
+      </script>
+    </div>
   </section>
     <CTA />
 </Base>

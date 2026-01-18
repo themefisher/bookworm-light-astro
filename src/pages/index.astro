@@ -4,23 +4,35 @@ import { Image } from "astro:assets";
 import CTA from "@/components/CTA.astro";
 
 import inPersonImg from "@/assets/images/in-person-cover.jpg";
-import virtualImg from "@/assets/images/virtual-cover.jpg"
+import virtualImg from "@/assets/images/virtual-cover.jpg";
 import campusBg from "@/assets/images/bgs/campus-life.jpg";
-
 ---
 
 <Base>
   <section class="section">
-    <div class="container  py-32">
+    <div class="container py-32">
       <div class="row content-center">
         <div class="col-12 md:col-7">
-          <Image src="/images/story-logo.png" alt="A bird." width="800" height="570" />
+          <Image
+            src="/images/story-logo.png"
+            alt="A bird."
+            width="800"
+            height="570"
+          />
         </div>
-        
+
         <div class="col-12 md:col-5 content-center">
           <h1>Welcome to STORY</h1>
-          <p class="py-4 text-lg">The STORY Consortium is committed to empowering rural & small-town students – and the communities that support them – by preparing them for the college search and application process, with an aim of expanding access to higher education.</p>
-          <a href="/about" class="btn btn-primary mt-2 no-underline uppercase hover:bg-secondary hover:border-secondary hover:text-text tracking-wide">
+          <p class="py-4 text-lg">
+            The STORY Consortium is committed to empowering rural & small-town
+            students – and the communities that support them – by preparing them
+            for the college search and application process, with an aim of
+            expanding access to higher education.
+          </p>
+          <a
+            href="/about"
+            class="btn btn-primary mt-2 no-underline uppercase hover:bg-secondary hover:border-secondary hover:text-text tracking-wide"
+          >
             About STORY
           </a>
         </div>
@@ -29,68 +41,88 @@ import campusBg from "@/assets/images/bgs/campus-life.jpg";
   </section>
   <section class="section relative overflow-hidden">
     <div aria-hidden="true" class="absolute inset-0 select-none">
-    <Image 
-      src={campusBg} 
-      alt="" 
-      class="absolute inset-0 -z-20 h-full w-full object-cover" 
-      loading="lazy"
-    />
-    <div class="absolute inset-0 -z-10 bg-story-bg/80"></div>
-  </div>
+      <Image
+        src={campusBg}
+        alt=""
+        class="absolute inset-0 -z-20 h-full w-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 -z-10 bg-story-bg/92"></div>
+    </div>
     <div class="container py-16 z-10 relative">
       <div class="row">
-      <div class="col-12 sm:col-5">
-        <h2 class="text-light">Meet Our Partners</h2>
-      </div>
-      
-      <div class="col-12 sm:col-7">
-        <p class="pb-4 text-light text-lg font-medium">The STORY Consortium is committed to empowering rural & small-town students – and the communities that support them – by preparing them for the college search and application process, with an aim of expanding access to higher education.</p>
-        <a href="/partners" class="btn btn-primary mt-2 no-underline uppercase hover:bg-secondary hover:border-secondary hover:text-text tracking-wide">
-          STORY Partners
-        </a>
-      </div>
-    </div>
-    </div>
-    </section>
-    <section class="section">
-      <div class="container   py-16">
-        <div class="row ">
-          <div class="col-12 md:col-8 md:offset-2 mb-8">
-            <h2 class="text-center">Visit STORY</h2>
-          </div>
-          <div class="col-12 md:col-6">
-            <a href="/in-person-events" class="block hover:text-primary overflow-hidden group">
-              <Image 
-                src={inPersonImg}
-                alt="placeholder" 
-                width={600} 
-              height={400} 
-                class="group-hover:scale-[1.03] transition duration-300 w-full not-prose"
-              />
-            </a>
-            <h3 class=" text-2xl my-4 font-primary">
-              <a href="/in-person-events" class="">In-person Events</a>
-            </h3>
-            <p class="my-4">Learn more about which region we will travel to next (and where we have been previously).</p>
-          </div>
-          <div class="col-12 md:col-6">
-            <a href="/virtual-events" class="block hover:text-primary overflow-hidden group">
-              <Image 
-                src={virtualImg}
-                alt="placeholder" 
-                width={600} 
-              height={400} 
-                class="group-hover:scale-[1.03] transition duration-300 w-full not-prose"
-              />
-            </a>
-            <h3 class=" text-2xl my-4 font-primary">
-              <a href="/virtual-events" class="">Virtual Events</a>
-            </h3>
-            <p class="my-4">Explore specific topics and partner institutions through our virtual programming.</p>
-          </div>
+        <div class="col-12 sm:col-5">
+          <h2 class="text-light">Meet Our Partners</h2>
+        </div>
+
+        <div class="col-12 sm:col-7">
+          <p class="pb-4 text-light text-lg font-medium">
+            The STORY Consortium is committed to empowering rural & small-town
+            students – and the communities that support them – by preparing them
+            for the college search and application process, with an aim of
+            expanding access to higher education.
+          </p>
+          <a
+            href="/partners"
+            class="btn btn-primary mt-2 no-underline uppercase hover:bg-secondary hover:border-secondary hover:text-text tracking-wide"
+          >
+            STORY Partners
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container py-16">
+      <div class="row">
+        <div class="col-12 md:col-8 md:offset-2 mb-8">
+          <h2 class="text-center">Visit STORY</h2>
+        </div>
+        <div class="col-12 md:col-6">
+          <a
+            href="/in-person-events"
+            class="block hover:text-primary overflow-hidden group"
+          >
+            <Image
+              src={inPersonImg}
+              alt="placeholder"
+              width={600}
+              height={400}
+              class="group-hover:scale-[1.03] transition duration-300 w-full not-prose"
+            />
+          </a>
+          <h3 class="text-2xl my-4 font-primary">
+            <a href="/in-person-events" class="">In-person Events</a>
+          </h3>
+          <p class="my-4">
+            Learn more about which region we will travel to next (and where we
+            have been previously).
+          </p>
+        </div>
+        <div class="col-12 md:col-6">
+          <a
+            href="/virtual-events"
+            class="block hover:text-primary overflow-hidden group"
+          >
+            <Image
+              src={virtualImg}
+              alt="placeholder"
+              width={600}
+              height={400}
+              class="group-hover:scale-[1.03] transition duration-300 w-full not-prose"
+            />
+          </a>
+          <h3 class="text-2xl my-4 font-primary">
+            <a href="/virtual-events" class="">Virtual Events</a>
+          </h3>
+          <p class="my-4">
+            Explore specific topics and partner institutions through our virtual
+            programming.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <CTA />
+  <CTA />
 </Base>
