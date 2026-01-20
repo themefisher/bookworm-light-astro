@@ -8,7 +8,7 @@
 }
 
 .navbar-nav {
-  @apply text-center lg:text-left;
+  @apply text-left;
 }
 
 .nav-item {
@@ -16,19 +16,19 @@
 }
 
 .nav-link {
-  @apply p-3 text-lg font-semibold text-dark transition hover:text-primary md:p-4;
+  @apply p-3 text-lg font-semibold text-dark transition hover:text-secondary md:p-4;
 }
 
 .nav-dropdown-list {
-  @apply z-10 rounded-lg bg-white px-6 py-3 shadow transition;
+  @apply z-10 rounded-lg bg-white px-8 py-3 transition;
 }
 
 .nav-dropdown-item {
-  @apply mb-1;
+  @apply my-2;
 }
 
 .nav-dropdown-link {
-  @apply block min-w-[150px] py-1 text-[17px] font-semibold text-dark transition hover:text-primary;
+  @apply block min-w-[150px] py-1 text-[17px] font-semibold text-dark transition hover:text-secondary;
 }
 
 /* search style */
