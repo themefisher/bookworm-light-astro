@@ -3,7 +3,7 @@ import Base from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
 import CTA from "@/components/CTA.astro";
 
-// This page will host the Slate Request for Information form
+import mapImg from "@/assets/images/past-events-map.png";
 ---
 
 <Base title="In-Person Events">
@@ -20,15 +20,42 @@ import CTA from "@/components/CTA.astro";
         </div>
       </div>
       <div class="row my-12">
-        <div class="col-12 md:col-3 border-b-8 md:border-b-0 md:border-r-8 border-primary pt-4">
-          <h1>In-Person Events</h1>
+        <div class="col-12 md:col-3 md:border-r-8 border-primary pt-4">
+          <h1 class="border-b-8 md:border-b-0 border-primary py-4 m-0">In-Person Events</h1>
         </div>
         <div class="col-12 md:col-9 prose prose-slate prose-xl max-w-none">
-          <p class="mt-0">
+          <p class="mt-0 pt-4">
             Our in-person programs typically include an admission information session followed by a comprehensive college fair. The information session will cover details about the college process, including how to identify colleges that are a good fit, college affordability, and application advice specifically for rural and small-town students. We hope you will take advantage of the college fair to ask questions and discover colleges and universities you may not have heard of before!
           </p>
         </div>
       </div>
+      <row class="row my-12">
+        <div class="col-12 md:col-3 md:border-r-8 border-accent-red pt-4">
+          <h2 class="border-b-8 md:border-b-0 border-accent-red py-4 m-0 inline-block">Past Events</h2>
+        </div>
+        <div class="col-12 md:col-9 prose prose-slate prose-xl max-w-none">
+          <Image
+            src={mapImg}
+            alt="Map showing locations of past in-person events"
+            width={1200}
+            height={800}
+          />
+          
+            <h3 class="font-primary inline-block m-0 py-2 border-b-8 border-accent-red">Fall 2023</h3> 
+            <p>Bentonville, AR; Tulsa, OK; Wichita, KS; Lincoln, NE; Cedar Rapids, IA</p>
+            <h3 class="font-primary inline-block m-0 py-2 border-b-8 border-accent-red">Spring 2024</h3> 
+            <p>Gallup, NM; Grand Junction, CO; Herriman, UT; Pocatello, ID; Jackson, WY</p>
+            <h3 class="font-primary inline-block m-0 py-2 border-b-8 border-accent-red">Fall 2024</h3>
+            <p>Moscow, ID; Walla Walla, WA; Bend, OR; Redding, CA; Reno, NV</p>
+            <h3 class="font-primary inline-block m-0 py-2 border-b-8 border-accent-red">Spring 2025</h3>
+            <p>Johnson City, TN; Charleston, WV; Roanoke, VA; Fayetteville, NC; Macon, GA</p>
+            <h3 class="font-primary inline-block m-0 py-2 border-b-8 border-accent-red">Fall 2025</h3>
+            <p>Natchitoches, LA; Tyler, TX; Bentonville, AR; Tulsa, OK; Wichita, KS</p>
+            <h3 class="font-primary inline-block m-0 py-2 border-b-8 border-accent-red">Fall 2025 (Continued)</h3>
+            <p>Lenox, MA; Lebanon, NH; Augusta, ME</p>
+          
+        </div>
+      </row>
 
     </div>
   </section>

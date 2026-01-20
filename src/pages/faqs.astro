@@ -7,91 +7,108 @@ import { getCollection, render } from "astro:content";
 const allFaqs: CollectionEntry<"faqs">[] = await getCollection("faqs");
 const categories = ["STORY", "In-Person", "Virtual"] as const;
 const categoryDisplay = {
-  'STORY': 'STORY',
-  'In-Person': 'In-Person Events',
-  'Virtual': 'Virtual Events'
+  STORY: "STORY",
+  "In-Person": "In-Person Events",
+  Virtual: "Virtual Events",
 };
 
 const categoryColors = {
-  'STORY': 'border-accent-red',
-  'In-Person': 'border-accent-green',
-  'Virtual': 'border-accent-purple'
+  STORY: "border-accent-red",
+  "In-Person": "border-accent-green",
+  Virtual: "border-accent-purple",
 };
 
 const sortedFaqs = allFaqs.sort((a, b) => a.data.order - b.data.order);
 
-const groupedFaqs = categories.map(cat => ({
+const groupedFaqs = categories.map((cat) => ({
   id: cat,
   displayName: categoryDisplay[cat],
-  items: sortedFaqs.filter(faq => faq.data.category === cat)
+  items: sortedFaqs.filter((faq) => faq.data.category === cat),
 }));
 ---
-
 
 <Base title="Frequently Asked Questions">
   <section class="section">
     <div class="container content">
       <div class="row md:gx-4">
         <div class="col-10 offset-1 md:col-4 md:offset-4 sm:col-8 sm:offset-2">
-          <Image src="/images/story-logo.png" alt="STORY Logo" width={800} height={570} />
+          <Image
+            src="/images/story-logo.png"
+            alt="STORY Logo"
+            width={800}
+            height={570}
+          />
         </div>
       </div>
 
       <div class="row my-12">
-        <div class="col-12 md:col-3 border-b-8 md:border-b-0 md:border-r-8 border-primary pt-4">
-          <h1 class="">FAQs</h1>
+        <div class="col-12 md:col-3 md:border-r-8 border-primary pt-4">
+          <h1 class="border-b-8 md:border-b-0 border-primary py-4 m-0">FAQs</h1>
         </div>
-        <div class="col-12 md:col-9 prose  prose-xl max-w-none">
-          <p class="mt-0">
-            STORY is committed to helping students, educators and families learn more about the college application process. Further questions? Please email <a href="mailto:info@storyconsortium.org">info@storyconsortium.org</a>. 
+        <div class="col-12 md:col-9 prose prose-xl max-w-none">
+          <p class="mt-0 pt-4">
+            STORY is committed to helping students, educators and families learn
+            more about the college application process. Further questions?
+            Please email <a href="mailto:info@storyconsortium.org"
+              >info@storyconsortium.org</a
+            >.
           </p>
-      <div>
-        {groupedFaqs.map((group) => (
-          <div class="prose prose-slate prose-lg">
-            <h6 class="mt-2 mb-2 font-bold font-primary uppercase tracking-wide text-lg">{group.displayName}</h6>
-            <ul class="space-y-1 prose">
-              {group.items.map((faq) => (
-                <li>
-                  <a href={`#${faq.id}`} class="transition-colors">
-                    {faq.data.question}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-        </div>
-      </div>
-
-
-      {groupedFaqs.map((group) => (
-        <div class="row my-12 pt-12">
-          <div class={`col-12 md:col-3 border-b-8 md:border-b-0 md:border-r-8 pt-4 ${categoryColors[group.id] || 'border-primary'}`}>
-      <h2 class="leading-none uppercase font-bold">{group.displayName}</h2>
-    </div>
-          <div class="col-12 md:col-9">
-            {group.items.map(async (faq) => {
-              const { Content } = await render(faq);
-              return (
-                <div class="mb-10 last:mb-0">
-                  <h5 class="mt-0 font-primary font-bold"> 
-                    <span id={faq.id} class="faq-q font-bold scroll-mt-10 inline-block">
-                      {faq.data.question}
-                    </span>
-                  </h5>
-                  <div class="text-lg mt-2 max-w-none">
-                    <Content />
-                  </div>
+          <div>
+            {
+              groupedFaqs.map((group) => (
+                <div class="prose prose-slate prose-lg">
+                  <h6 class="mt-2 mb-2 font-bold font-primary uppercase tracking-wide text-lg">
+                    {group.displayName}
+                  </h6>
+                  <ul class="space-y-1 prose">
+                    {group.items.map((faq) => (
+                      <li>
+                        <a href={`#${faq.id}`} class="transition-colors">
+                          {faq.data.question}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              );
-            })}
+              ))
+            }
           </div>
         </div>
-      ))}
+      </div>
 
-      
+      {
+        groupedFaqs.map((group) => (
+          <div class="row my-12 pt-12">
+            <div
+              class={`col-12 md:col-3 md:border-r-8 pt-4 ${categoryColors[group.id] || "border-primary"}`}
+            >
+              <h2 class={`leading-none uppercase font-bold py-4 m-0 border-b-8 md:border-b-0 ${categoryColors[group.id] || "border-primary"}`}>
+                {group.displayName}
+              </h2>
+            </div>
+            <div class="col-12 md:col-9 pt-4">
+              {group.items.map(async (faq) => {
+                const { Content } = await render(faq);
+                return (
+                  <div class="mb-10 last:mb-0">
+                    <h5 class="mt-0 font-primary font-bold">
+                      <span
+                        id={faq.id}
+                        class="faq-q font-bold scroll-mt-10 inline-block"
+                      >
+                        {faq.data.question}
+                      </span>
+                    </h5>
+                    <div class="text-lg mt-2 max-w-none">
+                      <Content />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))
+      }
     </div>
   </section>
 </Base>
