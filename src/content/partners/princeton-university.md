@@ -1,5 +1,9 @@
 ---
 title: Princeton University
+location: "Princeton, New Jersey"
+region: "Northeast"
+students: "5,590"
+type: "Suburban private research university"
 featured: true
 website: 'https://admission.princeton.edu/'
 logo: ../../assets/images/logos/princeton.png

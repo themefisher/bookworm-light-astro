@@ -1,5 +1,9 @@
 ---
 title: Rice University
+location: "Houston, Texas"
+region: "South"
+students: "4,480"
+type: "Urban private research university"
 featured: true
 website: 'https://admission.rice.edu/'
 logo: ../../assets/images/logos/rice.png

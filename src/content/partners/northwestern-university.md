@@ -1,5 +1,9 @@
 ---
 title: Northwestern University
+location: "Evanston, Illinois"
+region: "Midwest"
+students: "8,000"
+type: "Suburban private research university"
 featured: true
 website: 'https://admissions.northwestern.edu/'
 logo: ../../assets/images/logos/northwestern.png

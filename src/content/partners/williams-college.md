@@ -1,5 +1,9 @@
 ---
 title: Williams College
+location: "Williamstown, Massachusetts"
+region: "Northeast"
+students: "2,258"
+type: "Rural private liberal arts college"
 featured: true
 website: 'https://www.williams.edu/admission-aid'
 logo: ../../assets/images/logos/williams.png

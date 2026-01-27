@@ -1,5 +1,9 @@
 ---
 title: Cornell University
+location: "Ithaca, New York"
+region: "Northeast"
+students: "16,128"
+type: "Small city private research university"
 featured: true
 website: 'https://www.cornell.edu/'
 logo: ../../assets/images/logos/cornell.png

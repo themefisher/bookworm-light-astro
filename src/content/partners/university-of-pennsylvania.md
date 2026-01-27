@@ -1,5 +1,9 @@
 ---
 title: University of Pennsylvania
+location: "Philadelphia, Pennsylvania"
+region: "Northeast"
+students: "10,497"
+type: "Urban private research university"
 featured: true
 website: 'https://admissions.upenn.edu'
 logo: ../../assets/images/logos/upenn.png

@@ -1,5 +1,9 @@
 ---
 title: University of Notre Dame
+location: "South Bend, Indiana"
+region: "Midwest"
+students: "8.968"
+type: "Small city private research university"
 featured: true
 website: 'https://admissions.nd.edu/'
 logo: ../../assets/images/logos/nd.png

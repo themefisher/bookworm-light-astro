@@ -1,5 +1,9 @@
 ---
 title: Colby College
+location: "Waterville, Maine"
+region: "Northeast"
+students: "2,300"
+type: "Rural private liberal arts college"
 featured: true
 website: 'https://afa.colby.edu/'
 logo: ../../assets/images/logos/colby.png

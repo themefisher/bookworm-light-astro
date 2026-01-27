@@ -1,5 +1,9 @@
 ---
 title: Smith College
+location: "Northampton, Massachusetts"
+region: "Northeast"
+students: "2,500"
+type: "Small town private liberal arts college"
 featured: true
 website: www.smith.edu/admission-aid
 logo: ../../assets/images/logos/smith.png

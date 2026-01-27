@@ -1,5 +1,9 @@
 ---
 title: Vanderbilt University
+location: "Nashville, Tennessee"
+region: "South"
+students: "7,221"
+type: "Urban private research university"
 featured: true
 website: 'https://www.vanderbilt.edu/admissions/'
 logo: ../../assets/images/logos/vanderbilt.png

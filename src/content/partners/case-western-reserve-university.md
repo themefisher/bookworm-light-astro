@@ -1,5 +1,9 @@
 ---
 title: Case Western Reserve University
+location: "Cleveland, Ohio"
+region: "Midwest"
+students: "6,017"
+type: "Urban private research university"
 featured: true
 website: 'https://case.edu/admission/'
 logo: ../../assets/images/logos/case.png

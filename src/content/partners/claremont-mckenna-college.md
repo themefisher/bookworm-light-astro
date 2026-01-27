@@ -1,5 +1,9 @@
 ---
 title: Claremont McKenna College
+location: "Claremont, California"
+region: "West"
+students: "1,388"
+type: "Suburban private liberal arts college"
 featured: true
 website: cmc.edu
 logo: ../../assets/images/logos/cmc.png

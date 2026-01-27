@@ -1,5 +1,9 @@
 ---
 title: University of Iowa
+location: "Iowa City, Iowa "
+region: "Midwest"
+students: "22,738"
+type: "Small city public research university "
 featured: true
 website: 'https://admissions.uiowa.edu/'
 logo: ../../assets/images/logos/uiowa.png

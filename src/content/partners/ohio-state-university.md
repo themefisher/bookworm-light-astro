@@ -1,5 +1,9 @@
 ---
 title: Ohio State University
+location: "Columbus, Ohio"
+region: "Midwest"
+students: "46,000"
+type: "Urban public research university"
 featured: true
 website: 'https://undergrad.osu.edu'
 logo: ../../assets/images/logos/osu.png

@@ -1,5 +1,9 @@
 ---
 title: "University of Charleston"
+location: ""
+region: ""
+students: ""
+type: ""
 featured: false
 website: "http://www.ucwv.edu/"
 logo: "../../assets/images/logos/ucwv.png"

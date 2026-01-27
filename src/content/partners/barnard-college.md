@@ -1,5 +1,9 @@
 ---
 title: Barnard College
+location: "New York, New York"
+region: "Northeast"
+students: "3,223"
+type: "Urban private liberal arts college"
 featured: true
 website: 'https://barnard.edu/admissions-aid'
 logo: ../../assets/images/logos/barnard.png

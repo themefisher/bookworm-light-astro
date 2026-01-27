@@ -16,6 +16,10 @@ const partnersCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/partners" }),
   schema:({ image }) => z.object({
     title: z.string(),
+    location: z.string().optional(),
+    region: z.string().optional(),
+    students: z.string().optional(),
+    type: z.string().optional(),
     featured: z.boolean().optional(),
     website: z.string().optional(),
     logo: image(),

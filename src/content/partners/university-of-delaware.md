@@ -1,5 +1,9 @@
 ---
 title: University of Delaware
+location: "Newark, Delaware"
+region: "Northeast"
+students: "17,436"
+type: "Suburban public research university"
 featured: true
 website: 'https://www.udel.edu/admissions'
 logo: ../../assets/images/logos/udel.png

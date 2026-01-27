@@ -1,5 +1,9 @@
 ---
 title: Swarthmore College
+location: "Swarthmore, Pennsylvania"
+region: "Northeast"
+students: "1,730"
+type: "Suburban liberal arts college"
 featured: true
 website: 'https://www.swarthmore.edu/admissions-aid'
 logo: ../../assets/images/logos/swarthmore.png

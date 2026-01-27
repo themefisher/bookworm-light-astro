@@ -1,5 +1,9 @@
 ---
 title: Columbia University
+location: "New York, New York"
+region: "Northeast"
+students: "6,700"
+type: "Urban private research university"
 featured: true
 website: 'https://undergrad.admissions.columbia.edu/'
 logo: ../../assets/images/logos/columbia.png

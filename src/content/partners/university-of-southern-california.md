@@ -1,5 +1,9 @@
 ---
 title: University of Southern California
+location: "Los Angeles, California"
+region: "West"
+students: "21,000"
+type: "Urban private research university"
 featured: true
 website: 'https://admission.usc.edu/'
 logo: ../../assets/images/logos/usc.png

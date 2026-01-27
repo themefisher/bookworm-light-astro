@@ -1,5 +1,9 @@
 ---
 title: Tufts University
+location: "Medford, Massachusetts"
+region: "Northeast"
+students: "6,791"
+type: "Suburban private research university"
 featured: true
 website: admissions.tufts.edu
 logo: ../../assets/images/logos/tufts.png

@@ -1,5 +1,9 @@
 ---
 title: Brown University
+location: "Providence, Rhode Island"
+region: "Northeast"
+students: "7,272"
+type: "Small city private research university"
 featured: true
 website: 'https://admission.brown.edu/'
 logo: ../../assets/images/logos/brown.png

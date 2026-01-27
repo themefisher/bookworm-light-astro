@@ -1,5 +1,9 @@
 ---
 title: University of Michigan
+location: "Ann Arbor, Michigan"
+region: "Midwest"
+students: "34,454"
+type: "Small city public research university"
 featured: true
 website: 'https://admissions.umich.edu/'
 logo: ../../assets/images/logos/umich.png

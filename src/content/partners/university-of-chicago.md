@@ -1,5 +1,9 @@
 ---
 title: University of Chicago
+location: "Chicago, Illinois"
+region: "Midwest"
+students: "7,500"
+type: "Urban private research university"
 featured: true
 website: 'https://collegeadmissions.uchicago.edu/'
 logo: ../../assets/images/logos/uchicago.png

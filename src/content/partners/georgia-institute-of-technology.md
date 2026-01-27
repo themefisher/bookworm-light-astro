@@ -1,5 +1,9 @@
 ---
 title: Georgia Institute of Technology
+location: "Atlanta, Georgia"
+region: "South"
+students: "20,592"
+type: "Urban public research university"
 featured: true
 website: 'https://admission.gatech.edu/'
 logo: ../../assets/images/logos/gatech.png

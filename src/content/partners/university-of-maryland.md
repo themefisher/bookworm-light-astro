@@ -1,5 +1,9 @@
 ---
 title: University of Maryland
+location: "College Park, Maryland"
+region: "Mid-Atlantic"
+students: "31,000+"
+type: "Suburban public research university"
 featured: true
 website: 'https://admissions.umd.edu/'
 logo: ../../assets/images/logos/umg.png

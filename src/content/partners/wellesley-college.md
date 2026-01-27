@@ -1,5 +1,9 @@
 ---
 title: Wellesley College
+location: "Wellesley, Massachusetts"
+region: "Northeast"
+students: "2,300"
+type: "Suburban private liberal arts college"
 featured: true
 website: 'https://www.wellesley.edu/admission-aid'
 logo: ../../assets/images/logos/wellesley.png

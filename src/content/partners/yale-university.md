@@ -1,5 +1,9 @@
 ---
 title: Yale University
+location: "New Haven, Connecticut"
+region: "Northeast"
+students: "6,600"
+type: "Small city private research university"
 featured: true
 website: 'https://admissions.yale.edu'
 logo: ../../assets/images/logos/yale.png

@@ -1,5 +1,9 @@
 ---
 title: Massachusetts Institute of Technology
+location: "Cambridge, Massachusetts"
+region: "Northeast"
+students: "4,657"
+type: "Urban private research university"
 featured: true
 website: 'https://mitadmissions.org/'
 logo: ../../assets/images/logos/mit.png

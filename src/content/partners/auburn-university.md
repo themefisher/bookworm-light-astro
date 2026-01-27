@@ -1,5 +1,9 @@
 ---
 title: Auburn University
+location: "Auburn, Alabama"
+region: "South"
+students: "27,907"
+type: "Small city public research university"
 featured: true
 website: 'https://auburn.edu/'
 logo: ../../assets/images/logos/auburn.png

@@ -2,9 +2,8 @@
 import Base from "@/layouts/Base.astro";
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
-import DynamicIcon from "@/helpers/DynamicIcon"; // Adjust path to your file location
+import DynamicIcon from "@/helpers/DynamicIcon";
 
-// Generate paths only for the 35 Story (Featured) Partners
 export async function getStaticPaths() {
   const allPartners = await getCollection("partners");
   return allPartners
@@ -19,10 +18,8 @@ const { partner } = Astro.props;
 const { data } = partner;
 const { Content } = await render(partner);
 
-// Define the allowed platforms for the helper
 type Platform = 'instagram' | 'twitter' | 'facebook' | 'tiktok';
 
-// Social Media Link Helper
 const formatSocial = (handle: string | undefined, platform: Platform) => {
   if (!handle) return null;
   const bases = {
@@ -43,127 +40,129 @@ const socials = [
   { name: "TikTok", url: formatSocial(data.tiktok, "tiktok") },
 ].filter((s): s is { name: string; url: string } => !!s.url);
 
-// Map your data keys to Font Awesome icon names
 const iconMapping: Record<string, string> = {
   facebook: "FaFacebook",
-  twitter: "FaXTwitter", // FA6 uses XTwitter for the new logo
+  twitter: "FaXTwitter",
   instagram: "FaInstagram",
   tiktok: "FaTiktok",
   youtube: "FaYoutube", 
   website: "FaLink",
 };
+
+// Metadata for the sidebar list
+const stats = [
+  { label: "Location", value: data.location },
+  { label: "Region", value: data.region },
+  { label: "Undergraduates", value: data.students },
+  { label: "Institution Type", value: data.type },
+].filter(s => !!s.value);
 ---
 
 <Base title={data.title}>
   <section class="section">
-    <div class="container content max-w-lg">
-      <div class="row md:gx-4">
-        <div class="col-12 md:col-3">
-  <button 
-    id="back-button"
-    type="button"
-    class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-lg border border-primary/20 text-primary font-bold hover:bg-primary/10 transition-all duration-300 group cursor-pointer"
-  >
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      class="h-5 w-5 transition-transform group-hover:-translate-x-1" 
-      fill="none" 
-      viewBox="0 0 24 24" 
-      stroke="currentColor"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
-    </svg>
-    <span>Back to Partners</span>
-  </button>
-</div>
-
-<script>
-  // 1. Wrap the logic in a reusable function
-  function setupBackButton() {
-    const backBtn = document.getElementById('back-button');
-    
-    if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        const hasHistory = window.history.length > 1;
-        const isInternal = document.referrer.includes(window.location.host);
-
-        if (hasHistory && isInternal) {
-          window.history.back();
-        } else {
-          window.location.href = '/partners';
-        }
-      });
-    }
-  }
-
-  // 2. Run it on initial load
-  setupBackButton();
-
-  // 3. Run it every time Astro swaps the page content
-  document.addEventListener('astro:after-swap', setupBackButton);
-</script>
-        <div class="col-6 justify-center text-center">
-          <Image 
+    <div class="container">
+      
+      <div class="row mb-12">
+        <div class="col-12">
+          <button 
+            id="back-button"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/20 text-primary font-bold hover:bg-primary/10 transition-all group"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Back to Partners</span>
+          </button>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col-12 lg:offset-3 lg:col-9 xl:offset-4 xl:col-8">
+          <h1 class="h1 mb-4 border-b-8 border-secondary py-4">{data.title}</h1>
+        </div>
+      </div>
+      <div class="row gx-4">
+        <aside class="col-12 lg:col-3 lg:mb-0 mb-10 xl:col-4">
+          <div class="sticky top-24 p-8 rounded-2xl border border-primary prose">
+            <div class="mb-8 text-center">
+              <Image 
                 src={data.logo} 
                 alt={data.title} 
-                width={350} 
-                height={350}
-                class="img-fluid mb-6 mx-auto object-contain" 
+                width={300} 
+                height={300}
+                class="mx-auto h-auto xl:max-w-[200px] object-contain" 
               />
-        </div>
-      </div>
-    </div>
-    <div class=" max-w-5xl mx-auto">
-      <div class="row items-center mb-4">
-        <div class="col-12 md:col-9">
-            <h1 class="h2">{data.title}</h1>
-        </div>
-        <div class="col-12 md:col-3">
-          <div class="flex justify-end gap-5">
-            {socials.map(social => {
-              const iconName = iconMapping[social.name.toLowerCase()];
-              return (
-                <a 
-                  href={social.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="text-dark hover:text-primary transition-colors"
-                  aria-label={social.name}
-                >
-                  <DynamicIcon 
-                    icon={iconName} 
-                    className="w-6 h-6" 
-                    client:load 
-                  />
-                </a>
-              )
-            })}
+            </div>
+
+            <div class="space-y-6 mb-8">
+              {stats.map(stat => (
+                <div>
+                  <h4 class="text-xs font-primary uppercase tracking-widest font-bold mb-1">
+                    {stat.label}
+                  </h4>
+                  <p class="text-lg">
+                    {stat.value}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div class="pt-4 border-t border-primary">
+              <h4 class="text-xs font-primary uppercase tracking-widest font-bold mb-4">Connect</h4>
+              <div class="flex flex-wrap gap-4">
+                {socials.map(social => (
+                  <a 
+                    href={social.url} 
+                    target="_blank" 
+                    class="h-10 w-10 flex items-center justify-center rounded-lg bg-white border border-border text-dark hover:text-primary hover:border-primary transition-all shadow-sm"
+                    aria-label={social.name}
+                  >
+                    <DynamicIcon 
+                      icon={iconMapping[social.name.toLowerCase()]} 
+                      className="w-5 h-5" 
+                      client:load 
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <hr class="mb-4 border-4 border-primary" />
-      <div class="row mb-8">
-        <div class="col-12 prose prose-xl prose-slate mt-2 max-w-none">
-          <Content />
-        </div>
-      </div>
-      <div class="row mb-8">
-        <div class="col-12">
+        </aside>
+
+        <main class="col-12 lg:col-8 xl:col-8">
+          
+          <div class="content prose prose-xl max-w-none mb-12">
+            <Content />
+          </div>
+
           {data.campusImage && (
-        
-            <div class="rounded-2xl overflow-hidden">
+            <div class="rounded-2xl overflow-hidden shadow-lg">
               <Image 
                 src={data.campusImage} 
                 alt={`${data.title} Campus`} 
                 width={1200} 
                 height={675}
-                class="w-full object-cover"
+                class="w-full h-auto object-cover"
               />
             </div>
-      )}
-        </div>
+          )}
+        </main>
       </div>
-      
     </div>
   </section>
 </Base>
+
+<script>
+  function setupBackButton() {
+    const backBtn = document.getElementById('back-button');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        const hasHistory = window.history.length > 1;
+        const isInternal = document.referrer.includes(window.location.host);
+        if (hasHistory && isInternal) { window.history.back(); } 
+        else { window.location.href = '/partners'; }
+      });
+    }
+  }
+  setupBackButton();
+  document.addEventListener('astro:after-swap', setupBackButton);
+</script>

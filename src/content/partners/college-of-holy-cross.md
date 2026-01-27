@@ -1,5 +1,9 @@
 ---
 title: College of Holy Cross
+location: "Worcester, Massachusetts"
+region: "Northeast"
+students: "3,256"
+type: "Small city private liberal arts college"
 featured: true
 website: 'https://www.holycross.edu/admissions-aid'
 logo: ../../assets/images/logos/holycross.png

@@ -1,5 +1,9 @@
 ---
 title: Washington University in St. Louis
+location: "St Louis, Missouri"
+region: "Midwest"
+students: "7,313"
+type: "Urban private research university"
 featured: true
 website: 'https://admissions.wustl.edu/'
 logo: ../../assets/images/logos/wustl.png

@@ -1,5 +1,9 @@
 ---
 title: Harvard College
+location: "Cambridge, Massachusetts"
+region: "Northeast"
+students: "7,000"
+type: "Urban private research university"
 featured: true
 website: 'https://college.harvard.edu/admissions'
 logo: ../../assets/images/logos/harvard.png

@@ -1,5 +1,9 @@
 ---
 title: Johns Hopkins University
+location: "Baltimore, Maryland"
+region: "Mid-Atlantic"
+students: "5,600"
+type: "Urban private research university"
 featured: true
 website: 'https://apply.jhu.edu/'
 logo: ../../assets/images/logos/jhu.png

@@ -1,5 +1,9 @@
 ---
 title: New York University
+location: "New York, New York; Abu Dhabi; Shanghai"
+region: "Northeast & International"
+students: "33,488"
+type: "Urban private research university"
 featured: true
 website: 'https://www.nyu.edu/'
 logo: ../../assets/images/logos/nyu.png
