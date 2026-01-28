@@ -42,10 +42,10 @@ const groupedFaqs = categories.map((cat) => ({
       </div>
 
       <div class="row my-12">
-        <div class="col-12 md:col-3 md:border-r-8 border-primary pt-4">
-          <h1 class="border-b-8 md:border-b-0 border-primary py-4 m-0">FAQs</h1>
+        <div class="col-12 lg:col-3 xl:col-4 lg:border-r-8 border-primary pt-4">
+          <h1 class="border-b-8 lg:text-center lg:border-b-0 border-primary py-4 m-0">FAQs</h1>
         </div>
-        <div class="col-12 md:col-9 prose prose-xl max-w-none">
+        <div class="col-12 lg:col-9 xl:col-8 prose prose-xl max-w-none">
           <p class="mt-0 pt-4">
             STORY is committed to helping students, educators and families learn
             more about the college application process. Further questions?
@@ -80,13 +80,13 @@ const groupedFaqs = categories.map((cat) => ({
         groupedFaqs.map((group) => (
           <div class="row my-12 pt-12">
             <div
-              class={`col-12 md:col-3 md:border-r-8 pt-4 ${categoryColors[group.id] || "border-primary"}`}
+              class={`col-12 lg:col-3 xl:col-4 lg:border-r-8 pt-4 ${categoryColors[group.id] || "border-primary"}`}
             >
-              <h2 class={`leading-none uppercase font-bold py-4 m-0 border-b-8 md:border-b-0 ${categoryColors[group.id] || "border-primary"}`}>
+              <h2 class={`leading-none lg:text-center uppercase font-bold py-4 m-0 border-b-8 lg:border-b-0 ${categoryColors[group.id] || "border-primary"}`}>
                 {group.displayName}
               </h2>
             </div>
-            <div class="col-12 md:col-9 pt-4">
+            <div class="col-12 lg:col-9 xl:col-8 pt-4">
               {group.items.map(async (faq) => {
                 const { Content } = await render(faq);
                 return (

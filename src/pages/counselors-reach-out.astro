@@ -7,7 +7,7 @@ import "@/styles/slate-form.css";
 // This page will host the Slate Request for Information form
 ---
 
-<Base title="Reach Out">
+<Base title="Counselors Reach Out">
   <section class="section">
     <div class="container content">
       <div class="row md:gx-4">
@@ -22,11 +22,11 @@ import "@/styles/slate-form.css";
       </div>
       <div class="row my-12">
         <div class="col-12 lg:col-3 xl:col-4 lg:border-r-8 border-primary pt-4">
-          <h1 class="border-b-8 lg:border-b-0 border-primary py-4 m-0">Reach Out</h1>
+          <h1 class="border-b-8 lg:border-b-0 border-primary py-4 m-0 wrap-break-word">Counselors Reach Out</h1>
         </div>
         <div class="col-12 lg:col-9 xl:col-8 prose prose-xl max-w-none">
           <p class="mt-0 pt-4 ">
-            Students, <a href="/counselors-reach-out">high school counselors</a> and community-based organization
+            Students, high school counselors and community-based organization
             advisors can fill out a brief form to share their information with
             STORY partner institutions. All data (form response) will be handled
             by each institution according to their privacy policy.
@@ -36,13 +36,13 @@ import "@/styles/slate-form.css";
       <div class="row my-12">
         <div class="col-12 lg:col-9 lg:offset-3 xl:col-8 xl:offset-4 prose prose-xl max-w-none">
           {/* The container the script targets */}
-          <div id="form_0f76a20c-e716-4bf5-8f8a-5ab6be776c4b" class="p-8 rounded-2xl border border-primary">Loading...</div>
+          <div id="form_8e2095be-f5d0-4ad8-bc15-527387218ae9" class="p-8 rounded-2xl border border-primary">Loading...</div>
         </div>
       </div>
 
       <script is:inline>
         function loadSlateForm() {
-          const containerId = "form_0f76a20c-e716-4bf5-8f8a-5ab6be776c4b";
+          const containerId = "form_8e2095be-f5d0-4ad8-bc15-527387218ae9";
           const container = document.getElementById(containerId);
 
           // If the container exists and hasn't been filled yet (still says Loading...)
@@ -50,7 +50,7 @@ import "@/styles/slate-form.css";
             // Create a new script element manually
             const script = document.createElement("script");
             script.src =
-              "https://apps.admissions.yale.edu/register/?id=0f76a20c-e716-4bf5-8f8a-5ab6be776c4b&output=embed&div=" +
+              "https://apps.admissions.yale.edu/register/?id=8e2095be-f5d0-4ad8-bc15-527387218ae9&output=embed&div=" +
               containerId;
             script.async = true;
 
