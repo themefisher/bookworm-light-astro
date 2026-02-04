@@ -30,6 +30,17 @@
 .nav-dropdown-link {
   @apply block min-w-[150px] py-1 text-[17px] font-semibold text-dark transition hover:text-secondary;
 }
+label[for="nav-toggle"] {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE 10 and 11 */
+  user-select: none;         /* Standard syntax */
+}
+/* Hide the close icon by default */
+.nav-close { display: none; }
+
+/* When the checkbox is checked, swap the icons */
+#nav-toggle:checked ~ label .nav-open { display: none; }
+#nav-toggle:checked ~ label .nav-close { display: block; }
 
 /* search style */
 .search-modal {

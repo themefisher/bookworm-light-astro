@@ -7,7 +7,7 @@ type: "Urban private liberal arts college"
 featured: true
 website: 'https://barnard.edu/admissions-aid'
 logo: ../../assets/images/logos/barnard.png
-video: www.youtube.com/barnardcollege
+video: 'https://www.youtube.com/barnardcollege'
 instagram: barnardadmissions
 facebook: ''
 twitter: ''

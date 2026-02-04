@@ -3,6 +3,7 @@ import Base from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
 import { type CollectionEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
+import CTA from "@/components/CTA.astro";
 
 const allFaqs: CollectionEntry<"faqs">[] = await getCollection("faqs");
 const categories = ["STORY", "In-Person", "Virtual"] as const;
@@ -49,7 +50,7 @@ const groupedFaqs = categories.map((cat) => ({
           <p class="mt-0 pt-4">
             STORY is committed to helping students, educators and families learn
             more about the college application process. Further questions?
-            Please email <a href="mailto:info@storyconsortium.org"
+            Please email <a class="text-story-bg hover:text-primary" href="mailto:info@storyconsortium.org"
               >info@storyconsortium.org</a
             >.
           </p>
@@ -57,13 +58,13 @@ const groupedFaqs = categories.map((cat) => ({
             {
               groupedFaqs.map((group) => (
                 <div class="prose prose-slate prose-lg">
-                  <h6 class="mt-2 mb-2 font-bold font-primary uppercase tracking-wide text-lg">
+                  <h2 class="h6 mt-2 mb-2 font-bold font-primary uppercase tracking-wide text-xl">
                     {group.displayName}
-                  </h6>
+                  </h2>
                   <ul class="space-y-1 prose">
                     {group.items.map((faq) => (
                       <li>
-                        <a href={`#${faq.id}`} class="transition-colors">
+                        <a href={`#${faq.id}`} class="transition-colors text-story-bg hover:text-primary text-lg">
                           {faq.data.question}
                         </a>
                       </li>
@@ -91,14 +92,14 @@ const groupedFaqs = categories.map((cat) => ({
                 const { Content } = await render(faq);
                 return (
                   <div class="mb-10 last:mb-0">
-                    <h5 class="mt-0 font-primary font-bold">
+                    <h3 class="h5 mt-0 font-primary font-bold text-xl">
                       <span
                         id={faq.id}
                         class="faq-q font-bold scroll-mt-10 inline-block"
                       >
                         {faq.data.question}
                       </span>
-                    </h5>
+                    </h3>
                     <div class="text-lg mt-2 max-w-none">
                       <Content />
                     </div>
@@ -111,4 +112,5 @@ const groupedFaqs = categories.map((cat) => ({
       }
     </div>
   </section>
+  <CTA />
 </Base>

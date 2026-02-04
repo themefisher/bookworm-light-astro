@@ -18,6 +18,7 @@ h6 {
 h1,
 .h1 {
   @apply text-h1-sm md:text-h1;
+  @apply font-black;
 }
 
 h2,
@@ -56,5 +57,5 @@ img {
 }
 
 a{
-  @apply text-text hover:text-primary;
+  @apply text-story-bg hover:text-primary;
 }

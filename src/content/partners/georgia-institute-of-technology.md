@@ -7,7 +7,7 @@ type: "Urban public research university"
 featured: true
 website: 'https://admission.gatech.edu/'
 logo: ../../assets/images/logos/gatech.png
-video: www.youtube.com/gtadmission
+video: 'https://www.youtube.com/gtadmission'
 instagram: gtadmission
 facebook: ''
 twitter: ''

@@ -7,7 +7,7 @@ type: "Small city public research university"
 featured: true
 website: 'https://auburn.edu/'
 logo: ../../assets/images/logos/auburn.png
-video: 'http://www.youtube.com/@AuburnU'
+video: 'https://www.youtube.com/@AuburnU'
 instagram: auburnu
 facebook: auburnu
 twitter: auburnu

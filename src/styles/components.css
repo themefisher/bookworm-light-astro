@@ -84,8 +84,14 @@
   @apply prose-tr:border-border;
   @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-[18px];
   @apply prose-h3:mt-0;
+  @apply prose-a:text-story-bg prose-a:hover:text-primary;
 }
-
+.content .prose a{
+  @apply text-story-bg hover:text-primary;
+}
+.prose a{
+  @apply prose-a:text-story-bg prose-a:hover:text-primary;
+}
 .prose-xl h3 {
   @apply mt-0;
 }

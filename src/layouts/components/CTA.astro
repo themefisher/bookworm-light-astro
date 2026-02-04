@@ -1,11 +1,17 @@
 ---
-// You can add props here if you want to customize the text later
 import { Image } from 'astro:assets';
-
 import footerBg from '@/assets/images/bgs/footer-cta.jpg';
+
+const { pathname } = Astro.url;
+const isFaqPage = pathname.replace(/\/$/, "") === "/faqs";
+
+// Define the content based on the page
+const linkHref = isFaqPage ? "/reach-out" : "/faqs";
+const actionText = isFaqPage ? "feel free to" : "visit our";
+const linkLabel = isFaqPage ? "Connect with STORY" : "Frequently Asked Questions";
 ---
 
-<section class="section relative overflow-hidden">
+<section class="section relative overflow-hidden ">
   <div aria-hidden="true" class="absolute inset-0 select-none">
       <Image
         src={footerBg}
@@ -17,11 +23,10 @@ import footerBg from '@/assets/images/bgs/footer-cta.jpg';
     </div>
   <div class="container py-16 z-10 relative">
     <div class="row">
-      <div class="col-12 text-center  mx-auto">
+      <div class="col-12 text-center mx-auto">
         <h3 class="text-light">Want to learn more? </h3>
         <p class="my-4 text-lg text-light font-medium">
-            Please visit our <a href="/faqs" class="underline text-white hover:text-secondary transition-all">Frequently Asked Questions</a> or email us at <a href="mailto:info@storyconsortium.org" class="underline text-white hover:text-secondary transition-all">info@storyconsortium.org</a>.
-          
+          Please {actionText} <a href={linkHref} class="underline text-white hover:text-secondary transition-all">{linkLabel}</a> or email us at <a href="mailto:info@storyconsortium.org" class="underline text-white hover:text-secondary transition-all">info@storyconsortium.org</a>.
         </p>
       </div>
     </div>

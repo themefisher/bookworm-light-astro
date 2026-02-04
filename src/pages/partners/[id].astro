@@ -66,7 +66,7 @@ const stats = [
         <div class="col-12">
           <button 
             id="back-button"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/20 text-primary font-bold hover:bg-primary/10 transition-all group"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/20 text-story-bg font-bold hover:bg-primary/10 transition-all group"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
@@ -96,10 +96,10 @@ const stats = [
             <div class="space-y-6 mb-8">
               {stats.map(stat => (
                 <div>
-                  <h4 class="text-xs font-primary uppercase tracking-widest font-bold mb-1">
+                  <span class="h4 block text-xs font-primary uppercase tracking-widest font-bold mb-1">
                     {stat.label}
-                  </h4>
-                  <p class="text-lg">
+                  </span>
+                  <p class="text-lg mt-0">
                     {stat.value}
                   </p>
                 </div>
@@ -107,7 +107,7 @@ const stats = [
             </div>
 
             <div class="pt-4 border-t border-primary">
-              <h4 class="text-xs font-primary uppercase tracking-widest font-bold mb-4">Connect</h4>
+              <span class="h4 block text-xs font-primary uppercase tracking-widest font-bold my-4">Connect</span>
               <div class="flex flex-wrap gap-4">
                 {socials.map(social => (
                   <a 

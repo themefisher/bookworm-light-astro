@@ -13,6 +13,6 @@
     }
   }
 
-  --typography-links: var(--color-primary);
-  --typography-links-hover: var(--color-story-dark);
+  --typography-links: var(--color-story-bg);
+  --typography-links-hover: var(--color-primary);
 }

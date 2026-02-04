@@ -44,13 +44,13 @@ const additionalPartners = sortedPartners.filter(p => p.data.featured !== true);
                   <div class="h-32 flex items-center justify-center mb-4">
                     <Image 
                       src={partner.data.logo} 
-                      alt={partner.data.title} 
+                      alt={partner.data.title+' logo'} 
                       width={400} 
                       height={200}
                       class="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-110" 
                     />
                   </div>
-                  <h3 class="h6 font-bold text-center text-text group-hover:text-primary transition-colors">{partner.data.title}</h3>
+                  <h2 class="h6 font-bold text-center text-text group-hover:text-primary transition-colors">{partner.data.title}</h2>
                 </a>
               </div>
             ))}
@@ -65,7 +65,7 @@ const additionalPartners = sortedPartners.filter(p => p.data.featured !== true);
 <div class="row mb-16">
 
         <div class="col-12 lg:col-3 xl:col-4 lg:border-r-8 border-accent-purple pt-4">
-          <h1 class="border-b-8 lg:text-center lg:border-b-0 border-accent-purple py-4 m-0">Local Partners</h1>
+          <h2 class="h1 not-prose border-b-8 lg:text-center lg:border-b-0 border-accent-purple py-4 m-0">Local Partners</h2>
         </div>
         <div class="col-12 lg:col-9 xl:col-8 prose prose-slate prose-xl max-w-none ">
           <p class="pt-4 ">
@@ -88,7 +88,7 @@ const additionalPartners = sortedPartners.filter(p => p.data.featured !== true);
                   <div class="h-24 flex items-center justify-center mb-4">
                     <Image 
                       src={partner.data.logo} 
-                      alt={partner.data.title} 
+                      alt={partner.data.title+' logo'} 
                       width={300} 
                       height={150}
                       class="max-h-full w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-500" 
