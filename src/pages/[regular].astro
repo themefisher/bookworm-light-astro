@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 
   const paths = pages.map((page) => ({
     params: {
-      regular: page.slug,
+      regular: page.id,
     },
     props: { page },
   }));
