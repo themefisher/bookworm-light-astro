@@ -1,6 +1,6 @@
 {
   "name": "bookworm-light-astro",
-  "version": "6.0.0",
+  "version": "4.0.0",
   "license": "MIT",
   "type": "module",
   "packageManager": "yarn@1.22.22",
