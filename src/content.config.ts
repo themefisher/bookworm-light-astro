@@ -44,13 +44,13 @@ const authorsCollection = defineCollection({
     description: z.string().optional(),
     social: z
       .object({
-        facebook: z.string().url().optional(),
-        x: z.string().url().optional(),
-        instagram: z.string().url().optional(),
-        linkedin: z.string().url().optional(),
-        github: z.string().url().optional(),
-        website: z.string().url().optional(),
-        youtube: z.string().url().optional(),
+        facebook: z.url().optional(),
+        x: z.url().optional(),
+        instagram: z.url().optional(),
+        linkedin: z.url().optional(),
+        github: z.url().optional(),
+        website: z.url().optional(),
+        youtube: z.url().optional(),
       })
       .optional(),
   }),
