@@ -1,5 +1,6 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 
 // About collection schema
 const aboutCollection = defineCollection({
@@ -43,13 +44,13 @@ const authorsCollection = defineCollection({
     description: z.string().optional(),
     social: z
       .object({
-        facebook: z.string().url().optional(),
-        x: z.string().url().optional(),
-        instagram: z.string().url().optional(),
-        linkedin: z.string().url().optional(),
-        github: z.string().url().optional(),
-        website: z.string().url().optional(),
-        youtube: z.string().url().optional(),
+        facebook: z.url().optional(),
+        x: z.url().optional(),
+        instagram: z.url().optional(),
+        linkedin: z.url().optional(),
+        github: z.url().optional(),
+        website: z.url().optional(),
+        youtube: z.url().optional(),
       })
       .optional(),
   }),
@@ -62,19 +63,19 @@ const postsCollection = defineCollection({
     title: z.string(),
     meta_title: z.string().optional(),
     description: z.string().optional(),
-    date: z.date().optional(),
+    date: z.coerce.date().optional(),
     image: z.string().optional(),
-    categories: z.array(z.string()).default(["others"]),
-    authors: z.array(z.string()).default(["Admin"]),
-    tags: z.array(z.string()).default(["others"]),
+    categories: z.array(z.string()).default(() => ["others"]),
+    authors: z.array(z.string()).default(() => ["Admin"]),
+    tags: z.array(z.string()).default(() => ["others"]),
     draft: z.boolean().optional(),
   }),
 });
 
 // Pages collection schema
 const pagesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pages" }),
   schema: z.object({
-    id: z.string().optional(),
     title: z.string(),
     meta_title: z.string().optional(),
     description: z.string().optional(),
