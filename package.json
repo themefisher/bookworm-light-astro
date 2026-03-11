@@ -1,6 +1,6 @@
 {
   "name": "bookworm-light-astro",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "license": "MIT",
   "type": "module",
   "packageManager": "yarn@1.22.22",
@@ -14,20 +14,19 @@
     "preview:cf-workers": "npm run build && wrangler dev"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.7-beta.1",
-    "@astrojs/mdx": "5.0.0-beta.9",
-    "@astrojs/react": "5.0.0-beta.3",
-    "@astrojs/sitemap": "^3.7.0",
-    "astro": "6.0.0-beta.17",
+    "@astrojs/check": "0.9.7",
+    "@astrojs/mdx": "5.0.0",
+    "@astrojs/react": "5.0.0",
+    "@astrojs/sitemap": "3.7.1",
+    "astro": "6.0.2",
     "astro-auto-import": "^0.5.1",
-    "astro-font": "^1.1.0",
     "date-fns": "^4.1.0",
     "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
-    "marked": "^17.0.3",
+    "marked": "^17.0.4",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-icons": "^5.5.0",
+    "react-icons": "^5.6.0",
     "@digi4care/astro-google-tagmanager": "^1.6.0",
     "@justinribeiro/lite-youtube": "^1.9.0",
     "remark-collapse": "^0.1.2",
@@ -46,6 +45,6 @@
     "sharp": "0.34.5",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3",
-    "wrangler": "^4"
+    "wrangler": "^4.72.0"
   }
 }
