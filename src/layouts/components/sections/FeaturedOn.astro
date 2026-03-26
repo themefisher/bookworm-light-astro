@@ -1,0 +1,59 @@
+---
+const features = [
+  { name: "Food Network", href: "#" },
+  { name: "Bon Appétit", href: "#" },
+  { name: "Tasty", href: "#" },
+  { name: "Epicurious", href: "#" },
+];
+---
+<section class="featured-on">
+  <div class="featured-inner">
+    <p class="featured-label">Featured on</p>
+    <ul class="featured-list">
+      {features.map(f => (
+        <li>
+          <a href={f.href} class="featured-item">{f.name}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .featured-on {
+    background: #fdf8f3;
+    padding: 50px 24px;
+  }
+  .featured-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .featured-label {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 24px;
+    color: #2a2a2a;
+  }
+  .featured-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .featured-item {
+    text-decoration: none;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    color: #bbb;
+    font-style: italic;
+    transition: color 0.2s;
+  }
+  .featured-item:hover {
+    color: #888;
+  }
+</style>

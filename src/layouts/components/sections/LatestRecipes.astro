@@ -1,0 +1,51 @@
+---
+import MiniCard from '../ui/MiniCard.astro';
+
+const recipes = [
+  { title: "Creamy Tuscan Pasta", href: "/recipes/tuscan-pasta", image: "/images/posts/01.jpg" },
+  { title: "Mango Smoothie Bowl", href: "/recipes/mango-smoothie-bowl", image: "/images/posts/02.jpg" },
+  { title: "One-Pan Lemon Chicken", href: "/recipes/lemon-chicken", image: "/images/posts/03.jpg" },
+  { title: "Black Bean Tacos", href: "/recipes/black-bean-tacos", image: "/images/posts/04.jpg" },
+  { title: "Cauliflower Fried Rice", href: "/recipes/cauliflower-rice", image: "/images/posts/05.jpg" },
+  { title: "Almond Flour Pancakes", href: "/recipes/almond-pancakes", image: "/images/posts/06.jpg" },
+];
+---
+<section class="latest-section">
+  <h2 class="section-heading">The Latest</h2>
+  <div class="mini-grid">
+    {recipes.map(r => <MiniCard recipe={r} />)}
+  </div>
+</section>
+
+<style>
+  .latest-section {
+    padding: 50px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    color: #2a2a2a;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.2;
+  }
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 768px) {
+    .mini-grid { grid-template-columns: 1fr; }
+  }
+</style>

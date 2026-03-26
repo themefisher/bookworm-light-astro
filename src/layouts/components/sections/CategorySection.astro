@@ -1,0 +1,92 @@
+---
+import RecipeCard from '../ui/RecipeCard.astro';
+
+interface Recipe {
+  title: string;
+  href: string;
+  image: string;
+}
+
+interface Props {
+  title: string;
+  category: string;
+  recipes?: Recipe[];
+}
+
+const { title, category, recipes = [] } = Astro.props;
+
+const defaultRecipesByCategory: Record<string, Recipe[]> = {
+  dinner: [
+    { title: "Sheet Pan Chicken Thighs", href: "/recipes/sheet-pan-chicken", image: "/images/posts/01.jpg" },
+    { title: "Beef & Broccoli Stir Fry", href: "/recipes/beef-broccoli", image: "/images/posts/02.jpg" },
+    { title: "Baked Cod with Veggies", href: "/recipes/baked-cod", image: "/images/posts/03.jpg" },
+    { title: "Creamy Mushroom Pasta", href: "/recipes/mushroom-pasta", image: "/images/posts/04.jpg" },
+  ],
+  breakfast: [
+    { title: "Banana Oat Pancakes", href: "/recipes/banana-oat-pancakes", image: "/images/posts/05.jpg" },
+    { title: "Veggie Egg Scramble", href: "/recipes/veggie-scramble", image: "/images/posts/06.jpg" },
+    { title: "Acai Smoothie Bowl", href: "/recipes/acai-bowl", image: "/images/posts/07.jpg" },
+    { title: "Avocado Toast Deluxe", href: "/recipes/avocado-toast", image: "/images/posts/01.jpg" },
+  ],
+};
+
+const displayRecipes = recipes.length > 0 ? recipes : (defaultRecipesByCategory[category] || defaultRecipesByCategory.dinner);
+---
+<section class="cat-section">
+  <h2 class="section-heading">{title}</h2>
+  <div class="recipe-grid">
+    {displayRecipes.map(r => <RecipeCard recipe={r} />)}
+  </div>
+  <div class="see-more">
+    <a href={`/category/${category}`}>See more {title} →</a>
+  </div>
+  <hr class="section-divider" />
+</section>
+
+<style>
+  .cat-section {
+    padding: 50px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    color: #2a2a2a;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.2;
+  }
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .see-more {
+    text-align: right;
+    margin-top: 12px;
+    font-size: 0.85rem;
+  }
+  .see-more a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: #3a6b4f;
+  }
+  .section-divider {
+    border: none;
+    border-top: 2px dashed #ddd;
+    margin-top: 40px;
+  }
+  @media (max-width: 768px) {
+    .recipe-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
