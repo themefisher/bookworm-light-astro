@@ -1,14 +1,16 @@
 ---
 import MiniCard from '../ui/MiniCard.astro';
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
 
-const recipes = [
-  { title: "Creamy Tuscan Pasta", href: "/recipes/tuscan-pasta", image: "/images/posts/01.jpg" },
-  { title: "Mango Smoothie Bowl", href: "/recipes/mango-smoothie-bowl", image: "/images/posts/02.jpg" },
-  { title: "One-Pan Lemon Chicken", href: "/recipes/lemon-chicken", image: "/images/posts/03.jpg" },
-  { title: "Black Bean Tacos", href: "/recipes/black-bean-tacos", image: "/images/posts/04.jpg" },
-  { title: "Cauliflower Fried Rice", href: "/recipes/cauliflower-rice", image: "/images/posts/05.jpg" },
-  { title: "Almond Flour Pancakes", href: "/recipes/almond-pancakes", image: "/images/posts/06.jpg" },
-];
+const allPosts = await getSinglePage("posts");
+const latestPosts = sortByDate(allPosts).slice(0, 6);
+
+const recipes = latestPosts.map(post => ({
+  title: post.data.title,
+  href: `/blog/${post.id}`,
+  image: typeof post.data.image === 'string' ? post.data.image : (post.data.image ? post.data.image.src : "/images/image-placeholder.png"),
+}));
 ---
 <section class="latest-section">
   <h2 class="section-heading">The Latest</h2>

@@ -38,7 +38,7 @@ const displayRecipes = recipes.length > 0 ? recipes : (defaultRecipesByCategory[
     {displayRecipes.map(r => <RecipeCard recipe={r} />)}
   </div>
   <div class="see-more">
-    <a href={`/category/${category}`}>See more {title} →</a>
+    <a href={`/categories/${category}`}>See more {title} →</a>
   </div>
   <hr class="section-divider" />
 </section>
