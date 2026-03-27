@@ -1,0 +1,50 @@
+---
+import Base from "@/layouts/Base.astro";
+
+export interface Props {
+  title?: string;
+  meta_title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, meta_title, description, image } = Astro.props;
+---
+<Base title={title} meta_title={meta_title} description={description} image={image}>
+  <div class="article-page">
+    <main class="article-main">
+      <slot />
+    </main>
+    <aside class="article-sidebar">
+      <slot name="sidebar" />
+    </aside>
+  </div>
+</Base>
+
+<style>
+  .article-page {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 48px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    align-items: start;
+  }
+  .article-sidebar {
+    position: sticky;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  @media (max-width: 900px) {
+    .article-page {
+      grid-template-columns: 1fr;
+      padding: 24px 16px 48px;
+    }
+    .article-sidebar {
+      position: static;
+    }
+  }
+</style>

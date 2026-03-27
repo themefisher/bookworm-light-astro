@@ -1,30 +1,125 @@
 ---
-import Base from "@/layouts/Base.astro";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import ArticleHeader from "@/components/article/ArticleHeader.astro";
+import ActionButtons from "@/components/article/ActionButtons.astro";
+import ShareBar from "@/components/article/ShareBar.astro";
+import QuickLookCard from "@/components/article/QuickLookCard.astro";
+import TableOfContents from "@/components/article/TableOfContents.astro";
+import ReviewQuote from "@/components/article/ReviewQuote.astro";
+import InlineEmailSave from "@/components/article/InlineEmailSave.astro";
+import StepGrid from "@/components/article/StepGrid.astro";
+import FAQAccordion from "@/components/article/FAQAccordion.astro";
+import RelatedRecipes from "@/components/article/RelatedRecipes.astro";
+import EbookCTA from "@/components/article/EbookCTA.astro";
+import StructuredRecipeCard from "@/components/article/StructuredRecipeCard.astro";
+import AuthorWidget from "@/components/sidebar/AuthorWidget.astro";
+import SidebarRecipeGrid from "@/components/sidebar/SidebarRecipeGrid.astro";
+import PopularRecipes from "@/components/sidebar/PopularRecipes.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
-import PostSingle from "@/partials/PostSingle.astro";
+import similerItems from "@/lib/utils/similarItems";
+import { render } from "astro:content";
 
 export async function getStaticPaths() {
-  const BLOG_FOLDER = "posts";
-  const posts = await getSinglePage(BLOG_FOLDER);
-
-  const paths = posts.map((post) => ({
-    params: {
-      single: post.id,
-    },
+  const posts = await getSinglePage("posts");
+  return posts.map((post) => ({
+    params: { single: post.id },
     props: { post },
   }));
-  return paths;
 }
 
 const { post } = Astro.props;
-const { title, meta_title, image, description } = post.data;
+const { title, meta_title, description, image, categories, authors, recipe } =
+  post.data;
+
+const posts = await getSinglePage("posts");
+const relatedPosts = similerItems(post, posts, post.id);
+const { Content } = await render(post);
 ---
 
-<Base
+<ArticleLayout
   title={title}
   meta_title={meta_title}
   description={description}
   image={image}
 >
-  <PostSingle post={post} />
-</Base>
+  <!-- ── Main content (default slot) ── -->
+  <ArticleHeader post={post} />
+  <ActionButtons />
+  <ShareBar title={title} slug={post.id} />
+
+  {image && <img src={image} alt={title} class="hero-image" />}
+
+  {recipe && <QuickLookCard recipe={{ ...recipe, name: title }} />}
+
+  <TableOfContents />
+
+  {
+    recipe?.reviewQuote && (
+      <ReviewQuote
+        quote={recipe.reviewQuote.text}
+        author={recipe.reviewQuote.author}
+        stars={recipe.reviewQuote.stars}
+      />
+    )
+  }
+
+  <div class="article-body content">
+    <Content />
+  </div>
+
+  {
+    recipe?.steps && recipe.steps.length > 0 && (
+      <StepGrid steps={recipe.steps} recipeName={title} />
+    )
+  }
+
+  <InlineEmailSave />
+
+  {
+    recipe?.faqs && recipe.faqs.length > 0 && (
+      <FAQAccordion
+        title={categories[0] || ""}
+        faqs={recipe.faqs}
+      />
+    )
+  }
+
+  {
+    recipe && (
+      <StructuredRecipeCard
+        recipe={recipe}
+        title={title}
+        image={image}
+        authors={authors}
+      />
+    )
+  }
+
+  <EbookCTA />
+
+  <RelatedRecipes
+    title={`More ${categories[0] ? categories[0] + " " : ""}Recipes`}
+    recipes={relatedPosts}
+  />
+
+  <!-- ── Sidebar (named slot) ── -->
+  <Fragment slot="sidebar">
+    <AuthorWidget authors={authors} />
+    <SidebarRecipeGrid currentId={post.id} />
+    <PopularRecipes currentId={post.id} />
+  </Fragment>
+</ArticleLayout>
+
+<style>
+  .hero-image {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin: 20px 0;
+  }
+  .article-body {
+    margin: 24px 0;
+  }
+</style>

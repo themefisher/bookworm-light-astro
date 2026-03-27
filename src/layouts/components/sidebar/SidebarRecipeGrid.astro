@@ -1,0 +1,74 @@
+---
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+
+const { currentId = "" } = Astro.props;
+const allPosts = await getSinglePage("posts");
+const recentPosts = sortByDate(allPosts)
+  .filter((p) => p.id !== currentId)
+  .slice(0, 4);
+---
+{recentPosts.length > 0 && (
+  <div class="sidebar-grid-widget">
+    <h3 class="widget-title">Recent Recipes</h3>
+    <div class="sidebar-grid">
+      {recentPosts.map(post => (
+        <a href={`/blog/${post.id}`} class="sidebar-card">
+          <img
+            src={post.data.image || "/images/image-placeholder.png"}
+            alt={post.data.title}
+            loading="lazy"
+          />
+          <span>{post.data.title}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+)}
+
+<style>
+  .widget-title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 14px;
+    color: #2a2a2a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .widget-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+  }
+  .sidebar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .sidebar-card {
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s;
+  }
+  .sidebar-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
+  .sidebar-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+  }
+  .sidebar-card span {
+    display: block;
+    padding: 8px;
+    font-size: 0.78rem;
+    color: #333;
+    line-height: 1.35;
+  }
+</style>

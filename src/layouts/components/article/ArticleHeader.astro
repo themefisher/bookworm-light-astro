@@ -1,0 +1,109 @@
+---
+import { getSinglePage } from "@/lib/contentParser.astro";
+import dateFormat from "@/lib/utils/dateFormat";
+import { slugify } from "@/lib/utils/textConverter";
+
+const { post } = Astro.props;
+const { title, date, categories, authors, recipe } = post.data;
+const rating = recipe?.rating ?? 0;
+const votes = recipe?.votes ?? 0;
+const filledStars = Math.round(rating);
+
+const allAuthors = await getSinglePage("authors");
+const postAuthor = allAuthors.find((a) =>
+  authors.map((n: string) => slugify(n)).includes(slugify(a.data.title))
+);
+---
+<div class="article-header">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span>»</span>
+    {categories.slice(0, 1).map((cat: string) => (
+      <a href={`/categories/${slugify(cat)}`}>{cat}</a>
+    ))}
+    <span>»</span>
+    <span class="current">{title}</span>
+  </nav>
+
+  <h1 class="article-title">{title}</h1>
+
+  {rating > 0 && (
+    <div class="star-rating">
+      <span class="stars">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <span class={i <= filledStars ? "star filled" : "star"}>
+            {i <= filledStars ? "★" : "☆"}
+          </span>
+        ))}
+      </span>
+      <span class="rating-text">{rating.toFixed(1)} from {votes} votes</span>
+    </div>
+  )}
+
+  <p class="article-meta">
+    {date && (
+      <>Published: <time>{dateFormat(date)}</time>{postAuthor ? " · " : ""}</>
+    )}
+    {postAuthor && (
+      <>
+        By{" "}
+        <a href={`/authors/${slugify(postAuthor.data.title)}`}>
+          {postAuthor.data.title}
+        </a>
+      </>
+    )}
+    <span class="affiliate-note"> · This post may contain affiliate links.</span>
+  </p>
+</div>
+
+<style>
+  .article-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0ece6;
+    margin-bottom: 20px;
+  }
+  .breadcrumb {
+    font-size: 0.8rem;
+    color: #999;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .breadcrumb a {
+    color: #3a6b4f;
+    text-decoration: none;
+  }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb .current { color: #999; }
+  .article-title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    font-weight: 400;
+    margin-bottom: 14px;
+    line-height: 1.25;
+    color: #1a1a1a;
+  }
+  .star-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .stars { font-size: 1.15rem; letter-spacing: 2px; }
+  .star { color: #ddd; }
+  .star.filled { color: #f5a623; }
+  .rating-text { font-size: 0.82rem; color: #666; }
+  .article-meta {
+    font-size: 0.82rem;
+    color: #888;
+    line-height: 1.6;
+  }
+  .article-meta a {
+    color: #3a6b4f;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .affiliate-note { opacity: 0.7; }
+</style>

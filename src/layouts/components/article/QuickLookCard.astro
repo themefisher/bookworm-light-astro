@@ -1,0 +1,43 @@
+---
+const { recipe } = Astro.props;
+---
+<div class="quick-look" id="quick-look">
+  <h2>A Quick Look at the Recipe</h2>
+  <ul class="quick-list">
+    <li>✅ <strong>Recipe Name:</strong> {recipe.name || "See below"}</li>
+    {recipe.readyIn    && <li>🕐 <strong>Ready In:</strong> {recipe.readyIn}</li>}
+    {recipe.servings   && <li>👥 <strong>Serves:</strong> {recipe.servings}</li>}
+    {recipe.calories   && <li>🔥 <strong>Calories:</strong> {recipe.calories} per serving</li>}
+    {recipe.mainIngredients && <li>🥘 <strong>Main Ingredients:</strong> {recipe.mainIngredients}</li>}
+    {recipe.dietary    && <li>🥗 <strong>Dietary Info:</strong> {recipe.dietary}</li>}
+    {recipe.difficulty && <li>⭐ <strong>Difficulty:</strong> {recipe.difficulty}</li>}
+  </ul>
+</div>
+
+<style>
+  .quick-look {
+    border: 1px solid #e0d8ce;
+    border-radius: 10px;
+    padding: 28px 28px 24px;
+    margin: 28px 0;
+    background: #fdf8f3;
+  }
+  .quick-look h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 18px;
+    color: #2a2a2a;
+  }
+  .quick-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: #444;
+  }
+</style>

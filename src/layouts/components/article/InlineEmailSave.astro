@@ -1,0 +1,62 @@
+---
+---
+<div class="inline-save">
+  <h3>Save this Recipe</h3>
+  <p>Enter your email and we'll send it straight to your inbox.</p>
+  <form class="save-form" onsubmit="return false;">
+    <input type="email" placeholder="your@email.com" required aria-label="Email address" />
+    <button type="submit">SEND IT →</button>
+  </form>
+</div>
+
+<style>
+  .inline-save {
+    border: 1px solid #e5e0d8;
+    border-radius: 10px;
+    padding: 32px 28px;
+    margin: 36px 0;
+    text-align: center;
+    background: #fdf8f3;
+  }
+  .inline-save h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: #2a2a2a;
+  }
+  .inline-save p {
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  .save-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+    margin: 0 auto;
+    gap: 10px;
+  }
+  .save-form input {
+    padding: 13px 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .save-form input:focus { border-color: #3a6b4f; }
+  .save-form button {
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    cursor: pointer;
+    background: #3a6b4f;
+    color: #fff;
+    transition: background 0.2s;
+  }
+  .save-form button:hover { background: #2d5540; }
+</style>

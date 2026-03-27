@@ -1,0 +1,48 @@
+---
+import RecipeCard from "../ui/RecipeCard.astro";
+
+const { title = "More Recipes You'll Love", recipes = [] } = Astro.props;
+
+const cards = recipes.slice(0, 4).map((post: any) => ({
+  title: post.data.title,
+  href: `/blog/${post.id}`,
+  image: post.data.image || "/images/image-placeholder.png",
+}));
+---
+{cards.length > 0 && (
+  <section class="related-section">
+    <h2 class="section-heading">{title}</h2>
+    <div class="related-grid">
+      {cards.map((r: any) => <RecipeCard recipe={r} />)}
+    </div>
+  </section>
+)}
+
+<style>
+  .related-section { margin: 40px 0; }
+  .section-heading {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    color: #2a2a2a;
+  }
+  .section-heading::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.15;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 700px) {
+    .related-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

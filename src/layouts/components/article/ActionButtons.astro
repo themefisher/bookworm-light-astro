@@ -1,0 +1,40 @@
+---
+---
+<div class="action-buttons">
+  <a href="#recipe-card" class="action-btn action-btn--green">↓ Jump to Recipe</a>
+  <a href="#" class="action-btn action-btn--red" onclick="return false;">📌 Pin Recipe</a>
+  <a href="#recipe-video" class="action-btn action-btn--dark">▶ Jump to Video</a>
+  <button onclick="window.print()" class="action-btn action-btn--light" aria-label="Print recipe">
+    🖨 Print
+  </button>
+</div>
+
+<style>
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 22px;
+  }
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .action-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  .action-btn--green  { background: #3a6b4f; color: #fff; }
+  .action-btn--red    { background: #e60023; color: #fff; }
+  .action-btn--dark   { background: #444; color: #fff; }
+  .action-btn--light  { background: #f0ece6; color: #444; }
+</style>

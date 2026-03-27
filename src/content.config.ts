@@ -69,6 +69,42 @@ const postsCollection = defineCollection({
     authors: z.array(z.string()).default(() => ["Admin"]),
     tags: z.array(z.string()).default(() => ["others"]),
     draft: z.boolean().optional(),
+    recipe: z.object({
+      rating: z.number().optional(),
+      votes: z.number().optional(),
+      readyIn: z.string().optional(),
+      servings: z.number().optional(),
+      calories: z.number().optional(),
+      mainIngredients: z.string().optional(),
+      dietary: z.string().optional(),
+      difficulty: z.string().optional(),
+      prepTime: z.number().optional(),
+      cookTime: z.number().optional(),
+      totalTime: z.number().optional(),
+      course: z.string().optional(),
+      cuisine: z.string().optional(),
+      equipment: z.array(z.object({
+        name: z.string(),
+        link: z.string().optional(),
+      })).optional(),
+      ingredients: z.array(z.string()).optional(),
+      instructions: z.array(z.string()).optional(),
+      steps: z.array(z.object({
+        image: z.string(),
+        text: z.string(),
+      })).optional(),
+      faqs: z.array(z.object({
+        question: z.string(),
+        answer: z.string(),
+      })).optional(),
+      notes: z.string().optional(),
+      videoEmbed: z.string().optional(),
+      reviewQuote: z.object({
+        text: z.string(),
+        author: z.string(),
+        stars: z.number(),
+      }).optional(),
+    }).optional(),
   }),
 });
 
