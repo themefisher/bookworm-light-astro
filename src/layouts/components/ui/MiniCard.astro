@@ -1,0 +1,35 @@
+---
+const { recipe } = Astro.props;
+---
+<a href={recipe.href} class="mini-card">
+  <img src={recipe.image} alt={recipe.title} />
+  <span>{recipe.title}</span>
+</a>
+
+<style>
+  .mini-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid #eee;
+    transition: background 0.2s;
+    color: #333;
+  }
+  .mini-card:hover {
+    background: #fafafa;
+  }
+  .mini-card img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .mini-card span {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+</style>

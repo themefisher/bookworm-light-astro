@@ -1,0 +1,59 @@
+---
+const { faqs = [], title = "" } = Astro.props;
+---
+{faqs.length > 0 && (
+  <section class="faq-section">
+    <h2>{title ? `${title} FAQs` : "Frequently Asked Questions"}:</h2>
+    <div class="faq-list">
+      {faqs.map((faq: { question: string; answer: string }) => (
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>{faq.question}</span>
+            <span class="faq-arrow" aria-hidden="true">↓</span>
+          </summary>
+          <div class="faq-answer">{faq.answer}</div>
+        </details>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .faq-section { margin: 36px 0; }
+  .faq-section h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: #2a2a2a;
+  }
+  .faq-list { display: flex; flex-direction: column; gap: 8px; }
+  .faq-item {
+    border: 1px solid #e5e0d8;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+  .faq-item[open] { background: #fdf9f6; }
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    color: #2a2a2a;
+    gap: 12px;
+  }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-arrow { transition: transform 0.25s; flex-shrink: 0; }
+  details[open] .faq-arrow { transform: rotate(180deg); }
+  .faq-answer {
+    padding: 0 20px 18px;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #555;
+  }
+</style>

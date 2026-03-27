@@ -1,0 +1,67 @@
+---
+const { steps = [], recipeName = "" } = Astro.props;
+---
+{steps.length > 0 && (
+  <section class="step-section">
+    <h2>How To Make {recipeName}:</h2>
+    <div class="step-grid">
+      {steps.map((step: { image: string; text: string }, i: number) => (
+        <div class="step-item">
+          <img src={step.image} alt={`Step ${i + 1}`} loading="lazy" />
+          <p>
+            <span class="step-num" aria-hidden="true">{i + 1}</span>
+            <strong>Step {i + 1}:</strong> {step.text}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .step-section { margin: 36px 0; }
+  .step-section h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #2a2a2a;
+  }
+  .step-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .step-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .step-num {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+    background: #3a6b4f;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .step-item p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #444;
+    margin: 0;
+  }
+  @media (max-width: 580px) {
+    .step-grid { grid-template-columns: 1fr; }
+  }
+</style>

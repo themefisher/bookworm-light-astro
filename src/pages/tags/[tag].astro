@@ -1,0 +1,37 @@
+---
+import Posts from "@/components/Posts.astro";
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { getTaxonomy } from "@/lib/taxonomyParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import taxonomyFilter from "@/lib/utils/taxonomyFilter";
+import { humanize } from "@/lib/utils/textConverter";
+
+export async function getStaticPaths() {
+  const tags = await getTaxonomy("posts", "tags");
+
+  return tags.map((tag) => {
+    return {
+      params: { tag },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+
+const posts = await getSinglePage("posts");
+const filterByTags = taxonomyFilter(posts, "tags", tag);
+const sortedPosts = sortByDate(filterByTags);
+
+const title = humanize(tag || "");
+---
+
+<Base title={title || "Tag"}>
+  <div class="section">
+    <div class="container">
+      <p class="text-center text-2xl mb-4">Showing Posts From</p>
+      <h1 class="h2 mb-16 text-center text-primary">{title}</h1>
+      <Posts posts={sortedPosts} fluid={false} />
+    </div>
+  </div>
+</Base>

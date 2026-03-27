@@ -1,0 +1,44 @@
+---
+// Individual card used in Top10 and category sections
+const { post } = Astro.props;
+const image = post.data.image || "/images/image-placeholder.png";
+---
+<li class="cat-recipe-card">
+  <a href={`/blog/${post.id}`}>
+    <img src={image} alt={post.data.title} loading="lazy" />
+    <div class="recipe-title">{post.data.title}</div>
+  </a>
+</li>
+
+<style>
+  .cat-recipe-card {
+    display: grid;
+    align-content: flex-start;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-recipe-card a {
+    display: block;
+    text-decoration: none;
+  }
+  .cat-recipe-card img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 7px;
+    display: block;
+    transition: opacity 0.2s;
+  }
+  .cat-recipe-card a:hover img { opacity: 0.88; }
+  .recipe-title {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    text-align: center;
+    margin-top: 12px;
+    text-wrap: balance;
+    line-height: 1.35;
+  }
+</style>

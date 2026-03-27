@@ -1,0 +1,38 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+  const pages = await getSinglePage("pages");
+
+  const paths = pages.map((page) => ({
+    params: {
+      regular: page.id,
+    },
+    props: { page },
+  }));
+  return paths;
+}
+
+const { page } = Astro.props;
+const { title, meta_title, description, image } = page.data;
+const { Content } = await render(page);
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <section class="section">
+    <div class="container">
+      <h1 set:html={markdownify(title)} class="h2 page-heading" />
+      <div class="content">
+        <Content />
+      </div>
+    </div>
+  </section>
+</Base>

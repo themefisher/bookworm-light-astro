@@ -1,0 +1,54 @@
+---
+const { source, className } = Astro.props;
+import DynamicIcon from "@/helpers/DynamicIcon";
+
+export interface ISocial {
+  name: string;
+  icon: string;
+  link: string;
+}
+
+// Map frontmatter keys to react-icons names used by DynamicIcon
+const iconMap: Record<string, string> = {
+  facebook: "FaFacebook",
+  x: "FaXTwitter",
+  instagram: "FaInstagram",
+  linkedin: "FaLinkedin",
+  youtube: "FaYoutube",
+};
+
+const normalize = (src: any): ISocial[] => {
+  if (!src) return [];
+  if (Array.isArray(src)) return src as ISocial[];
+  if (typeof src === "object" && src !== null) {
+    return Object.entries(src).map(([name, link]) => ({
+      name,
+      link: String(link),
+      icon:
+        iconMap[String(name).toLowerCase()] ||
+        `Fa${String(name).charAt(0).toUpperCase()}${String(name).slice(1)}`,
+    }));
+  }
+  return [];
+};
+
+const items = normalize(source);
+---
+
+<ul class={className}>
+  {
+    items.map((social: ISocial) => (
+      <li>
+        <a
+          aria-label={social.name}
+          href={social.link}
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+        >
+          <span class="sr-only">{social.name}</span>
+          <DynamicIcon className="inline-block" icon={social.icon} />
+        </a>
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,71 @@
+---
+---
+<section class="search-section">
+  <span class="explore-label">explore</span>
+  <h2>Find what you're looking for:</h2>
+  <form class="search-form" action="/search" method="GET">
+    <input type="search" name="q" placeholder="search for a recipe..." />
+    <button type="submit" aria-label="Search">🔍</button>
+  </form>
+  <p>Browse full <a href="/categories">recipe index →</a></p>
+</section>
+
+<style>
+  .search-section {
+    text-align: center;
+    padding: 60px 24px;
+    background: #eef5f1;
+  }
+  .explore-label {
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 8px;
+    color: #3a6b4f;
+  }
+  .search-section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #2a2a2a;
+  }
+  .search-form {
+    display: flex;
+    max-width: 540px;
+    margin: 0 auto 16px;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background: #fff;
+  }
+  .search-form input {
+    flex: 1;
+    border: none;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    outline: none;
+    background: transparent;
+    color: #333;
+  }
+  .search-form button {
+    border: none;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    background: transparent;
+    transition: background 0.2s;
+  }
+  .search-form button:hover {
+    background: #f5f5f5;
+  }
+  .search-section p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0;
+  }
+  .search-section a {
+    color: #3a6b4f;
+    text-underline-offset: 3px;
+  }
+</style>

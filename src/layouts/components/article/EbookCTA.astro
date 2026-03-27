@@ -1,0 +1,84 @@
+---
+---
+<section class="ebook-cta">
+  <div class="ebook-inner">
+    <span class="ebook-tag">FREE RESOURCE</span>
+    <h2>Get Our High-Protein Recipe Ebook</h2>
+    <p>7 days of high-protein, low-effort meals — free when you join our newsletter.</p>
+    <form class="ebook-form" onsubmit="return false;">
+      <input type="email" placeholder="your@email.com" required aria-label="Email" />
+      <button type="submit">GET FREE EBOOK →</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .ebook-cta {
+    background: linear-gradient(135deg, #2d5540 0%, #3a6b4f 100%);
+    border-radius: 12px;
+    padding: 48px 36px;
+    margin: 40px 0;
+    text-align: center;
+    color: #fff;
+  }
+  .ebook-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .ebook-cta h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .ebook-cta p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-bottom: 24px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ebook-form {
+    display: flex;
+    max-width: 420px;
+    margin: 0 auto;
+    gap: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  .ebook-form input {
+    flex: 1;
+    padding: 13px 16px;
+    border: none;
+    font-size: 0.9rem;
+    outline: none;
+    color: #333;
+  }
+  .ebook-form button {
+    padding: 13px 20px;
+    border: none;
+    background: #f5a623;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .ebook-form button:hover { background: #e09810; }
+  @media (max-width: 480px) {
+    .ebook-cta { padding: 32px 20px; }
+    .ebook-form { flex-direction: column; border-radius: 8px; overflow: visible; }
+    .ebook-form input,
+    .ebook-form button { border-radius: 6px; width: 100%; }
+  }
+</style>

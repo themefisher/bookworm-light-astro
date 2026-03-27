@@ -1,0 +1,29 @@
+{
+  "main": [
+    {
+      "name": "facebook",
+      "icon": "FaFacebook",
+      "link": "https://www.facebook.com/"
+    },
+    {
+      "name": "X",
+      "icon": "FaXTwitter",
+      "link": "https://x.com/"
+    },
+    {
+      "name": "instagram",
+      "icon": "FaInstagram",
+      "link": "https://www.instagram.com/"
+    },
+    {
+      "name": "linkedin",
+      "icon": "FaLinkedin",
+      "link": "https://www.linkedin.com/"
+    },
+    {
+      "name": "YouTube",
+      "icon": "FaYoutube",
+      "link": "https://www.youtube.com/"
+    }
+  ]
+}

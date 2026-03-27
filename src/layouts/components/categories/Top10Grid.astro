@@ -1,0 +1,56 @@
+---
+import CatRecipeCard from "./CatRecipeCard.astro";
+
+const { posts = [] } = Astro.props;
+const top10 = posts.slice(0, 10);
+---
+{top10.length > 0 && (
+  <section class="top10-section">
+    <h2 class="section-h2">Top 10 Recipes</h2>
+    <ul class="recipe-grid recipe-grid--numbered">
+      {top10.map((post: any) => <CatRecipeCard post={post} />)}
+    </ul>
+  </section>
+)}
+
+<style>
+  .top10-section { margin: 8px 0 40px; }
+  .section-h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 16px;
+  }
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 17px 0;
+  }
+  @media (min-width: 600px) {
+    .recipe-grid { grid-template-columns: repeat(5, 1fr); }
+  }
+
+  /* CSS counter numbered badges — no JS needed */
+  .recipe-grid--numbered { counter-reset: recipe-counter 0; }
+  .recipe-grid--numbered :global(.recipe-title)::before {
+    content: counter(recipe-counter);
+    counter-increment: recipe-counter 1;
+    display: block;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    border-radius: 27px;
+    font-weight: 700;
+    color: var(--color-primary-text);
+    background: var(--color-primary);
+    margin: -18px auto 7px;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    font-size: 0.85rem;
+  }
+</style>

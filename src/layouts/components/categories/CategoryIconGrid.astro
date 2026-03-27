@@ -1,0 +1,85 @@
+---
+const { categories = [] } = Astro.props;
+
+// Map known recipe category slugs to post images
+const imageMap: Record<string, string> = {
+  breakfast:   "/images/posts/01.jpg",
+  soup:        "/images/posts/02.jpg",
+  soups:       "/images/posts/02.jpg",
+  dessert:     "/images/posts/03.jpg",
+  desserts:    "/images/posts/03.jpg",
+  dinner:      "/images/posts/04.jpg",
+  drinks:      "/images/posts/05.jpg",
+  drink:       "/images/posts/05.jpg",
+  salad:       "/images/posts/06.jpg",
+  salads:      "/images/posts/06.jpg",
+  lunch:       "/images/posts/07.jpg",
+  appetizers:  "/images/posts/01.jpg",
+  sides:       "/images/posts/02.jpg",
+  snacks:      "/images/posts/03.jpg",
+  art:         "/images/posts/04.jpg",
+  development: "/images/posts/05.jpg",
+  others:      "/images/posts/06.jpg",
+};
+
+const fallback = [
+  "/images/posts/01.jpg", "/images/posts/02.jpg", "/images/posts/03.jpg",
+  "/images/posts/04.jpg", "/images/posts/05.jpg", "/images/posts/06.jpg", "/images/posts/07.jpg",
+];
+---
+<ul class="category-icon-grid">
+  {categories.map((cat: string, i: number) => (
+    <li>
+      <a href={`/categories/${cat}`}>
+        <img
+          src={imageMap[cat] ?? fallback[i % fallback.length]}
+          alt={cat}
+          loading="lazy"
+        />
+        <div class="category-label">{cat}</div>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .category-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  @media (min-width: 600px) {
+    .category-icon-grid { grid-template-columns: repeat(6, 1fr); }
+  }
+  .category-icon-grid li {
+    text-align: center;
+    min-height: 150px;
+  }
+  .category-icon-grid a {
+    text-decoration: none;
+    word-break: break-word;
+    display: block;
+  }
+  .category-icon-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    transition: transform 0.2s ease;
+  }
+  .category-icon-grid a:hover img { transform: scale(1.05); }
+  .category-label {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #24463c;
+    text-align: center;
+    text-transform: lowercase;
+    margin-top: 10px;
+    text-wrap: balance;
+  }
+</style>

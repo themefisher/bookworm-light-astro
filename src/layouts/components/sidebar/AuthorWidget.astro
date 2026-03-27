@@ -1,0 +1,76 @@
+---
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { slugify } from "@/lib/utils/textConverter";
+
+const { authors = [] } = Astro.props;
+const allAuthors = await getSinglePage("authors");
+const author = allAuthors.find((a) =>
+  authors.map((n: string) => slugify(n)).includes(slugify(a.data.title))
+) || allAuthors[0];
+---
+{author && (
+  <div class="author-widget">
+    {author.data.image && (
+      <img src={author.data.image} alt={author.data.title} class="author-photo" />
+    )}
+    <p class="author-label">Recipe Author</p>
+    <h3 class="author-name">
+      <a href={`/authors/${slugify(author.data.title)}`}>{author.data.title}</a>
+    </h3>
+    {author.data.description && (
+      <p class="author-bio">{author.data.description}</p>
+    )}
+    <a href={`/authors/${slugify(author.data.title)}`} class="author-link">
+      More Recipes →
+    </a>
+  </div>
+)}
+
+<style>
+  .author-widget {
+    border: 1px solid #e5e0d8;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    background: var(--color-subscribe-bg);
+  }
+  .author-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 12px;
+  }
+  .author-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 6px;
+  }
+  .author-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .author-name a { color: var(--color-text); text-decoration: none; }
+  .author-name a:hover { color: var(--color-links); }
+  .author-bio {
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: #666;
+    margin-bottom: 14px;
+  }
+  .author-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-links);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-family: var(--font-body);
+  }
+</style>

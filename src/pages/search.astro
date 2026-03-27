@@ -1,0 +1,40 @@
+---
+import SearchBar from "@/helpers/SearchBar";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import SidebarRecipeGrid from "@/components/sidebar/SidebarRecipeGrid.astro";
+import PopularRecipes from "@/components/sidebar/PopularRecipes.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+
+const posts = await getSinglePage("posts");
+
+const searchList = posts.map((item) => ({
+  slug: item.id,
+  data: item.data,
+  content: item.body,
+}));
+---
+
+<ArticleLayout title="Search">
+  <section class="search-section">
+    <h1 class="search-heading">Search Recipes</h1>
+    <SearchBar client:load searchList={searchList} />
+  </section>
+
+  <Fragment slot="sidebar">
+    <SidebarRecipeGrid />
+    <PopularRecipes />
+  </Fragment>
+</ArticleLayout>
+
+<style>
+  .search-section {
+    padding: 8px 0 32px;
+  }
+  .search-heading {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 24px;
+  }
+</style>

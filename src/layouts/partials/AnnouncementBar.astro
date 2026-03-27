@@ -1,0 +1,28 @@
+---
+const message = "High Protein made EASY!";
+const link = "/subscribe";
+---
+<div class="announcement-bar">
+  <a href={link}>{message} →</a>
+</div>
+
+<style>
+  .announcement-bar {
+    width: 100%;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    background: #2a2a2a;
+    color: #fff;
+  }
+  .announcement-bar a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+    transition: opacity 0.2s;
+  }
+  .announcement-bar a:hover {
+    opacity: 0.8;
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import MiniCard from '../ui/MiniCard.astro';
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+
+const allPosts = await getSinglePage("posts");
+const latestPosts = sortByDate(allPosts).slice(0, 6);
+
+const recipes = latestPosts.map(post => ({
+  title: post.data.title,
+  href: `/blog/${post.id}`,
+  image: typeof post.data.image === 'string' ? post.data.image : (post.data.image ? post.data.image.src : "/images/image-placeholder.png"),
+}));
+---
+<section class="latest-section">
+  <h2 class="section-heading">The Latest</h2>
+  <div class="mini-grid">
+    {recipes.map(r => <MiniCard recipe={r} />)}
+  </div>
+</section>
+
+<style>
+  .latest-section {
+    padding: 50px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    color: #2a2a2a;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.2;
+  }
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 768px) {
+    .mini-grid { grid-template-columns: 1fr; }
+  }
+</style>

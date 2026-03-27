@@ -1,0 +1,81 @@
+---
+---
+<div class="toc" id="toc">
+  <button class="toc-toggle" aria-expanded="false" aria-controls="toc-list">
+    <span>Jump to:</span>
+    <span class="chevron" aria-hidden="true">▾</span>
+  </button>
+  <ul class="toc-list" id="toc-list" role="list"></ul>
+</div>
+
+<script>
+  const toggle = document.querySelector(".toc-toggle") as HTMLButtonElement;
+  const list = document.querySelector("#toc-list") as HTMLUListElement;
+
+  // Auto-build TOC from article h2 headings
+  const headings = document.querySelectorAll(".article-body h2");
+  headings.forEach((heading) => {
+    if (!heading.id) {
+      heading.id = heading.textContent!.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+    }
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = `#${heading.id}`;
+    a.textContent = heading.textContent;
+    li.appendChild(a);
+    list!.appendChild(li);
+  });
+
+  // If no headings found, hide TOC
+  if (headings.length === 0) {
+    (document.getElementById("toc") as HTMLElement).style.display = "none";
+  }
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = list.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    (toggle.querySelector(".chevron") as HTMLElement).textContent = isOpen ? "▴" : "▾";
+  });
+</script>
+
+<style>
+  .toc {
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 28px 0;
+    background: #2a2a2a;
+    color: #fff;
+  }
+  .toc-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+  .chevron { font-size: 1rem; transition: transform 0.2s; }
+  .toc-list {
+    list-style: none;
+    padding: 0 20px 16px;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+  }
+  .toc-list.open { display: flex; }
+  .toc-list a {
+    font-size: 0.88rem;
+    color: #ccc;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  .toc-list a:hover { color: #fff; }
+</style>

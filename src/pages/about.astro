@@ -1,0 +1,62 @@
+---
+import Base from "@/layouts/Base.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
+
+const entry = (await getEntry("about", "-index")) as CollectionEntry<"about">;
+const { Content } = await render(entry);
+const { title, meta_title, image, what_i_do } = entry.data;
+---
+
+<Base title={title} meta_title={meta_title} image={image}>
+  <section class="section">
+    <div class="container">
+      <div class="row md:gx-4">
+        <div class="sm:col-5 md:col-4">
+          {
+            image && (
+              <div class="img-cover mb-8">
+                <Image
+                  src={image}
+                  width={295}
+                  height={395}
+                  alt={title}
+                  class="rounded-lg w-full"
+                />
+              </div>
+            )
+          }
+        </div>
+        <div class="sm:col-7 md:col-8">
+          <h1 set:html={markdownify(title)} class="h3 mb-8" />
+
+          <div class="content">
+            <Content />
+          </div>
+          <a href="/contact" class="btn btn-primary text-white py-2"
+            >Get In Touch</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <h3 class="page-heading mb-20">{what_i_do.title}</h3>
+      <div class="row justify-center gy-4 text-center">
+        {
+          what_i_do.items.map((item: any) => (
+            <div class="lg:col-4 md:col-6">
+              <i class="{{.icon}} fa-3x text-primary mb-4" />
+              <h4 class="text-dark font-weight-700 mb-3">{item.title}</h4>
+              <p>{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

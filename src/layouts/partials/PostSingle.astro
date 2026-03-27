@@ -1,0 +1,135 @@
+---
+import Share from "@/components/Share.astro";
+import SimilarPosts from "@/components/SimilarPosts.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import dateFormat from "@/lib/utils/dateFormat";
+import similerItems from "@/lib/utils/similarItems";
+import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
+
+const allAuthors = await getSinglePage("authors");
+const posts = await getSinglePage("posts");
+const { post } = Astro.props;
+const similarPosts = similerItems(post, posts, post.slug);
+const { Content } = await render(post);
+const { title, description, authors, categories, image, date, tags } =
+  post.data;
+---
+
+<section class="section">
+  <div class="container">
+    <article class="row justify-center">
+      <div class="md:col-10 text-center">
+        <h1 set:html={markdownify(title)} class="h2" />
+        <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
+          <li class="mx-3">
+            {
+              allAuthors
+                .filter((author) =>
+                  authors
+                    .map((author: string) => slugify(author))
+                    .includes(slugify(author.data.title))
+                )
+                .map((author) => (
+                  <a
+                    href={`/authors/${slugify(author.id)}`}
+                    class="flex items-center hover:text-primary font-medium"
+                  >
+                    {author.data.image && (
+                      <Image
+                        src={author.data.image}
+                        alt={author.data.title}
+                        height={50}
+                        width={50}
+                        class="mr-2 h-6 w-6 rounded-full"
+                      />
+                    )}
+                    <span>{author.data.title}</span>
+                  </a>
+                ))
+            }
+          </li>
+          <li class="mx-3 flex items-center flex-wrap font-medium">
+            <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
+            {dateFormat(date)}
+          </li>
+          <li class="mx-3 flex items-center flex-wrap">
+            <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
+
+            <ul>
+              {
+                categories.map((category: string, i: number) => (
+                  <li class="inline-block">
+                    <a
+                      href={`/categories/${slugify(category)}`}
+                      class="mr-2 hover:text-primary font-medium"
+                    >
+                      {humanize(category)}
+                      {i !== post.data.categories.length - 1 && ","}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-12 mt-8 mb-2">
+        {
+          image && (
+            <Image
+              src={image}
+              height={500}
+              width={1000}
+              alt={title}
+              class="rounded-lg"
+            />
+          )
+        }
+      </div>
+
+      <div class="md:col-10">
+        <div class="content mb-16 text-left">
+          <Content />
+        </div>
+        <div class="flex flex-wrap items-center justify-between">
+          <ul class="mr-4 mb-4 space-x-3">
+            {
+              tags.map((tag: string) => (
+                <li class="inline-block">
+                  <a
+                    href={`/tags/${slugify(tag)}`}
+                    class="block rounded-lg bg-light px-4 py-2 font-semibold text-dark text-sm hover:text-primary transition duration-300"
+                  >
+                    #{humanize(tag)}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <Share
+            className="social-share mb-4"
+            title={title}
+            description={description}
+            slug={post.id}
+          />
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- similar posts -->
+{
+  similarPosts.length > 0 && (
+    <section class="section pt-0">
+      <div class="container">
+        <h2 class="mb-8 text-center h3">Similar Posts</h2>
+        <SimilarPosts posts={similarPosts.slice(0, 3)} />
+      </div>
+    </section>
+  )
+}

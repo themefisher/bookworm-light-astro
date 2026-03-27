@@ -1,0 +1,84 @@
+---
+---
+<section class="spotlight">
+  <div class="spotlight-image">
+    <img src="/images/posts/07.jpg" alt="Spicy Chicken Ramen" />
+  </div>
+  <div class="spotlight-text">
+    <span class="badge-label">viral recipe!</span>
+    <h2>Spicy Chicken Ramen</h2>
+    <p>A bold, comforting noodle soup made with a savory broth, tender chicken, and classic ramen toppings. Ready in 30 minutes and bursting with flavor.</p>
+    <a href="/recipes/spicy-chicken-ramen" class="cta-btn">Get the recipe →</a>
+  </div>
+</section>
+
+<style>
+  .spotlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+    background: var(--color-accent);
+  }
+  .spotlight-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .spotlight-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 48px;
+    gap: 16px;
+  }
+  .badge-label {
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    font-size: 1.4rem;
+    color: var(--color-links);
+  }
+  .spotlight-text h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+    color: var(--color-text);
+  }
+  .spotlight-text p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 400px;
+    color: #555;
+    margin: 0;
+    font-family: var(--font-body);
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: fit-content;
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    font-weight: 600;
+    font-family: var(--font-body);
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover {
+    opacity: 0.85;
+  }
+  @media (max-width: 768px) {
+    .spotlight {
+      grid-template-columns: 1fr;
+    }
+    .spotlight-image img {
+      max-height: 320px;
+    }
+    .spotlight-text {
+      padding: 40px 24px;
+    }
+  }
+</style>

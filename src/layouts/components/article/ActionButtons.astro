@@ -1,0 +1,59 @@
+---
+const { title = "", image = "" } = Astro.props;
+---
+<div class="action-buttons">
+  <a href="#recipe-card" class="action-btn action-btn--primary">↓ Jump to Recipe</a>
+  <a
+    href="#"
+    class="action-btn action-btn--red"
+    id="pinterest-btn"
+    data-image={image}
+    data-title={title}
+    target="_blank"
+    rel="noopener noreferrer"
+  >📌 Pin Recipe</a>
+  <button onclick="window.print()" class="action-btn action-btn--light" aria-label="Print recipe">
+    🖨 Print
+  </button>
+</div>
+
+<script>
+  const btn = document.getElementById("pinterest-btn");
+  if (btn) {
+    const pageUrl = encodeURIComponent(window.location.href);
+    const image = encodeURIComponent((btn as HTMLElement).dataset.image || "");
+    const title = encodeURIComponent((btn as HTMLElement).dataset.title || "");
+    (btn as HTMLAnchorElement).href =
+      `https://pinterest.com/pin/create/button/?url=${pageUrl}&media=${image}&description=${title}`;
+  }
+</script>
+
+<style>
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 22px;
+  }
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: opacity 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .action-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  .action-btn--primary { background: var(--color-primary); color: var(--color-primary-text); }
+  .action-btn--red     { background: #e60023; color: #fff; }
+  .action-btn--light   { background: var(--color-accent); color: var(--color-accent-text); }
+</style>

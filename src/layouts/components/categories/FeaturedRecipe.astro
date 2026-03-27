@@ -1,0 +1,80 @@
+---
+const { post } = Astro.props;
+const image = post?.data?.image || "/images/posts/07.jpg";
+const title = post?.data?.title || "Firecracker Meatballs";
+const href = post ? `/blog/${post.id}` : "#";
+const description = post?.data?.description || "A bold, flavor-packed recipe that's gone completely viral — and once you try it, you'll understand why.";
+---
+<div class="featured-recipe">
+  <div class="featured-image">
+    <img src={image} alt={title} />
+  </div>
+  <div class="featured-content">
+    <span class="eyebrow">viral recipe</span>
+    <h2 class="featured-title">{title}</h2>
+    <p class="featured-desc">{description}</p>
+    <a href={href} class="btn">GET THE RECIPE →</a>
+  </div>
+</div>
+
+<style>
+  .featured-recipe {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    align-items: center;
+    margin: 40px 0;
+  }
+  .featured-image img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+  .featured-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--color-links);
+  }
+  .featured-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-text);
+    margin: 0;
+  }
+  .featured-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin: 0;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    padding: 12px 22px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: var(--font-body);
+    width: fit-content;
+    transition: opacity 0.2s;
+  }
+  .btn:hover { opacity: 0.85; }
+  @media (max-width: 650px) {
+    .featured-recipe { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import RecipeCard from '../ui/RecipeCard.astro';
+
+const recipes = [
+  { title: "Greek Chicken Bowl", href: "/recipes/greek-chicken-bowl", image: "/images/posts/01.jpg" },
+  { title: "Avocado Egg Toast", href: "/recipes/avocado-egg-toast", image: "/images/posts/02.jpg" },
+  { title: "Lemon Herb Salmon", href: "/recipes/lemon-herb-salmon", image: "/images/posts/03.jpg" },
+  { title: "Veggie Stir Fry", href: "/recipes/veggie-stir-fry", image: "/images/posts/04.jpg" },
+];
+---
+<section class="trending-section">
+  <h2 class="section-heading">Trending Recipes</h2>
+  <div class="recipe-grid">
+    {recipes.map(r => <RecipeCard recipe={r} />)}
+  </div>
+</section>
+
+<style>
+  .trending-section {
+    padding: 50px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    color: var(--color-text);
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.2;
+  }
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 900px) {
+    .recipe-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 500px) {
+    .recipe-grid { grid-template-columns: 1fr; }
+  }
+</style>

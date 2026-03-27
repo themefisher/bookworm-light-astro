@@ -1,0 +1,74 @@
+---
+const categories = [
+  { label: "breakfast", href: "/categories/breakfast", image: "/images/posts/01.jpg" },
+  { label: "soups",     href: "/categories/soup",      image: "/images/posts/02.jpg" },
+  { label: "dessert",   href: "/categories/dessert",   image: "/images/posts/03.jpg" },
+  { label: "dinner",    href: "/categories/dinner",    image: "/images/posts/04.jpg" },
+  { label: "drinks",    href: "/categories/drinks",    image: "/images/posts/05.jpg" },
+  { label: "salads",    href: "/categories/salads",    image: "/images/posts/06.jpg" },
+];
+---
+<section class="hero-categories">
+  <h1 class="hero-headline">Healthy Recipes + Simple Meal Plans</h1>
+  <ul class="category-list">
+    {categories.map(cat => (
+      <li>
+        <a href={cat.href} class="category-item">
+          <img src={cat.image} alt={cat.label} />
+          <span>{cat.label}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .hero-categories {
+    padding: 60px 24px;
+    text-align: center;
+    background: var(--color-subscribe-bg);
+  }
+  .hero-headline {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: var(--color-text);
+    line-height: 1.3;
+  }
+  .category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+    color: var(--color-text);
+    font-family: var(--font-body);
+  }
+  .category-item img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease;
+  }
+  .category-item:hover img {
+    transform: scale(1.05);
+  }
+  .category-item span {
+    font-size: 0.85rem;
+    text-transform: lowercase;
+    font-weight: 500;
+  }
+</style>

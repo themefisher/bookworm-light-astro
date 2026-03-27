@@ -1,0 +1,31 @@
+---
+import Base from "@/layouts/Base.astro";
+import HeroCategories from "@/components/sections/HeroCategories.astro";
+import TrendingRecipes from "@/components/sections/TrendingRecipes.astro";
+import AboutBlock from "@/components/sections/AboutBlock.astro";
+import PressLogos from "@/components/sections/PressLogos.astro";
+import SearchExplore from "@/components/sections/SearchExplore.astro";
+import Top10Recipes from "@/components/sections/Top10Recipes.astro";
+import NewsletterCTA from "@/components/sections/NewsletterCTA.astro";
+import LatestRecipes from "@/components/sections/LatestRecipes.astro";
+import ViralSpotlight from "@/components/sections/ViralSpotlight.astro";
+import CategorySection from "@/components/sections/CategorySection.astro";
+import ExploreFavorites from "@/components/sections/ExploreFavorites.astro";
+import FeaturedOn from "@/components/sections/FeaturedOn.astro";
+---
+
+<Base title="Healthy Recipes & Meal Plans">
+  <HeroCategories />
+  <TrendingRecipes />
+  <AboutBlock />
+  <PressLogos />
+  <SearchExplore />
+  <Top10Recipes />
+  <NewsletterCTA />
+  <LatestRecipes />
+  <ViralSpotlight />
+  <CategorySection title="Easy Dinners" category="dinner" />
+  <CategorySection title="Quick Breakfasts" category="breakfast" />
+  <ExploreFavorites />
+  <FeaturedOn />
+</Base>

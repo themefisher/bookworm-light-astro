@@ -1,0 +1,50 @@
+---
+import CatRecipeCard from "./CatRecipeCard.astro";
+
+const { title, categorySlug, posts = [] } = Astro.props;
+---
+{posts.length > 0 && (
+  <section class="cat-section">
+    <h2 class="section-h2">{title}</h2>
+    <ul class="recipe-grid">
+      {posts.map((post: any) => <CatRecipeCard post={post} />)}
+    </ul>
+    <div class="see-more">
+      See more <a href={`/categories/${categorySlug}`}>{title} →</a>
+    </div>
+  </section>
+)}
+
+<style>
+  .cat-section { margin: 8px 0 20px; }
+  .section-h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 16px;
+  }
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 17px 0;
+  }
+  @media (min-width: 600px) {
+    .recipe-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .see-more {
+    text-align: right;
+    font-size: 1.05rem;
+    color: var(--color-text);
+    margin-top: 8px;
+  }
+  .see-more a {
+    color: var(--color-links);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+</style>

@@ -1,0 +1,83 @@
+---
+---
+<section class="newsletter-block">
+  <p class="newsletter-eyebrow">join the community</p>
+  <h2 class="newsletter-title">Get Free Weekly Recipes</h2>
+  <p class="newsletter-sub">High-protein, simple, and absolutely delicious — delivered every week.</p>
+  <form class="newsletter-form" onsubmit="return false;">
+    <input type="email" placeholder="your@email.com" required aria-label="Email address" />
+    <button type="submit">SUBSCRIBE →</button>
+  </form>
+</section>
+
+<style>
+  .newsletter-block {
+    background: var(--color-subscribe-bg);
+    padding: 56px 24px;
+    text-align: center;
+    margin: 40px 0;
+    border-radius: 4px;
+  }
+  .newsletter-eyebrow {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--color-links);
+    margin-bottom: 10px;
+  }
+  .newsletter-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+  .newsletter-sub {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 28px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .newsletter-form {
+    display: flex;
+    max-width: 440px;
+    margin: 0 auto;
+    border-radius: 100px;
+    overflow: hidden;
+    border: 2px solid var(--color-links);
+    background: #fff;
+  }
+  .newsletter-form input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    background: transparent;
+  }
+  .newsletter-form button {
+    background: var(--color-links);
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-family: var(--font-body);
+    cursor: pointer;
+    border-radius: 100px;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+  .newsletter-form button:hover { opacity: 0.85; }
+  @media (max-width: 480px) {
+    .newsletter-form { flex-direction: column; border-radius: 12px; overflow: visible; background: none; border: none; gap: 10px; }
+    .newsletter-form input { border: 2px solid #ccc; border-radius: 100px; }
+    .newsletter-form button { border-radius: 100px; }
+  }
+</style>

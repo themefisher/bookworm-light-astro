@@ -1,0 +1,38 @@
+---
+const { recipe } = Astro.props;
+---
+<a href={recipe.href} class="recipe-card">
+  <div class="card-image">
+    <img src={recipe.image} alt={recipe.title} />
+  </div>
+  <p class="card-title">{recipe.title}</p>
+</a>
+
+<style>
+  .recipe-card {
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    display: block;
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+    transition: box-shadow 0.2s;
+    color: #333;
+  }
+  .recipe-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+  .card-image img {
+    width: 100%;
+    aspect-ratio: 1 / 1.05;
+    object-fit: cover;
+    display: block;
+  }
+  .card-title {
+    padding: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+</style>

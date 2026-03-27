@@ -1,0 +1,52 @@
+---
+const { title = "Recipe Tips", tips = [] } = Astro.props;
+---
+<div class="tip-box">
+  <span class="tip-icon" aria-hidden="true">✳</span>
+  <h3>{title}</h3>
+  <ul>
+    {tips.map((t: string) => <li set:html={t} />)}
+  </ul>
+</div>
+
+<style>
+  .tip-box {
+    border: 1px solid #e0d8cc;
+    border-radius: 10px;
+    padding: 28px 28px 24px;
+    margin: 28px 0;
+    position: relative;
+    background: #f9f5ef;
+  }
+  .tip-icon {
+    position: absolute;
+    top: -14px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    background: #3a6b4f;
+    color: #fff;
+  }
+  .tip-box h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: #2a2a2a;
+  }
+  .tip-box ul {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+  }
+</style>

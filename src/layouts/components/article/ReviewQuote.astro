@@ -1,0 +1,50 @@
+---
+const { quote, author, stars = 5 } = Astro.props;
+const filled = Math.min(5, Math.max(0, Math.round(stars)));
+---
+<div class="review-quote">
+  <span class="quote-mark">"</span>
+  <div class="stars">
+    {[1,2,3,4,5].map(i => <span class={i <= filled ? "star on" : "star"}>{i <= filled ? "★" : "☆"}</span>)}
+  </div>
+  <p class="quote-text">{quote}</p>
+  <p class="quote-author">– {author}</p>
+</div>
+
+<style>
+  .review-quote {
+    border: 1px solid #e5e0d8;
+    border-left: 4px solid #3a6b4f;
+    border-radius: 8px;
+    padding: 28px 28px 22px 32px;
+    margin: 28px 0;
+    position: relative;
+    background: #fafaf8;
+  }
+  .quote-mark {
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    line-height: 0;
+    position: absolute;
+    top: 28px;
+    left: 18px;
+    color: #3a6b4f;
+    opacity: 0.25;
+  }
+  .stars { font-size: 1.1rem; margin-bottom: 10px; letter-spacing: 2px; }
+  .star { color: #ddd; }
+  .star.on { color: #f5a623; }
+  .quote-text {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    margin-bottom: 12px;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-author {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #888;
+    margin: 0;
+  }
+</style>

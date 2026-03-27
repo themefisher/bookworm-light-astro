@@ -1,0 +1,31 @@
+---
+import Social from "@/components/Social.astro";
+import config from "@/config/config.json";
+import menu from "@/config/menu.json";
+import social from "@/config/social.json";
+import { markdownify } from "@/lib/utils/textConverter";
+---
+
+<footer class="section bg-dark">
+  <div class="container text-center">
+    {/* footer menu */}
+    <ul class="mb-8 space-x-4">
+      {
+        menu.footer.map((menu) => (
+          <li class="inline-block">
+            <a
+              href={menu.url}
+              class="p-4 text-white/75 hover:text-white transition-all"
+            >
+              {menu.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    {/* social icons */}
+    <Social source={social.main} className="social-icons mb-8" />
+    {/* copyright */}
+    <p set:html={markdownify(config.params.copyright)} class="text-white/75" />
+  </div>
+</footer>

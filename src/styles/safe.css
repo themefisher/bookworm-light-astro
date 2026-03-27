@@ -1,0 +1,22 @@
+/* navbar toggler */
+input#nav-toggle:checked ~ label#show-button {
+  @apply hidden;
+}
+
+input#nav-toggle:checked ~ label#hide-button {
+  @apply flex md:hidden;
+}
+
+input#nav-toggle:checked ~ #nav-menu {
+  @apply block md:flex;
+}
+
+/* form style */
+.form-inputs * {
+  @apply mb-5 leading-10;
+}
+
+.form-input,
+.form-textarea {
+  @apply rounded-md border-border py-3 text-text focus:border-primary focus:ring-transparent;
+}

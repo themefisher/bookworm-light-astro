@@ -1,0 +1,47 @@
+---
+---
+<form class="cat-search-form" action="/search" method="GET">
+  <div class="search-wrapper">
+    <input
+      type="search"
+      name="q"
+      placeholder="search recipes..."
+      aria-label="Search recipes"
+    />
+    <button type="submit" aria-label="Search">🔍</button>
+  </div>
+</form>
+
+<style>
+  .cat-search-form { margin: 20px 0 28px; }
+  .search-wrapper {
+    display: flex;
+    border: 2.4px solid #000;
+    border-radius: 100px;
+    background: #fff;
+    overflow: hidden;
+    max-width: 540px;
+  }
+  .search-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 11px 20px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    background: transparent;
+    color: var(--color-text);
+  }
+  .search-wrapper button {
+    background: var(--color-primary);
+    color: var(--color-primary-text);
+    border: none;
+    border-radius: 100px;
+    padding: 11px 22px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+  .search-wrapper button:hover { opacity: 0.85; }
+</style>

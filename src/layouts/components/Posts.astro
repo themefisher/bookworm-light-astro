@@ -1,0 +1,99 @@
+---
+import { getSinglePage } from "@/lib/contentParser.astro";
+import dateFormat from "@/lib/utils/dateFormat";
+import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
+
+type Props = {
+  posts: CollectionEntry<"posts">[];
+  className?: string;
+  fluid?: boolean;
+};
+
+const authors = await getSinglePage("authors");
+const { className, posts, fluid } = Astro.props;
+---
+
+<div
+  class={`row gy-5 gx-4 ${className} ${posts.length == 1 ? "justify-center" : ""} `}
+>
+  {
+    posts.map((post, i: number) => (
+      <div class={i === 0 && fluid != false ? "col-12" : "col-12 sm:col-6"}>
+        {post.data.image && (
+          <a
+            href={`/blog/${post.id}`}
+            class="rounded-lg block hover:text-primary overflow-hidden group"
+          >
+            <Image
+              class="group-hover:scale-[1.03] transition duration-300 w-full"
+              src={post.data.image}
+              alt={post.data.title}
+              width={i === 0 ? 925 : 445}
+              height={i === 0 ? 475 : 230}
+            />
+          </a>
+        )}
+        <ul class="mt-6 mb-4 flex flex-wrap items-center text-text">
+          <li class="mr-5">
+            {authors
+              .filter((author) =>
+                post.data.authors
+                  .map((author) => slugify(author))
+                  .includes(slugify(author.data.title))
+              )
+              .map((author) => (
+                <a
+                  href={`/authors/${slugify(author.data.title)}`}
+                  class="flex items-center hover:text-primary font-medium"
+                >
+                  {author.data.image && (
+                    <Image
+                      src={author.data.image}
+                      alt={author.data.title}
+                      height={50}
+                      width={50}
+                      class="mr-2 h-6 w-6 rounded-full"
+                    />
+                  )}
+                  <span>{author.data.title}</span>
+                </a>
+              ))}
+          </li>
+          <li class="mr-5 flex items-center flex-wrap font-medium">
+            <BiCalendarEdit className="mr-1 h-5 w-5 text-gray-600" />
+            {dateFormat(post.data.date!)}
+          </li>
+          <li class="mr-5 flex items-center flex-wrap">
+            <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
+
+            <ul>
+              {post.data.categories.map((category, i: number) => (
+                <li class="inline-block">
+                  <a
+                    href={`/categories/${slugify(category)}`}
+                    class="mr-2 hover:text-primary font-medium"
+                  >
+                    {humanize(category)}
+                    {i !== post.data.categories.length - 1 && ","}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        </ul>
+        <h3 class="mb-4">
+          <a
+            href={`/blog/${post.id}`}
+            class="block hover:text-primary transition duration-300"
+          >
+            {post.data.title}
+          </a>
+        </h3>
+        <p class="text-text line-clamp-2">{plainify(post.body ?? "")}</p>
+      </div>
+    ))
+  }
+</div>

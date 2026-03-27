@@ -1,0 +1,61 @@
+---
+const { title = "", slug = "" } = Astro.props;
+const base = "https://yoursite.com"; // update with real domain
+const url = encodeURIComponent(`${base}/blog/${slug}`);
+const text = encodeURIComponent(title);
+
+const platforms = [
+  { name: "Facebook",  bg: "#1877f2", href: `https://facebook.com/sharer/sharer.php?u=${url}`,                       label: "f" },
+  { name: "Pinterest", bg: "#e60023", href: `https://pinterest.com/pin/create/button/?description=${text}&url=${url}`, label: "P" },
+  { name: "X",         bg: "#111",    href: `https://twitter.com/intent/tweet?text=${text}&url=${url}`,               label: "𝕏" },
+  { name: "Reddit",    bg: "#ff4500", href: `https://reddit.com/submit?title=${text}&url=${url}`,                     label: "r/" },
+  { name: "Flipboard", bg: "#e12828", href: `https://share.flipboard.com/bookmarklet/popout?url=${url}&title=${text}`,label: "f" },
+  { name: "Email",     bg: "#555",    href: `mailto:?subject=${text}&body=${url}`,                                    label: "✉" },
+];
+---
+<div class="share-bar">
+  <p class="share-label">Love this recipe? Share it!</p>
+  <div class="share-row">
+    {platforms.map(p => (
+      <a
+        href={p.href}
+        class="share-btn"
+        style={`background:${p.bg}`}
+        aria-label={`Share on ${p.name}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {p.label}
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .share-bar { margin: 4px 0 24px; }
+  .share-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: #2a2a2a;
+  }
+  .share-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .share-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .share-btn:hover { opacity: 0.85; }
+</style>

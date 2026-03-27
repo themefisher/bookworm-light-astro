@@ -1,0 +1,63 @@
+---
+import Posts from "@/components/Posts.astro";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import SidebarRecipeGrid from "@/components/sidebar/SidebarRecipeGrid.astro";
+import PopularRecipes from "@/components/sidebar/PopularRecipes.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { getTaxonomy } from "@/lib/taxonomyParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import taxonomyFilter from "@/lib/utils/taxonomyFilter";
+import { humanize } from "@/lib/utils/textConverter";
+
+export async function getStaticPaths() {
+  const categories = await getTaxonomy("posts", "categories");
+
+  return categories.map((category) => {
+    return {
+      params: { category },
+    };
+  });
+}
+
+const { category } = Astro.params;
+
+const posts = await getSinglePage("posts");
+const filterByCategory = taxonomyFilter(posts, "categories", category);
+const sortedPosts = sortByDate(filterByCategory);
+
+const title = humanize(category || "");
+---
+
+<ArticleLayout title={title || "Category"}>
+  <div class="category-page">
+    <p class="cat-eyebrow">Showing Posts From</p>
+    <h1 class="cat-heading">{title}</h1>
+    <Posts posts={sortedPosts} fluid={false} />
+  </div>
+
+  <Fragment slot="sidebar">
+    <SidebarRecipeGrid />
+    <PopularRecipes />
+  </Fragment>
+</ArticleLayout>
+
+<style>
+  .category-page {
+    padding: 8px 0 32px;
+  }
+  .cat-eyebrow {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    font-family: var(--font-body);
+  }
+  .cat-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 28px;
+  }
+</style>

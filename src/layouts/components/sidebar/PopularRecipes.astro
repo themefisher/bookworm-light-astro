@@ -1,0 +1,87 @@
+---
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+
+const { currentId = "" } = Astro.props;
+const allPosts = await getSinglePage("posts");
+// Use the 5 oldest posts as "popular" (or swap sortByDate for a views-based sort later)
+const popularPosts = sortByDate(allPosts)
+  .filter((p) => p.id !== currentId)
+  .slice(-5)
+  .reverse();
+---
+{popularPosts.length > 0 && (
+  <div class="popular-widget">
+    <h3 class="widget-title">Popular Recipes</h3>
+    <ul class="popular-list">
+      {popularPosts.map((post, i) => (
+        <li class="popular-item">
+          <span class="popular-num">{String(i + 1).padStart(2, "0")}</span>
+          <a href={`/blog/${post.id}`} class="popular-link">
+            {post.data.image && (
+              <img src={post.data.image} alt={post.data.title} loading="lazy" />
+            )}
+            <span>{post.data.title}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+<style>
+  .widget-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 14px;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .widget-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+  }
+  .popular-list { list-style: none; padding: 0; margin: 0; }
+  .popular-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0ece6;
+  }
+  .popular-item:last-child { border-bottom: none; }
+  .popular-num {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #e8e0d8;
+    font-family: Georgia, serif;
+    min-width: 28px;
+    line-height: 1;
+  }
+  .popular-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex: 1;
+  }
+  .popular-link img {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .popular-link span {
+    font-size: 0.82rem;
+    color: #333;
+    line-height: 1.4;
+    transition: color 0.2s;
+  }
+  .popular-link:hover span { color: var(--color-links); }
+</style>

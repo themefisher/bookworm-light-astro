@@ -1,0 +1,57 @@
+---
+const logos = [
+  { name: "Bon Appétit", href: "#" },
+  { name: "Food Network", href: "#" },
+  { name: "Tasty", href: "#" },
+  { name: "Epicurious", href: "#" },
+  { name: "Delish", href: "#" },
+];
+---
+<section class="press-logos">
+  <p class="press-label">As seen in</p>
+  <ul class="logos-list">
+    {logos.map(logo => (
+      <li>
+        <a href={logo.href} class="logo-item">{logo.name}</a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .press-logos {
+    padding: 36px 24px;
+    text-align: center;
+    background: #fff;
+    border-top: 1px solid #f0ece6;
+    border-bottom: 1px solid #f0ece6;
+  }
+  .press-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 16px;
+  }
+  .logos-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .logo-item {
+    text-decoration: none;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    color: #bbb;
+    font-style: italic;
+    transition: color 0.2s;
+  }
+  .logo-item:hover {
+    color: #888;
+  }
+</style>
