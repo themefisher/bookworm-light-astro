@@ -1,5 +1,6 @@
 ---
 import Logo from "@/components/Logo.astro";
+import Dropdown from "@/components/Dropdown.astro";
 import menu from "@/config/menu.json";
 import { IoSearch } from "react-icons/io5";
 
@@ -57,24 +58,8 @@ const { main }: { main: NavigationLink[] } = menu;
       {
         main.map((menu) => (
           <>
-            {menu.hasChildren ? (
-              <li class="nav-item nav-dropdown group relative cursor-pointer">
-                <span class="nav-link inline-flex items-center">
-                  {menu.name}
-                  <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                  </svg>
-                </span>
-                <ul class="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
-                  {menu.children?.map((child) => (
-                    <li class="nav-dropdown-item">
-                      <a href={child.url} class="nav-dropdown-link">
-                        {child.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
+            {menu.hasChildren && menu.children ? (
+              <Dropdown name={menu.name} children={menu.children} />
             ) : (
               <li class="nav-item">
                 <a href={menu.url} class="nav-link block">
