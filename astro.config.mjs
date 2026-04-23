@@ -3,9 +3,8 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
-import { defineConfig, sharpImageService, fontProviders } from "astro/config";
-import remarkCollapse from "remark-collapse";
-import remarkToc from "remark-toc";
+import gtm from "astro-gtm-lite";
+import { defineConfig, fontProviders, sharpImageService } from "astro/config";
 import config from "./src/config/config.json";
 import theme from "./src/config/theme.json";
 
@@ -68,9 +67,13 @@ export default defineConfig({
       ],
     }),
     mdx(),
+    gtm({
+      enable: config.google_tag_manager.enable,
+      id: config.google_tag_manager.gtm_id,
+      devMode: true,
+    }),
   ],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
     shikiConfig: { theme: "one-dark-pro", wrap: true },
   },
 });

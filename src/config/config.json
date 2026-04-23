@@ -22,13 +22,13 @@
   },
 
   "google_tag_manager": {
-    "enable": false,
+    "enable": true,
     "gtm_id": "GTM-XXXXXX"
   },
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2025 a theme by [Themefisher](https://themefisher.com)"
+    "copyright": "Copyright © 2026 a theme by [Themefisher](https://themefisher.com)"
   },
 
   "contactinfo": {
