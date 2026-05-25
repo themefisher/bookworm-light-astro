@@ -1,0 +1,80 @@
+---
+export interface ChildNavigationLink {
+  name: string;
+  url: string;
+}
+
+export interface Props {
+  name: string;
+  children: ChildNavigationLink[];
+}
+
+const { name, children } = Astro.props;
+---
+
+<li class="nav-item nav-dropdown group relative cursor-pointer">
+  <span class="nav-link inline-flex items-center">
+    {name}
+    <svg class="h-5 w-5 fill-current" viewBox="0 0 20 20">
+      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+    </svg>
+  </span>
+  <ul class="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
+    {children.map((child) => (
+      <li class="nav-dropdown-item">
+        <a href={child.url} class="nav-dropdown-link">
+          {child.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</li>
+
+<script>
+    function setupDropdowns() {
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+    dropdowns.forEach((dropdown) => {
+        const trigger = dropdown.querySelector<HTMLElement>(".nav-link");
+        if (!trigger || trigger.dataset.listenerAttached) return;
+
+        trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        document.querySelectorAll(".nav-dropdown").forEach((other) => {
+            if (other !== dropdown) other.classList.remove("dropdown-open");
+        });
+
+        dropdown.classList.toggle("dropdown-open");
+        });
+
+        trigger.dataset.listenerAttached = "true";
+    });
+    }
+
+    document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement | null;
+    if (!target || !target.closest(".nav-dropdown")) {
+        document.querySelectorAll<HTMLElement>(".nav-dropdown.dropdown-open").forEach((dropdown) => {
+        dropdown.classList.remove("dropdown-open");
+        });
+    }
+    });
+
+    document.addEventListener("astro:page-load", setupDropdowns);
+    document.addEventListener("astro:after-swap", setupDropdowns);
+</script>
+
+<style>
+  .nav-dropdown.dropdown-open > .nav-dropdown-list {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .nav-dropdown.dropdown-open > .nav-dropdown-list {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+</style>
