@@ -4,7 +4,7 @@ location: "Columbus, Ohio"
 region: "Midwest"
 students: "46,000"
 type: "Urban public research university"
-featured: true
+featured: false
 website: 'https://undergrad.osu.edu'
 logo: ../../assets/images/logos/osu.png
 video: 'https://www.youtube.com/user/ohiostateuniversity'

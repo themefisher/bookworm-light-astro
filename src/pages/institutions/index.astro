@@ -3,20 +3,41 @@ import Base from "@/layouts/Base.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import CTA from "@/components/CTA.astro";
+import partnerOrder from "@/content/partner-order.json";
 
+
+// 1. Import your dual-list JSON
+import partnerOrder from "@/content/partner-order.json";
+
+// Keep the collection as "partners" so you don't have to rewrite your schemas
 const allPartners = await getCollection("partners");
 
-// Sort all partners alphabetically first
-const sortedPartners = allPartners.sort((a, b) => 
-  a.data.title.localeCompare(b.data.title)
-);
+// 2. Split into Featured and Additional categories FIRST
+const unsortedFeatured = allPartners.filter(p => p.data.featured === true);
+const unsortedAdditional = allPartners.filter(p => p.data.featured !== true);
 
-// Split into Featured and Additional categories 
-const featuredPartners = sortedPartners.filter(p => p.data.featured === true);
-const additionalPartners = sortedPartners.filter(p => p.data.featured !== true);
+// 3. Sort the STORY (Featured) Institutions
+const featuredPartners = unsortedFeatured.sort((a, b) => {
+  const indexA = partnerOrder.story.indexOf(a.id);
+  const indexB = partnerOrder.story.indexOf(b.id);
+
+  if (indexA === -1) return 1;
+  if (indexB === -1) return -1;
+  return indexA - indexB;
+});
+
+// 4. Sort the Local (Additional) Institutions
+const additionalPartners = unsortedAdditional.sort((a, b) => {
+  const indexA = partnerOrder.local.indexOf(a.id);
+  const indexB = partnerOrder.local.indexOf(b.id);
+
+  if (indexA === -1) return 1;
+  if (indexB === -1) return -1;
+  return indexA - indexB;
+});
 ---
 
-<Base title="Meet Our Partners">
+<Base title="Meet Our Institutions">
   <section class="section">
     <div class="container">
       <div class="row md:gx-4 content">
@@ -26,11 +47,11 @@ const additionalPartners = sortedPartners.filter(p => p.data.featured !== true);
       </div>
       <div class="row my-12">
         <div class="col-12 lg:col-3 xl:col-4 lg:border-r-8 border-primary pt-4">
-          <h1 class="border-b-8 lg:text-center lg:border-b-0 border-primary py-4 m-0">STORY Partners</h1>
+          <h1 class="border-b-8 lg:text-center lg:border-b-0 border-primary py-4 m-0">STORY Institutions</h1>
         </div>
         <div class="col-12 lg:col-9 xl:col-8 prose prose-slate prose-xl max-w-none">
           <p class="mt-0 pt-4 ">
-            The STORY partner institutions are committed to participating in our small-town and rural-focused in-person and virtual programming on an ongoing basis. Our academic programs, campus settings, student traditions and application requirements are all distinct. Learn more about each institution on their partner pages below. 
+            The STORY institutions are committed to participating in our small-town and rural-focused in-person and virtual programming on an ongoing basis. Our academic programs, campus settings, student traditions and application requirements are all distinct. Learn more about each institution on their pages below. 
           </p>
         </div>
       </div>
@@ -40,7 +61,7 @@ const additionalPartners = sortedPartners.filter(p => p.data.featured !== true);
           <div class="row g-4">
             {featuredPartners.map((partner) => (
               <div class="col-12 sm:col-6 md:col-4 lg:col-3">
-                <a href={`/partners/${partner.id}`} class="group block h-full p-6 bg-white border-2 border-primary/10 rounded-xl hover:border-primary transition-all duration-300">
+                <a href={`/institutions/${partner.id}`} class="group block h-full p-6 bg-white border-2 border-primary/10 rounded-xl hover:border-primary transition-all duration-300">
                   <div class="h-32 flex items-center justify-center mb-4">
                     <Image 
                       src={partner.data.logo} 
@@ -65,7 +86,7 @@ const additionalPartners = sortedPartners.filter(p => p.data.featured !== true);
 <div class="row mb-16">
 
         <div class="col-12 lg:col-3 xl:col-4 lg:border-r-8 border-accent-purple pt-4">
-          <h2 class="h1 not-prose border-b-8 lg:text-center lg:border-b-0 border-accent-purple py-4 m-0">Local Partners</h2>
+          <h2 class="h1 not-prose border-b-8 lg:text-center lg:border-b-0 border-accent-purple py-4 m-0">Local Institutions</h2>
         </div>
         <div class="col-12 lg:col-9 xl:col-8 prose prose-slate prose-xl max-w-none ">
           <p class="pt-4 ">

@@ -2,8 +2,9 @@
 import Base from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
 import CTA from "@/components/CTA.astro";
+import DownloadCard from "@/components/DownloadCard.astro";
 
-// This page will host the Slate Request for Information form
+
 ---
 
 <Base title="Resources">
@@ -27,6 +28,19 @@ import CTA from "@/components/CTA.astro";
           <p class="mt-0 pt-4">
             These resources may be helpful for students going through the college search and application process and to anyone supporting them, such as family members, counselors, teachers, coaches, librarians, mentors, supervisors, group leaders, and community members.
           </p>
+        </div>
+      </div>
+      <div class="row my-12">
+        <div class="col-12 lg:col-3 xl:col-4 lg:border-r-8 border-primary pt-4">
+          <h2 class="border-b-8 lg:text-center lg:border-b-0 border-primary py-4 m-0">Financial Aid</h2>
+        </div>
+
+        <div class="col-12 lg:col-9 xl:col-8 prose prose-slate prose-xl max-w-none">
+          <DownloadCard 
+              href="/docs/STORY%20Financial%20Aid%20101.pdf" 
+              title="STORY Financial Aid 101" 
+              fileSize="200 KB" 
+            />
         </div>
       </div>
 

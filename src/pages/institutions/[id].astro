@@ -71,7 +71,7 @@ const stats = [
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
             </svg>
-            <span>Back to Partners</span>
+            <span>Back to Institutions</span>
           </button>
         </div>
       </div>
@@ -89,7 +89,7 @@ const stats = [
                 alt={data.title} 
                 width={300} 
                 height={300}
-                class="mx-auto h-auto xl:max-w-[200px] object-contain" 
+                class="mx-auto h-auto xl:max-w-50 object-contain" 
               />
             </div>
 
@@ -159,7 +159,7 @@ const stats = [
         const hasHistory = window.history.length > 1;
         const isInternal = document.referrer.includes(window.location.host);
         if (hasHistory && isInternal) { window.history.back(); } 
-        else { window.location.href = '/partners'; }
+        else { window.location.href = '/institutions'; }
       });
     }
   }

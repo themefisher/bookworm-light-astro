@@ -5,7 +5,7 @@ region: ""
 students: ""
 type: ""
 featured: false
-website: "coloradomesa.edu/admissions"
+website: "https://coloradomesa.edu/admissions"
 logo: "../../assets/images/logos/coloradomesa.png"
 video: ""
 instagram: ""

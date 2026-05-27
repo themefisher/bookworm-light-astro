@@ -3,7 +3,6 @@ import Base from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
 import CTA from "@/components/CTA.astro";
 
-// This page will host the Slate Request for Information form
 ---
 
 <Base title="Virtual Events">
@@ -29,8 +28,57 @@ import CTA from "@/components/CTA.astro";
           </p>
         </div>
       </div>
+      
+      <div class="row">
+        <div class="col-12 text-center py-4">
+          <h2 class="border-b-8 border-accent-red py-4 m-0 inline-block ">Upcoming Events</h2>
+        </div>
+      </div>
+
+      <div class="row max-w-5xl justify-self-center">
+        <div class="col-12 lg:col-6 mx-auto"> 
+          <div class=" bg-white border-2 border-primary/10 p-6 rounded-xl shadow-sm hover:border-primary/30 transition-all duration-300">
+            
+            <div class=" flex items-center gap-3 mb-6">
+              <div>
+                <span class="block text-text font-bold text-lg leading-tight">Tuesday, July 21</span>
+                <span class="block text-slate-500 text-sm font-medium">1:00 - 2:00 pm CT &bull; Virtual Session</span>
+              </div>
+            </div>
+
+            <h3 class="h6 text-xl font-primary mb-6 ">
+              STORY Session with Colorado Mesa University, Georgia Institute of Technology, Princeton University, University of Southern California, and Williams College
+            </h3>
+
+            <p class="text-slate-600 text-lg mb-6 leading-relaxed">
+              Join five STORY representatives and learn more about their institutions, holistic admissions, advice for the application process, and information about financial aid.
+            </p>
+
+            <div class="text-base text-slate-700  mb-6">
+              <strong class="text-text block sm:inline mr-1 mb-1 sm:mb-0">Featured Institutions:</strong>
+              <span class="inline-flex flex-wrap gap-x-1.5 gap-y-1">
+                <a href="https://www.coloradomesa.edu/admissions/" class="text-primary hover:underline font-semibold">Colorado Mesa University,</a>&ZeroWidthSpace;
+                <a href="/institutions/georgia-institute-of-technology" class="text-primary hover:underline font-semibold">Georgia Institute of Technology,</a>&ZeroWidthSpace;
+                <a href="/institutions/princeton-university" class="text-primary hover:underline font-semibold">Princeton University,</a>&ZeroWidthSpace;
+                <a href="/institutions/university-of-southern-california" class="text-primary hover:underline font-semibold">University of Southern California,</a> and&ZeroWidthSpace;
+                <a href="/institutions/williams-college" class="text-primary hover:underline font-semibold">Williams College</a>
+              </span>
+            </div>
+
+            <a 
+              href="https://myadmission.williams.edu/register/?id=43efa550-30a8-4947-9c64-5d8f4f7793aa" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="w-full  flex items-center justify-center font-bold px-6 py-6 bg-primary btn btn-primary mt-2 no-underline uppercase hover:bg-secondary hover:border-secondary hover:text-text tracking-wide"
+            >
+              Register for this Session
+            </a>
+
+          </div>
+        </div>
+      </div>
 
     </div>
   </section>
   <CTA  />
-  </Base>
+</Base>
